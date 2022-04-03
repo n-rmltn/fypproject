@@ -1,13 +1,13 @@
 <?php
 
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 // This is your test secret API key.
 \Stripe\Stripe::setApiKey('sk_test_51KhCt7EpRCJdieCxRuQMaE5KkzGdd8z802jlgkZiGTgtWq6domqMUSgFB1GTCiGLvZ3kEo1lPZU6OGt5VXkcARna00tfwadhZT');
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'https://www.testzrq.ml';
+$YOUR_DOMAIN = 'https://www.kbdmy.ml';
 
 $checkout_session = \Stripe\Checkout\Session::create([
     'line_items' => [[
@@ -16,8 +16,8 @@ $checkout_session = \Stripe\Checkout\Session::create([
         'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => $YOUR_DOMAIN . '/index.html',
-    'cancel_url' => $YOUR_DOMAIN . '/index.html',
+    'success_url' => $YOUR_DOMAIN . '/',
+    'cancel_url' => $YOUR_DOMAIN . '/',
     'shipping_address_collection' => [
         'allowed_countries' => ['MY'],
     ],
