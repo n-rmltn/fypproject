@@ -11,7 +11,7 @@
         <nav class="m-0" aria-label="breadcrumb">
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="./index.html">Home</a>
+            <a href="{{ route('welcome') }}">Home</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
             <a href="#">Keyboard</a>
@@ -20,7 +20,7 @@
             class="breadcrumb-item breadcrumb-light active"
             aria-current="page"
             >
-            Keychron K2
+            {{ $product->product_name_short }}
             </li>
         </ol>
         </nav>
@@ -34,46 +34,18 @@
         <!-- Product Images-->
         <div class="col-12 col-md-6 col-xl-7">
         <div class="row g-3" data-aos="fade-right">
-            <div class="col-12">
-            <picture>
-                <img
-                class="img-fluid"
-                data-zoomable
-                src="./assets/images/products/product-page-1.webp"
-                alt=" "
-                />
-            </picture>
-            </div>
-            <div class="col-12">
-            <picture>
-                <img
-                class="img-fluid"
-                data-zoomable
-                src="./assets/images/products/product-page-2.webp"
-                alt=" "
-                />
-            </picture>
-            </div>
-            <div class="col-12">
-            <picture>
-                <img
-                class="img-fluid"
-                data-zoomable
-                src="./assets/images/products/product-page-3.webp"
-                alt=" "
-                />
-            </picture>
-            </div>
-            <div class="col-12">
-            <picture>
-                <img
-                class="img-fluid"
-                data-zoomable
-                src="./assets/images/products/product-page-4.webp"
-                alt=" "
-                />
-            </picture>
-            </div>
+            @foreach ($product->images as $images)
+                <div class="col-12">
+                    <picture>
+                        <img
+                        class="img-fluid"
+                        data-zoomable
+                        src="{{ asset('assets/images/products/'.$images->product_images_name) }}"
+                        alt=" "
+                        />
+                    </picture>
+                </div>
+            @endforeach
         </div>
         </div>
         <!-- /Product Images-->
@@ -86,9 +58,9 @@
                 <p
                 class="small fw-bolder text-uppercase tracking-wider text-muted m-0 me-4"
                 >
-                Keychron
+                {{ $product->brand->product_brand_name }}
                 </p>
-                <div
+                {{-- <div
                 class="d-flex justify-content-start align-items-center disable-child-pointer cursor-pointer"
                 data-pixr-scrollto
                 data-target=".reviews"
@@ -113,14 +85,14 @@
                 <small class="text-muted d-inline-block ms-2 fs-bolder"
                     >(105 reviews)</small
                 >
-                </div>
+                </div> --}}
             </div>
 
             <h1 class="mb-1 fs-2 fw-bold">
-                Keychron K2 Wireless Mechanical Keyboard (Version 2)
+                {{ $product->product_name; }}
             </h1>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="fs-4 m-0">$69.00</p>
+                <p class="fs-4 m-0">${{ $product->product_base_price; }}</p>
             </div>
             <!-- Backlight -->
             <div class="border-top mt-4 mb-3 product-option">
@@ -274,10 +246,7 @@
                 >
                     <div class="accordion-body">
                     <p class="m-0">
-                        K2 is a super tactile wireless or wired keyboard
-                        giving you all the keys and function you need while
-                        keeping it compact, with the largest battery seen in a
-                        mechanical keyboard.
+                        {{ $product->product_description }}
                     </p>
                     </div>
                 </div>
@@ -303,20 +272,14 @@
                 >
                     <div class="accordion-body">
                     <ul class="list-group list-group-flush">
-                        <li
-                        class="list-group-item d-flex border-0 row g-0 px-0"
-                        >
-                        <span class="col-4 fw-bolder">Battery Size</span>
-                        <span class="col-7 offset-1">4000 mAh</span>
-                        </li>
-                        <li
-                        class="list-group-item d-flex border-0 row g-0 px-0"
-                        >
-                        <span class="col-4 fw-bolder">Bluetooth</span>
-                        <span class="col-7 offset-1"
-                            >Bluetooth 5.1. Up to 3 devices.</span
-                        >
-                        </li>
+                        @foreach ($product->details as $details)
+                            <li
+                            class="list-group-item d-flex border-0 row g-0 px-0"
+                            >
+                            <span class="col-4 fw-bolder">{{ $details->product_details_header }}</span>
+                            <span class="col-7 offset-1">{{ $details->product_details_content }}</span>
+                            </li>
+                        @endforeach
                     </ul>
                     </div>
                 </div>
@@ -432,7 +395,7 @@
                     <img
                         class="w-100 img-fluid position-relative z-index-10"
                         title=""
-                        src="./assets/images/products/product-1.webp"
+                        src="{{ asset('assets/images/products/product-1.webp') }}"
                         alt=""
                     />
                     </picture>
@@ -447,7 +410,7 @@
                 <div class="card-body px-0">
                     <a
                     class="text-decoration-none link-cover"
-                    href="./product.html"
+                    href="./product"
                     >Keychron K2 Wireless</a
                     >
                     <small class="text-muted d-block"
@@ -478,7 +441,7 @@
         <!-- / Swiper Latest-->
         </div>
         <!-- / Related Products-->
-
+{{--
         <!-- Reviews-->
         <div class="col-12" data-aos="fade-up">
         <h3 class="fs-4 fw-bolder mt-7 mb-4 reviews">Reviews</h3>
@@ -915,7 +878,7 @@
         </div>
         <!-- / Review Pagination-->
         </div>
-        <!-- / Reviews-->
+        <!-- / Reviews--> --}}
     </div>
     </div>
 

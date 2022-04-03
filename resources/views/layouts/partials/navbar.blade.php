@@ -10,7 +10,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
     <!-- Logo-->
     <a
         class="navbar-brand fw-bold fs-3 m-0 p-0 flex-shrink-0 order-0"
-        href="./"
+        href="{{ route('welcome') }}"
     >
         <div class="d-flex align-items-center">
         <svg
@@ -95,8 +95,8 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             Cart (1)
         </button>
 
-        <form action="/php/checkout.php" method="POST">
-
+        <form action="/payment" method="POST">
+            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
             <div class="cart-dropdown dropdown-menu">
             <!-- Cart Header-->
             <div
@@ -110,6 +110,14 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             <!-- / Cart Header-->
             <div class="ajax_cart"></div>
             <!-- ajax cart -->
+
+            <button
+            class="btn btn-dark w-100 text-center mt-2"
+            type="submit"
+            id="checkout-button"
+            >
+            Proceed To Checkout
+            </button>
             </div>
         </form>
         </li>
@@ -127,7 +135,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
         <li class="nav-item dropdown dropdown position-static">
             <a
             class="nav-link dropdown-toggle"
-            href="#"
+            href="{{ route('catalog') }}"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -239,7 +247,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-1.svg"
+                            src="{{ asset('assets/images/logos/logo-1.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -250,7 +258,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-2.svg"
+                            src="{{ asset('assets/images/logos/logo-2.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -261,7 +269,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-3.svg"
+                            src="{{ asset('assets/images/logos/logo-3.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -272,7 +280,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-4.svg"
+                            src="{{ asset('assets/images/logos/logo-4.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -283,7 +291,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-5.svg"
+                            src="{{ asset('assets/images/logos/logo-5.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -294,7 +302,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <picture>
                             <img
                             class="img-fluid d-table mx-auto"
-                            src="./assets/images/logos/logo-6.svg"
+                            src="{{ asset('assets/images/logos/logo-6.svg') }}"
                             alt=""
                             />
                         </picture>
@@ -321,7 +329,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                             <img
                                 class="w-100 rounded"
                                 title=""
-                                src="./assets/images/banners/banner-8.jpg"
+                                src="{{ asset('assets/images/banners/banner-8.jpg') }}"
                                 alt=" "
                             />
                             </picture>
@@ -338,7 +346,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                             <img
                                 class="w-100 rounded"
                                 title=""
-                                src="./assets/images/banners/banner-9.jpg"
+                                src="{{ asset('assets/images/banners/banner-9.jpg') }}"
                                 alt=" "
                             />
                             </picture>
@@ -355,7 +363,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                             <img
                                 class="w-100 rounded"
                                 title=""
-                                src="./assets/images/banners/banner-10.jpg"
+                                src="{{ asset('assets/images/banners/banner-10.jpg') }}"
                                 alt=" "
                             />
                             </picture>
@@ -374,13 +382,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             <!-- / Keyboard dropdown menu-->
         </li>
         <li class="nav-item">
-            <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            >
+            <a class="nav-link" href="{{ route('catalog') }}" role="button">
             Mouse
             </a>
         </li>
