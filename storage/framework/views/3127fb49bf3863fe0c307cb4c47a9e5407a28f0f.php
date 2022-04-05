@@ -48,7 +48,7 @@
                 data-swiper-parallax="-100"
                 style="
                 will-change: transform;
-                background-image: url(./assets/images/banners/banner-1.jpg);
+                background-image: url(<?php echo e(asset('assets/images/banners/banner-1.jpg')); ?>);
                 "
             ></div>
             </div>
@@ -69,7 +69,7 @@
             </h2>
             <div data-swiper-parallax-y="-25">
                 <a
-                href="product"
+                href="<?php echo e(url('product', [ 'id' => '1' ])); ?>"
                 class="btn btn-psuedo text-white"
                 role="button"
                 >Learn more</a
@@ -89,7 +89,7 @@
                 data-swiper-parallax="-100"
                 style="
                 will-change: transform;
-                background-image: url(./assets/images/banners/banner-2.jpg);
+                background-image: url(<?php echo e(asset('assets/images/banners/banner-2.jpg')); ?>);
                 "
             ></div>
             </div>
@@ -127,7 +127,7 @@
                 data-swiper-parallax="-100"
                 style="
                 will-change: transform;
-                background-image: url(./assets/images/banners/banner-3.jpg);
+                background-image: url(<?php echo e(asset('assets/images/banners/banner-3.jpg')); ?>);
                 "
             ></div>
             </div>
@@ -165,7 +165,7 @@
                 data-swiper-parallax="-100"
                 style="
                 will-change: transform;
-                background-image: url(./assets/images/banners/banner-4.jpg);
+                background-image: url(<?php echo e(asset('assets/images/banners/banner-4.jpg')); ?>);
                 "
             ></div>
             </div>
@@ -215,7 +215,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-1.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-1.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -230,7 +230,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-2.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-2.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -245,7 +245,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-3.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-3.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -260,7 +260,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-4.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-4.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -275,7 +275,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-5.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-5.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -290,7 +290,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-6.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-6.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -305,7 +305,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-7.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-7.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -320,7 +320,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-8.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-8.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -335,7 +335,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-9.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-9.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -349,7 +349,7 @@
                     <img
                     class="img-fluid d-table mx-auto"
                     style="-webkit-filter: invert(100%)"
-                    src="./assets/images/logos/logo-1.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-1.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -364,7 +364,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-2.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-2.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -379,7 +379,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-3.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-3.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -394,7 +394,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-4.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-4.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -409,7 +409,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-5.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-5.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -424,7 +424,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-6.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-6.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -439,7 +439,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-7.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-7.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -454,7 +454,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-8.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-8.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -469,7 +469,7 @@
                         -webkit-filter: invert(100%);
                         filter: invert(100%);
                     "
-                    src="./assets/images/logos/logo-9.svg"
+                    src="<?php echo e(asset('assets/images/logos/logo-9.svg')); ?>"
                     alt=""
                     />
                 </picture>
@@ -520,7 +520,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="000">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-7.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-7.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Must Haves</p>
                                 <h4 class="lead fw-bold text-white">Premium Essentials</h4>
@@ -530,7 +530,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="100">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-2.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-2.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Curated Selection</p>
                                 <h4 class="lead fw-bold text-white">Our Favourites</h4>
@@ -540,7 +540,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="200">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-3.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-3.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Streetwear Basics</p>
                                 <h4 class="lead fw-bold text-white">T-Shirts &amp; Shirts</h4>
@@ -550,7 +550,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="300">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-4.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-4.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Waterproof &amp; Lightweight</p>
                                 <h4 class="lead fw-bold text-white">Jackets &amp; Coats</h4>
@@ -560,7 +560,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="400">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-5.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-5.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Keep Warm</p>
                                 <h4 class="lead fw-bold text-white">Hats &amp; Beanies</h4>
@@ -570,7 +570,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="500">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-6.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-6.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">20% Off</p>
                                 <h4 class="lead fw-bold text-white">Summer Sale</h4>
@@ -580,7 +580,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="600">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-1.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-1.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Just Arrived</p>
                                 <h4 class="lead fw-bold text-white">Latest Kicks</h4>
@@ -590,7 +590,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="700">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="./assets/images/categories/category-8.jpg" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-8.jpg')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Accessories</p>
                                 <h4 class="lead fw-bold text-white">Bags &amp; Rugsacks</h4>
@@ -655,7 +655,7 @@
         >
             <img
             class="img-fluid"
-            src="./assets/images/banners/banner-5.jpg"
+            src="<?php echo e(asset('assets/images/banners/banner-5.jpg')); ?>"
             alt=" "
             />
         </picture>
@@ -664,7 +664,7 @@
         >
             <img
             class="img-fluid"
-            src="./assets/images/banners/banner-6.jpg"
+            src="<?php echo e(asset('assets/images/banners/banner-6.jpg')); ?>"
             alt=" "
             />
         </picture>
@@ -673,7 +673,7 @@
         >
             <img
             class="img-fluid"
-            src="./assets/images/banners/banner-7.jpg"
+            src="<?php echo e(asset('assets/images/banners/banner-7.jpg')); ?>"
             alt=" "
             />
         </picture>
@@ -691,7 +691,7 @@
             <picture class="position-relative z-index-10">
             <img
                 class="w-100 rounded"
-                src="./assets/images/banners/banner-sale.jpg"
+                src="<?php echo e(asset('assets/images/banners/banner-sale.jpg')); ?>"
                 alt=" "
             />
             </picture>
@@ -722,7 +722,7 @@
                     <img
                     class="w-100 h-100 rounded"
                     style="object-fit: cover"
-                    src="./assets/images/banners/banner-1.jpg"
+                    src="<?php echo e(asset('assets/images/banners/banner-1.jpg')); ?>"
                     alt=" "
                     />
                 </picture>
@@ -745,7 +745,7 @@
                     <img
                     class="w-100 h-100 rounded"
                     style="object-fit: cover"
-                    src="./assets/images/banners/banner-2.jpg"
+                    src="<?php echo e(asset('assets/images/banners/banner-2.jpg')); ?>"
                     alt=" "
                     />
                 </picture>
@@ -768,7 +768,7 @@
                     <img
                     class="w-100 h-100 rounded"
                     style="object-fit: cover"
-                    src="./assets/images/banners/banner-3.jpg"
+                    src="<?php echo e(asset('assets/images/banners/banner-3.jpg')); ?>"
                     alt=" "
                     />
                 </picture>
@@ -791,7 +791,7 @@
                     <img
                     class="w-100 h-100 rounded"
                     style="object-fit: cover"
-                    src="./assets/images/banners/banner-4.jpg"
+                    src="<?php echo e(asset('assets/images/banners/banner-4.jpg')); ?>"
                     alt=" "
                     />
                 </picture>

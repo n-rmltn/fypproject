@@ -88,115 +88,58 @@
                 </div> --}}
             </div>
 
+            <form action="{{ route('cart.store') }}" method="post">
             <h1 class="mb-1 fs-2 fw-bold">
                 {{ $product->product_name; }}
             </h1>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="fs-4 m-0">${{ $product->product_base_price; }}</p>
             </div>
-            <!-- Backlight -->
-            <div class="border-top mt-4 mb-3 product-option">
-                <small class="text-uppercase pt-4 d-block fw-bolder">
-                <span class="text-muted">Versions</span> :
-                <span
-                    class="selected-option fw-bold"
-                    data-pixr-product-option="size"
-                    >White Backlight</span
+            @forelse ( $product->option as $option)
+                <!-- Backlight -->
+                <div class="border-top mt-4 mb-3 product-option">
+                    <small class="text-uppercase pt-4 d-block fw-bolder">
+                    <span class="text-muted">{{ $option->product_option_name }}</span> :
+                    <span
+                        class="selected-option fw-bold"
+                        data-pixr-product-option="{{ $option->product_option_name }}"
+                        >Not Selected</span
+                    >
+                    </small>
+                    <div
+                    class="mt-4 d-flex justify-content-start flex-wrap align-items-start"
+                    >
+                    @forelse ( $option->list as $list)
+                    <div class="form-check-option form-check-rounded">
+                        <input
+                        type="radio"
+                        name="product-option-{{ $option->product_option_name }}"
+                        value="{{ $list->product_option_list_name }}"
+                        id="option-{{ $option->product_option_name }}-{{ $list->id }}"
+                        data-price="{{ $list->product_option_list_additional_price }}"
+                        required/>
+                        <label for="option-{{ $option->product_option_name }}-{{ $list->id }}">
+                        <small>{{ $list->product_option_list_name }}</small>
+                        </label>
+                    </div>
+                    @empty
+
+                    @endforelse
+                    </div>
+                </div>
+                <!-- Backlight -->
+            @empty
+
+            @endforelse
+                <input type="hidden" name="product_id" value="{{ $product->product_id }}"/>
+                <input type="hidden" name="quantity" value="1"/>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <button
+                    class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow"
                 >
-                </small>
-                <div
-                class="mt-4 d-flex justify-content-start flex-wrap align-items-start"
-                >
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-backlight"
-                    value="White Backlight"
-                    checked
-                    id="option-versions-0"
-                    />
-                    <label for="option-versions-0">
-                    <small>White Backlight</small>
-                    </label>
-                </div>
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-backlight"
-                    value="RGB Backlight"
-                    id="option-versions-1"
-                    />
-                    <label for="option-versions-1">
-                    <small>RGB Backlight</small>
-                    </label>
-                </div>
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-backlight"
-                    value="RGB Backlight Aluminum Frame"
-                    id="option-versions-2"
-                    />
-                    <label for="option-versions-2">
-                    <small>RGB Backlight Aluminum Frame</small>
-                    </label>
-                </div>
-                </div>
-            </div>
-            <!-- Switch Option -->
-            <div class="border-top mt-4 mb-3 product-option">
-                <small class="text-uppercase pt-4 d-block fw-bolder">
-                <span class="text-muted">Versions</span> :
-                <span
-                    class="selected-option fw-bold"
-                    data-pixr-product-option="size"
-                    >Gateron G Pro Red</span
-                >
-                </small>
-                <div
-                class="mt-4 d-flex justify-content-start flex-wrap align-items-start"
-                >
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-switch"
-                    value="Gateron G Pro Red"
-                    checked
-                    id="option-switch-0"
-                    />
-                    <label for="option-switch-0">
-                    <small>Gateron G Pro Red</small>
-                    </label>
-                </div>
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-switch"
-                    value="Gateron G Pro Blue"
-                    id="option-switch-1"
-                    />
-                    <label for="option-switch-1">
-                    <small>Gateron G Pro Blue</small>
-                    </label>
-                </div>
-                <div class="form-check-option form-check-rounded">
-                    <input
-                    type="radio"
-                    name="product-option-switch"
-                    value="Gateron G Pro Brown"
-                    id="option-switch-2"
-                    />
-                    <label for="option-switch-2">
-                    <small>Gateron G Pro Brown</small>
-                    </label>
-                </div>
-                </div>
-            </div>
-            <button
-                class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow"
-            >
-                Add To Cart
-            </button>
+                    Add To Cart
+                </button>
+            </form>
 
             <!-- Product Highlights-->
             <div class="my-5">

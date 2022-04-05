@@ -88,7 +88,6 @@
             var stripe = Stripe('{{ env('STRIPE_KEY') }}'); // Add your own
             var checkoutButton = document.getElementById('checkout-button');
             checkoutButton.addEventListener('click', function() {
-                console.log('submitted');
                 // Create a new Checkout Session using the server-side endpoint you
                 // created in step 3.
                 fetch('/payment', {

@@ -232,7 +232,7 @@
             c.update();
           $.ajax({
             type: "GET",
-            url: "/ajax/cart", // appears as $_GET['id'] @ your backend side
+            url: "/cart/ajax", // appears as $_GET['id'] @ your backend side
             success: function (data) {
               // data is ur summary
               $(".ajax_cart").html(data);

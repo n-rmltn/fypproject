@@ -11,7 +11,7 @@ class StripePaymentController extends Controller
         // We grab the Stripe key information we added in the .env file
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        $YOUR_DOMAIN = 'https://www.kbdmy.ml';
+        $YOUR_DOMAIN = env('APP_URL');
         // Creates the Stripe session
         $session = \Stripe\Checkout\Session::create ([
         'line_items' => [[

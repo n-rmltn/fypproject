@@ -16,7 +16,7 @@ class Product_Images extends Model
         'product_images_priority',
     ];
 
-    public function brand(){
+    public function Product(){
         return $this->belongsTo(Product::class, 'product_id');
     }
 }
