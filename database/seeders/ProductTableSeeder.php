@@ -18,6 +18,7 @@ class ProductTableSeeder extends Seeder
         DB::table('product')->insert([
             'product_name_short' => 'KEYCHRON K2',
             'product_name_long' =>  'Keychron K2 Wireless Mechanical Keyboard (Version 2)',
+            'product_cart_images_name' => 'product-cart-1.webp',
             'product_brand_id' => '1',
             'product_description' =>  'K2 is a super tactile wireless or wired keyboard giving you all the keys and function you need while keeping it compact, with the largest battery seen in a mechanical keyboard.',
             'product_base_price' =>  '69.00',

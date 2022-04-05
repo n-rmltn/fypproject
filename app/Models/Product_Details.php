@@ -14,7 +14,7 @@ class Product_Details extends Model
         'product_details_content',
     ];
 
-    public function brand(){
+    public function Product(){
         return $this->belongsTo(Product::class, 'product_id');
     }
 }

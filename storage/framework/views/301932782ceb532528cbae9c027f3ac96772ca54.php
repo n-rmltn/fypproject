@@ -21,23 +21,23 @@
         <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="./assets/images/favicon/apple-touch-icon.png"
+        href="<?php echo e(asset('assets/images/favicon/apple-touch-icon.png')); ?>"
         />
         <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="./assets/images/favicon/favicon-32x32.png"
+        href="<?php echo e(asset('assets/images/favicon/favicon-32x32.png')); ?>"
         />
         <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="./assets/images/favicon/favicon-16x16.png"
+        href="<?php echo e(asset('assets/images/favicon/favicon-16x16.png')); ?>"
         />
         <link
         rel="mask-icon"
-        href="./assets/images/favicon/safari-pinned-tab.svg"
+        href="<?php echo e(asset('assets/images/favicon/safari-pinned-tab.svg')); ?>"
         color="#5bbad5"
         />
         <meta name="msapplication-TileColor" content="#da532c" />
@@ -81,6 +81,43 @@
 
         <!-- Theme JS -->
         <script src="<?php echo e(asset('assets/js/theme.bundle.js')); ?>"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script type="text/javascript">
+            // Create an instance of the Stripe object with your publishable API key
+            var stripe = Stripe('<?php echo e(env('STRIPE_KEY')); ?>'); // Add your own
+            var checkoutButton = document.getElementById('checkout-button');
+            checkoutButton.addEventListener('click', function() {
+                // Create a new Checkout Session using the server-side endpoint you
+                // created in step 3.
+                fetch('/payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'url': '/payment',
+                        'X-CSRF-TOKEN': "<?php echo e(csrf_token()); ?>",
+                    },
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(session) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function(result) {
+                    // If `redirectToCheckout` fails due to a browser or network
+                    // error, you should display the localized error message to your
+                    // customer using `error.message`.
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                })
+            });
+        </script>
     </body>
 </html>
 <?php /**PATH C:\inetpub\laravel-kbdmy\resources\views/layouts/app.blade.php ENDPATH**/ ?>

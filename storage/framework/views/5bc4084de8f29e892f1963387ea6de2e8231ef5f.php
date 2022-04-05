@@ -108,9 +108,32 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                 ></i>
             </div>
             <!-- / Cart Header-->
+            <!-- Cart Items-->
+            <!-- ajax cart -->
             <div class="ajax_cart"></div>
             <!-- ajax cart -->
+            <!-- /Cart Items-->
 
+            <!-- Cart Summary-->
+            <div>
+            <div class="pt-3">
+                <div
+                class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-start mb-4 mb-md-2"
+                >
+                <div>
+                    <p class="m-0 fw-bold fs-5">Grand Total</p>
+                </div>
+                <p class="m-0 fs-5 fw-bold">$69.00</p>
+                </div>
+            </div>
+            <a
+                href="<?php echo e(route('cart.index')); ?>"
+                class="btn btn-outline-dark w-100 text-center mt-4"
+                role="button"
+                >View Cart</a
+            >
+            </div>
+            <!-- / Cart Summary-->
             <button
             class="btn btn-dark w-100 text-center mt-2"
             type="submit"

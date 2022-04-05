@@ -13,6 +13,7 @@ class Product extends Model
     protected $fillable = [
         'product_name_short',
         'product_name_long',
+        'product_cart_images_name',
         'product_brand_id',
         'product_description',
         'product_base_price',
@@ -36,6 +37,10 @@ class Product extends Model
 
     public function details(){
         return $this->hasMany(Product_Details::class, 'product_id');
+    }
+
+    public function option(){
+        return $this->hasMany(Product_Option::class, 'product_id');
     }
 
 }
