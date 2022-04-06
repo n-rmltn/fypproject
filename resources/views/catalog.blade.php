@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Home @endsection
+@section('title') Catalog @endsection
 @section('content')
 <!-- Main Section-->
 <section class="mt-0 ">
@@ -25,12 +25,12 @@
                 <div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="#">Home</a></li>
-                          <li class="breadcrumb-item"><a href="#">Sneakers</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">New Releases</li>
+                          <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
+                          <li class="breadcrumb-item"><a href="#">All Product</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Keyboard</li>
                         </ol>
-                    </nav>        <h1 class="fw-bold fs-3 mb-2">New Releases (121)</h1>
-                    <p class="m-0 text-muted small">Showing 1 - 9 of 121</p>
+                    </nav>        <h1 class="fw-bold fs-3 mb-2">Keyboard (1)</h1>
+                    <p class="m-0 text-muted small">Showing 1 - 1 of 1</p>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
@@ -57,21 +57,18 @@
                     <!-- Card Product-->
                     <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                         <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
-                            </div>
                             <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
                             <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.jpg" alt="">
+                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-1.webp') }}" alt="">
                             </picture>
                                 <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
                                 </div>
                         </div>
                         <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Air VaporMax 2021</a>
-                            <small class="text-muted d-block">4 colours, 10 sizes</small>
-                                    <p class="mt-2 mb-0 small"><s class="text-muted">$329.99</s> <span class="text-danger">$198.66</span></p>
+                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '1') }}">Keychron K2</a>
+                            <small class="text-muted d-block">3 Options, 4 switches</small>
+                                    <p class="mt-2 mb-0 small">$69.00</p>
                         </div>
                     </div>
                     <!--/ Card Product-->
@@ -85,173 +82,15 @@
                             </div>
                             <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
                             <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-2.jpg" alt="">
+                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-1.webp') }}" alt="">
                             </picture>
                                 <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
                                 </div>
                         </div>
                         <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike ZoomX Vaporfly</a>
-                            <small class="text-muted d-block">2 colours, 4 sizes</small>
-                                    <p class="mt-2 mb-0 small">$275.45</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-secondary rounded-circle d-block me-1"></span> Sold Out</span>
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-3.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Blazer Mid &#x27;77</a>
-                            <small class="text-muted d-block">5 colours, 6 sizes</small>
-                                <p class="mt-2 mb-0 small text-muted">Sold Out</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-4.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Air Force 1</a>
-                            <small class="text-muted d-block">6 colours, 9 sizes</small>
-                                    <p class="mt-2 mb-0 small">$425.85</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-5.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Air Max 90</a>
-                            <small class="text-muted d-block">4 colours, 10 sizes</small>
-                                    <p class="mt-2 mb-0 small"><s class="text-muted">$196.99</s> <span class="text-danger">$98.66</span></p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-6.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Glide FlyEase</a>
-                            <small class="text-muted d-block">1 colour</small>
-                                    <p class="mt-2 mb-0 small"><s class="text-muted">$329.99</s> <span class="text-danger">$198.66</span></p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-7.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Zoom Freak</a>
-                            <small class="text-muted d-block">2 colours, 2 sizes</small>
-                                    <p class="mt-2 mb-0 small">$444.99</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-8.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Air Pegasus</a>
-                            <small class="text-muted d-block">3 colours, 10 sizes</small>
-                                    <p class="mt-2 mb-0 small">$178.99</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
-                            </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.jpg" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="./product.html">Nike Air Jordans</a>
-                            <small class="text-muted d-block">3 colours, 10 sizes</small>
-                                    <p class="mt-2 mb-0 small">$154.99</p>
+                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '2') }}">Nike ZoomX Vaporfly</a>
+                                <p class="mt-2 mb-0 small">$69.00</p>
                         </div>
                     </div>
                     <!--/ Card Product-->
@@ -261,7 +100,7 @@
 
         <!-- Pagination-->
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
-            <small class="text-muted">Showing 9 of 121 products</small>
+            <small class="text-muted">Showing 1 of 1 products</small>
             <div class="progress f-h-1 mt-3">
                 <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>

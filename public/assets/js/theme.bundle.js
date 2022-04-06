@@ -120,14 +120,23 @@
         document.querySelectorAll(
           ".product-option select, .product-option input"
         ) || [];
+        selected = document.querySelectorAll(".selected-option");
+        price = document.querySelector(".product-base-price");
       e.forEach((e) => {
         e.addEventListener("change", (t) => {
-          (({ event: e, option: t }) => {
-            const n = !!e.target && e.target.closest(".product-option"),
-              o = !!n && n.querySelector(".selected-option"),
-              r = !(!e.target || !e.target.value) && e.target.value;
-            n && o && r && (o.innerText = r);
-          })({ event: t, option: e });
+            added_price = parseInt(price.dataset.baseprice);
+            (({ event: e, option: t }) => {
+                const n = !!e.target && e.target.closest(".product-option"),
+                o = !!n && n.querySelector(".selected-option"),
+                r = !(!e.target || !e.target.value) && e.target.value;
+                n && o && r && (o.innerText = r);
+                o.setAttribute('data-addprice',e.target.dataset.price)
+            })({ event: t, option: e });
+            selected.forEach(function(sel){
+                option_price = parseInt(sel.dataset.addprice);
+                added_price += option_price;
+            });
+            price.innerText = "$"+(added_price).toFixed(2);
         });
       });
     })();
@@ -235,7 +244,22 @@
             url: "/cart/ajax", // appears as $_GET['id'] @ your backend side
             success: function (data) {
               // data is ur summary
-              $(".ajax_cart").html(data);
+              /* console.log(data);
+              data.forEach(function(key,val){
+                console.log(key['item_price']);
+              }); */
+                $(".ajax_cart").html(data);
+                var grand_total = 0;
+                var count_item = 0;
+                price = document.querySelectorAll(".item_price");
+                price.forEach(function(sel){
+                    var item_price = parseInt(sel.dataset.price);
+                    grand_total += item_price;
+                    count_item ++
+                });;
+                document.querySelector(".grand-total").innerText = "$"+(grand_total).toFixed(2);
+                document.querySelector(".number-of-item").innerText = "Cart ( "+count_item+" )";
+                document.querySelector(".number-item").innerText = "Cart Summary ( "+count_item+" item )";
             },
           });
         }
@@ -434,3 +458,6 @@ function getSearch(i){
     });
   }
 }
+
+
+

@@ -49,6 +49,8 @@
         <!-- Main CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/theme.bundle.css')); ?>" />
 
+        <?php echo $__env->yieldContent('head'); ?>
+
         <!-- Fix for custom scrollbar if JS is disabled-->
         <noscript>
         <style>
@@ -83,6 +85,7 @@
         <script src="<?php echo e(asset('assets/js/theme.bundle.js')); ?>"></script>
         <script src="https://js.stripe.com/v3/"></script>
 
+
         <script type="text/javascript">
             // Create an instance of the Stripe object with your publishable API key
             var stripe = Stripe('<?php echo e(env('STRIPE_KEY')); ?>'); // Add your own
@@ -103,7 +106,9 @@
                     return response.json();
                 })
                 .then(function(session) {
+                    console.log("start redirect");
                     return stripe.redirectToCheckout({ sessionId: session.id });
+                    console.log("done redirect");
                 })
                 .then(function(result) {
                     // If `redirectToCheckout` fails due to a browser or network
@@ -114,10 +119,13 @@
                     }
                 })
                 .catch(function(error) {
-                    console.error('Error:', error);
+                    console.log('Error:', error);
                 })
             });
         </script>
+
+        <?php echo $__env->yieldContent('script'); ?>
+
     </body>
 </html>
 <?php /**PATH C:\inetpub\laravel-kbdmy\resources\views/layouts/app.blade.php ENDPATH**/ ?>

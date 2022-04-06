@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StripePaymentController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,10 @@ use App\Http\Controllers\StripePaymentController;
 
 Route::get('/', function () {return view('index');})->name('welcome');
 
+Route::get('/checkout', function () {return view('checkout');})->name('checkout');
+Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
+Route::get('/checkout/payment', function () {return view('payment');})->name('payment');
+
 Route::get('/catalog', function () {return view('catalog');})->name('catalog');
 /* Route::get('/product', function () {
     return view('product');
@@ -46,4 +51,11 @@ Route::get('ajax/search', function () {return view('ajax.search');});
 
 Route::post('/payment', [StripePaymentController::class, 'payment']);
 
+Route::post('/purchase', function (Request $request) {
+    $stripeCharge = $request->user()->charge(
+        100, $request->paymentMethodId
+    );
+
+    // ...
+});
 Route::resource('cart', CartController::class)->name('*','cart');

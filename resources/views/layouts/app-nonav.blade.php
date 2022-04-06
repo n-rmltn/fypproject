@@ -48,6 +48,9 @@
 
         <!-- Main CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/theme.bundle.css') }}" />
+        <script src="https://js.stripe.com/v3"></script>
+
+        @yield('head')
 
         <!-- Fix for custom scrollbar if JS is disabled-->
         <noscript>
@@ -79,5 +82,6 @@
 
         <!-- Theme JS -->
         <script src="{{ asset('assets/js/theme.bundle.js') }}"></script>
+        @yield('script')
     </body>
 </html>

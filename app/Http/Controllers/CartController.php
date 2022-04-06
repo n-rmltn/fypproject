@@ -36,8 +36,8 @@ class CartController extends Controller
         else{
             $cart_data = array();
         }
-        /* return view('ajax.cart')->with('cart',$cart_data);// */
-        return response()->json($cart_data);
+        return view('ajax.cart')->with('cart',$cart_data);//
+        /*return response()->json($cart_data);*/
     }
 
     /**

@@ -1,5 +1,8 @@
 @extends('layouts.app-nonav')
 @section('title') Cart @endsection
+@php
+    $grandtotal = 0;
+@endphp
 @section('content')
 <!-- Main Section-->
 <section class="mt-0 overflow-lg-hidden  vh-lg-100">
@@ -58,6 +61,9 @@
                                         </div>
                                     </div>
                                     <!-- Cart Product-->
+                                    @php
+                                        $grandtotal += $data['item_price'];
+                                    @endphp
                                     @empty
                                         <span>Cart is empty</span>
                                     @endforelse
@@ -75,7 +81,7 @@
                                 <p class="m-0 fw-bold fs-5">Grand Total</p>
                                 {{-- <span class="text-muted small">Inc $45.89 sales tax</span> --}}
                             </div>
-                            <p class="m-0 fs-5 fw-bold">$69.00</p>
+                            <p class="m-0 fs-5 fw-bold">${{ number_format((float)$grandtotal, 2, '.', '');}}</p>
                         </div>
                     </div>{{--
                     <div class="py-4">
@@ -84,11 +90,56 @@
                             <button class="btn btn-secondary btn-sm px-4">Apply</button>
                         </div>
                     </div> --}}
-                    <a href="./checkout.html" class="btn btn-dark w-100 text-center" role="button">Proceed to checkout</a>                    </div>
+
+                    <form action="/payment" method="POST">
+                        @csrf
+                    <button id="checkout-button" class="btn btn-dark w-100 text-center" role="button">Proceed to checkout</button>                    </div>
+                    </form>
             </div>
         </div>
     </div>
     <!-- /Page Content -->
 </section>
 <!-- / Main Section-->
+@endsection
+
+@section('script')
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe('{{ env('STRIPE_KEY') }}'); // Add your own
+    var checkoutButton = document.getElementById('checkout-button');
+    checkoutButton.addEventListener('click', function() {
+        // Create a new Checkout Session using the server-side endpoint you
+        // created in step 3.
+        fetch('/payment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'url': '/payment',
+                'X-CSRF-TOKEN': "{{ csrf_token() }}",
+            },
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(session) {
+            console.log("start redirect");
+            return stripe.redirectToCheckout({ sessionId: session.id });
+            console.log("done redirect");
+        })
+        .then(function(result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, you should display the localized error message to your
+            // customer using `error.message`.
+            if (result.error) {
+                alert(result.error.message);
+            }
+        })
+        .catch(function(error) {
+            console.log('Error:', error);
+        })
+    });
+</script>
 @endsection

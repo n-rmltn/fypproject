@@ -49,6 +49,8 @@
         <!-- Main CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/theme.bundle.css') }}" />
 
+        @yield('head')
+
         <!-- Fix for custom scrollbar if JS is disabled-->
         <noscript>
         <style>
@@ -83,6 +85,7 @@
         <script src="{{ asset('assets/js/theme.bundle.js') }}"></script>
         <script src="https://js.stripe.com/v3/"></script>
 
+
         <script type="text/javascript">
             // Create an instance of the Stripe object with your publishable API key
             var stripe = Stripe('{{ env('STRIPE_KEY') }}'); // Add your own
@@ -103,7 +106,9 @@
                     return response.json();
                 })
                 .then(function(session) {
+                    console.log("start redirect");
                     return stripe.redirectToCheckout({ sessionId: session.id });
+                    console.log("done redirect");
                 })
                 .then(function(result) {
                     // If `redirectToCheckout` fails due to a browser or network
@@ -114,9 +119,12 @@
                     }
                 })
                 .catch(function(error) {
-                    console.error('Error:', error);
+                    console.log('Error:', error);
                 })
             });
         </script>
+
+        @yield('script')
+
     </body>
 </html>
