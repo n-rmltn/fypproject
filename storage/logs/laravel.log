@@ -16868,3 +16868,19 @@ avbar.blade.php","data":[]},"exception":"[object] (Spatie\\LaravelIgnition\\Exce
 #53 C:\\inetpub\\laravel-kbdmy\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #54 {main}
 "} 
+[2022-04-07 04:36:39] local.ERROR: Trait "Laravel\Cashier\Billable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Cashier\\Billable\" not found at C:\\inetpub\\laravel-kbdmy\\app\\Models\\User.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-07 04:37:39] local.ERROR: Trait "Laravel\Cashier\Billable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Cashier\\Billable\" not found at C:\\inetpub\\laravel-kbdmy\\app\\Models\\User.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-07 04:38:39] local.ERROR: Trait "Laravel\Cashier\Billable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Cashier\\Billable\" not found at C:\\inetpub\\laravel-kbdmy\\app\\Models\\User.php:12)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-07 04:39:39] local.ERROR: Trait "Laravel\Cashier\Billable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Cashier\\Billable\" not found at C:\\inetpub\\laravel-kbdmy\\app\\Models\\User.php:12)
+[stacktrace]
+#0 {main}
+"} 
