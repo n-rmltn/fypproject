@@ -47,7 +47,7 @@ Route::resource('product',ProductController::class)->name('*','product');
 
 Route::get('/cart/ajax', [CartController::class, 'ajax']);
 
-Route::get('ajax/search', function () {return view('ajax.search');});
+Route::get('ajax/search', [ProductController::class,'search'])->name('search');
 
 Route::post('/payment', [StripePaymentController::class, 'payment']);
 

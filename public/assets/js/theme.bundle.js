@@ -451,6 +451,7 @@ function getSearch(i){
     $.ajax({
       type: "GET",
       url: "/ajax/search", // appears as $_GET['id'] @ your backend side
+      data: {search:i},
       success: function (data) {
         // data is ur summary
         $(".search_result.row.g-4").html(data);

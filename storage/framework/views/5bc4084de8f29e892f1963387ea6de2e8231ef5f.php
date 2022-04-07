@@ -63,6 +63,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                 class="form-control text-dark bg-transparent border-0"
                 placeholder="Enter your search terms..."
                 onkeyup="getSearch(this.value)"
+                id="search"
             />
             <span
                 class="input-group-text px-4 cursor-pointer disable-child-pointer close-search bg-transparent border-0"
