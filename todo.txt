@@ -1,6 +1,5 @@
 catalog page
     sorting
-search
 remove item cart
 payment based on cart
 payment webhook
@@ -22,4 +21,6 @@ user
 order
 
 add more product
+
+search ~ done
 

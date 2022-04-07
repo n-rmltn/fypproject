@@ -46,6 +46,7 @@ Route::get('/catalog', function () {return view('catalog');})->name('catalog');
 Route::resource('product',ProductController::class)->name('*','product');
 
 Route::get('/cart/ajax', [CartController::class, 'ajax']);
+Route::Delete('/cart',[CartController::class, 'destroy'])->name('destroy_cart');
 
 Route::get('ajax/search', [ProductController::class,'search'])->name('search');
 

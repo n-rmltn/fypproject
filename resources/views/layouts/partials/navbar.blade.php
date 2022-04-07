@@ -95,7 +95,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
         >
             Cart (@if (Cookie::get('shopping_cart') === null) 0 @else
                 @php
-                    echo count(json_decode(Cookie::get('shopping_cart')));
+                    echo count(json_decode(Cookie::get('shopping_cart'),true));
                 @endphp
             @endif)
         </button>

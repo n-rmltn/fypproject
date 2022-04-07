@@ -460,5 +460,22 @@ function getSearch(i){
   }
 }
 
+function destroy_cart(i,t){
+    var data = {
+        '_token': t,
+        "cart_item_id": i,
+    };
+
+    // $(this).closest(".cartpage").remove();
+
+    $.ajax({
+        url: '/cart',
+        type: 'DELETE',
+        data: data,
+        success: function (response) {
+            window.location.reload();
+        }
+    });
+}
 
 

@@ -1,4 +1,4 @@
-@forelse ($cart as $data)
+@forelse ($cart as $row => $data)
 <!-- Cart Product-->
 <div class="row mx-0 py-4 g-0 border-bottom">
     <div class="col-2 position-relative">
@@ -15,7 +15,7 @@
         class="justify-content-between d-flex align-items-start mb-2"
         >
         {{ $data['item_name'] }}
-        <i class="ri-close-line ms-3"></i>
+        <i class="ri-close-line ms-3" onclick="destroy_cart({{ $row }},'{{ csrf_token() }}')"></i>
         </h6>
         @forelse ( $data['options'] as $option => $value)
         <span
