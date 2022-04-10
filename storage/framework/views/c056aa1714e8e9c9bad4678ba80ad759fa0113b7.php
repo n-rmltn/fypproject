@@ -13,7 +13,10 @@
             <a href="<?php echo e(route('welcome')); ?>">Home</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="#">Keyboard</a>
+            <a href="<?php echo e(route('product.index')); ?>">All Product</a>
+            </li>
+            <li class="breadcrumb-item breadcrumb-light">
+            <a href="<?php echo e(route('product.index')); ?>">Keyboard</a>
             </li>
             <li
             class="breadcrumb-item breadcrumb-light active"
@@ -70,7 +73,7 @@
 
             </h1>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="fs-4 m-0">$<?php echo e($product->product_base_price); ?></p>
+                <p class="fs-4 m-0 product-base-price" data-baseprice="<?php echo e($product->product_base_price); ?>">$<?php echo e($product->product_base_price); ?></p>
             </div>
             <?php $__empty_1 = true; $__currentLoopData = $product->option; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <!-- Backlight -->
@@ -80,6 +83,7 @@
                     <span
                         class="selected-option fw-bold"
                         data-pixr-product-option="<?php echo e($option->product_option_name); ?>"
+                        data-addprice="0"
                         >Not Selected</span
                     >
                     </small>
@@ -94,6 +98,7 @@
                         value="<?php echo e($list->product_option_list_name); ?>"
                         id="option-<?php echo e($option->product_option_name); ?>-<?php echo e($list->id); ?>"
                         data-price="<?php echo e($list->product_option_list_additional_price); ?>"
+                        data-option="<?php echo e($option->product_option_name); ?>"
                         required/>
                         <label for="option-<?php echo e($option->product_option_name); ?>-<?php echo e($list->id); ?>">
                         <small><?php echo e($list->product_option_list_name); ?></small>

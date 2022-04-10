@@ -16,12 +16,12 @@ class StripePaymentController extends Controller
         $session = \Stripe\Checkout\Session::create ([
         'line_items' => [[
             # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-            'price' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+            'price' => 'price_1Kle0DEpRCJdieCxU0g3yMc9',
             'quantity' => 1,
         ]],
         'mode' => 'payment',
         'success_url' => $YOUR_DOMAIN . '/',
-        'cancel_url' => $YOUR_DOMAIN . '/',
+        'cancel_url' => route('cart.index'),
         'shipping_address_collection' => [
             'allowed_countries' => ['MY'],
         ],
@@ -31,6 +31,9 @@ class StripePaymentController extends Controller
         ]);
 
         // Return the Stripe Session id so the fetch command in our frontend redirects users to Stripe's checkout page
-        return response()->json(['id' => $session->id]);
+
+        return redirect()->to($session->url)->send();
+
+
     }
 }

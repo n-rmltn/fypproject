@@ -14,7 +14,10 @@
             <a href="{{ route('welcome') }}">Home</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="#">Keyboard</a>
+            <a href="{{ route('product.index') }}">All Product</a>
+            </li>
+            <li class="breadcrumb-item breadcrumb-light">
+            <a href="{{ route('product.index') }}">Keyboard</a>
             </li>
             <li
             class="breadcrumb-item breadcrumb-light active"
@@ -93,7 +96,7 @@
                 {{ $product->product_name; }}
             </h1>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="fs-4 m-0">${{ $product->product_base_price; }}</p>
+                <p class="fs-4 m-0 product-base-price" data-baseprice="{{ $product->product_base_price; }}">${{ $product->product_base_price; }}</p>
             </div>
             @forelse ( $product->option as $option)
                 <!-- Backlight -->
@@ -103,6 +106,7 @@
                     <span
                         class="selected-option fw-bold"
                         data-pixr-product-option="{{ $option->product_option_name }}"
+                        data-addprice="0"
                         >Not Selected</span
                     >
                     </small>
@@ -117,6 +121,7 @@
                         value="{{ $list->product_option_list_name }}"
                         id="option-{{ $option->product_option_name }}-{{ $list->id }}"
                         data-price="{{ $list->product_option_list_additional_price }}"
+                        data-option="{{ $option->product_option_name }}"
                         required/>
                         <label for="option-{{ $option->product_option_name }}-{{ $list->id }}">
                         <small>{{ $list->product_option_list_name }}</small>

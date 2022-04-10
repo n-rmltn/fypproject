@@ -63,6 +63,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                 class="form-control text-dark bg-transparent border-0"
                 placeholder="Enter your search terms..."
                 onkeyup="getSearch(this.value)"
+                id="search"
             />
             <span
                 class="input-group-text px-4 cursor-pointer disable-child-pointer close-search bg-transparent border-0"
@@ -89,10 +90,14 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
         <!-- Navbar Cart Icon-->
         <li class="ms-1 d-inline-block position-relative dropdown-cart">
         <button
-            class="nav-link me-0 disable-child-pointer border-0 p-0 bg-transparent text-light"
+            class="nav-link me-0 disable-child-pointer border-0 p-0 bg-transparent text-light number-of-item"
             type="button"
         >
-            Cart (1)
+            Cart (<?php if(Cookie::get('shopping_cart') === null): ?> 0 <?php else: ?>
+                <?php
+                    echo count(json_decode(Cookie::get('shopping_cart'),true));
+                ?>
+            <?php endif; ?>)
         </button>
 
         <form action="/payment" method="POST">
@@ -102,7 +107,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             <div
             class="d-flex justify-content-between align-items-center border-bottom pt-3 pb-4"
             >
-                <h6 class="fw-bolder m-0">Cart Summary (1 item)</h6><!--to be updated-->
+                <h6 class="fw-bolder m-0 number-item">Cart Summary (0 item)</h6><!--to be updated-->
                 <i
                     class="ri-close-circle-line text-light ri-lg cursor-pointer btn-close-cart"
                 ></i>
@@ -123,7 +128,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                 <div>
                     <p class="m-0 fw-bold fs-5">Grand Total</p>
                 </div>
-                <p class="m-0 fs-5 fw-bold">$69.00</p>
+                <p class="m-0 fs-5 fw-bold grand-total">$0.00</p>
                 </div>
             </div>
             <a

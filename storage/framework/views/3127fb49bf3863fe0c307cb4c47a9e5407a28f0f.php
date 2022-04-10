@@ -483,9 +483,9 @@
     <!--/ Featured Brands-->
 
     <div class="container-fluid">
-    <!-- Featured Categories
+    <!-- Featured Categories -->
         <div class="m-0">
-                <!-- Swiper Latest
+                <!-- Swiper Latest -->
                 <div class="swiper-container overflow-hidden overflow-lg-visible"
                     data-swiper
                     data-options='{
@@ -520,7 +520,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="000">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-7.jpg')); ?>" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/products/product-1.webp')); ?>" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">Must Haves</p>
                                 <h4 class="lead fw-bold text-white">Premium Essentials</h4>
@@ -642,8 +642,8 @@
             With worldwide shipping and unbeatable prices - now's a great time
             to pick out something from our range.
         </p>
-        <a href="#" class="btn btn-psuedo text-white" role="button"
-            >Shop New Arrivals</a
+        <a href="<?php echo e(route('product.index')); ?>" class="btn btn-psuedo text-white" role="button"
+            >Shop All Product</a
         >
         </div>
         <div

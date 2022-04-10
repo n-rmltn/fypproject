@@ -83,4 +83,17 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $searchQuery = trim($request->input('search'));
+        $requestData = ['product_name_short', 'product_name_long', 'product_description', 'product_categories', 'product_brand_name'];
+        $product = Product::join('product_brand', 'product.product_brand_id', '=', 'product_brand.id')->where(
+                            function($q) use($requestData, $searchQuery) {
+                                foreach ($requestData as $field)
+                                $q->orWhere($field, 'like', "%{$searchQuery}%");
+                            }
+                        )->get();
+        return view('ajax.search')->with('product',$product);
+    }
 }

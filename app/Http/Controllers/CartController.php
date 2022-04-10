@@ -36,8 +36,8 @@ class CartController extends Controller
         else{
             $cart_data = array();
         }
-        /* return view('ajax.cart')->with('cart',$cart_data);// */
-        return response()->json($cart_data);
+        return view('ajax.cart')->with('cart',$cart_data);//
+        /*return response()->json($cart_data);*/
     }
 
     /**
@@ -146,8 +146,21 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $cart_item_id = $request->input('cart_item_id');//
+        $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+        $cart_data = json_decode($cookie_data, true);
+        foreach($cart_data as $keys => $values)
+        {
+            if($keys == $cart_item_id)
+            {
+                unset($cart_data[$keys]);
+                $item_data = json_encode($cart_data);
+                $minutes = 60;
+                Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                return response()->json(['status'=>'Item Removed from Cart']);
+            }
+        }
     }
 }

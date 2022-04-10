@@ -1,0 +1,26 @@
+catalog page
+    sorting
+remove item cart
+payment based on cart
+payment webhook
+account
+    register
+    login
+index product featured
+
+admin page
+login
+add/remove/edit product
+order
+    list
+    edit status
+account show/remove/edit
+
+database
+user
+order
+
+add more product
+
+search ~ done
+
