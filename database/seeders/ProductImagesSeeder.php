@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -17,25 +16,45 @@ class ProductImagesSeeder extends Seeder
     {
         DB::table('product_images')->insert([
             [
-            'product_id' => '1',
-            'product_images_name' => 'product-page-1.webp',
-            'product_images_priority' => '1',
+                'product_id' => '1',
+                'product_images_name' => 'product-keychronk2-1.webp',
+                'product_images_priority' => '1',
             ],
             [
-            'product_id' => '1',
-            'product_images_name' => 'product-page-2.webp',
-            'product_images_priority' => '2',
+                'product_id' => '1',
+                'product_images_name' => 'product-keychronk2-2.webp',
+                'product_images_priority' => '2',
             ],
             [
-            'product_id' => '1',
-            'product_images_name' => 'product-page-3.webp',
-            'product_images_priority' => '3',
+                'product_id' => '1',
+                'product_images_name' => 'product-keychronk2-3.webp',
+                'product_images_priority' => '3',
             ],
             [
-            'product_id' => '1',
-            'product_images_name' => 'product-page-4.webp',
-            'product_images_priority' => '4',
+                'product_id' => '1',
+                'product_images_name' => 'product-keychronk2-4.webp',
+                'product_images_priority' => '4',
             ],
-        ]);//
+            [
+                'product_id' => '2',
+                'product_images_name' => 'product-keychronk4-1.webp',
+                'product_images_priority' => '1',
+            ],
+            [
+                'product_id' => '2',
+                'product_images_name' => 'product-keychronk4-2.webp',
+                'product_images_priority' => '2',
+            ],
+            [
+                'product_id' => '2',
+                'product_images_name' => 'product-keychronk4-3.webp',
+                'product_images_priority' => '3',
+            ],
+            [
+                'product_id' => '2',
+                'product_images_name' => 'product-keychronk4-4.webp',
+                'product_images_priority' => '4',
+            ],
+        ]); //
     }
 }

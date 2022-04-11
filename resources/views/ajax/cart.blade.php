@@ -15,7 +15,7 @@
         class="justify-content-between d-flex align-items-start mb-2"
         >
         {{ $data['item_name'] }}
-        <i class="ri-close-line ms-3" onclick="destroy_cart({{ $row }},'{{ csrf_token() }}')"></i>
+        <i class="ri-close-line ms-3" style="cursor: pointer;" onclick="destroy_cart({{ $row }},'{{ csrf_token() }}')"></i>
         </h6>
         @forelse ( $data['options'] as $option => $value)
         <span

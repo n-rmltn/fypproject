@@ -538,66 +538,6 @@
                                 <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
                             </div>
                         </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="200">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-3.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Streetwear Basics</p>
-                                <h4 class="lead fw-bold text-white">T-Shirts &amp; Shirts</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="300">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-4.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Waterproof &amp; Lightweight</p>
-                                <h4 class="lead fw-bold text-white">Jackets &amp; Coats</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="400">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-5.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Keep Warm</p>
-                                <h4 class="lead fw-bold text-white">Hats &amp; Beanies</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="500">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-6.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">20% Off</p>
-                                <h4 class="lead fw-bold text-white">Summer Sale</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="600">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-1.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Just Arrived</p>
-                                <h4 class="lead fw-bold text-white">Latest Kicks</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="700">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/categories/category-8.jpg') }}" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Accessories</p>
-                                <h4 class="lead fw-bold text-white">Bags &amp; Rugsacks</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="swiper-btn swiper-prev swiper-disabled-hide swiper-btn-side btn-icon bg-white text-dark ms-3 shadow mt-n5"><i class="ri-arrow-left-s-line "></i></div>

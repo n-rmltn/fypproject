@@ -9,10 +9,10 @@
     <div class="py-10 bg-img-cover bg-overlay-dark position-relative overflow-hidden bg-pos-center-center rounded-0"
         style="background-image: url(./assets/images/banners/banner-category-top.jpg);">
         <div class="container-fluid position-relative z-index-20" data-aos="fade-right" data-aos-delay="300">
-            <h1 class="fw-bold display-6 mb-4 text-white">Latest Arrivals</h1>
+            <h1 class="fw-bold display-6 mb-4 text-white">Products</h1>
             <div class="col-12 col-md-6">
                 <p class="text-white mb-0 fs-5">
-                    When it's time to head out and get your Kicks on, have a look at our latest arrivals. Whether you're into Nike, Adidas, Dunks or New Balance, we really have something for everyone!
+                    Browse our products
                 </p>
             </div>
         </div>
@@ -62,7 +62,7 @@
                                 <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-1.webp') }}" alt="">
                             </picture>
                                 <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
+                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> View Product</button>
                                 </div>
                         </div>
                         <div class="card-body px-0">
@@ -82,14 +82,14 @@
                             </div>
                             <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
                             <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-1.webp') }}" alt="">
+                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-2.webp') }}" alt="">
                             </picture>
                                 <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
+                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> View Product</button>
                                 </div>
                         </div>
                         <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '2') }}">Nike ZoomX Vaporfly</a>
+                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '2') }}">Keychron K4</a>
                                 <p class="mt-2 mb-0 small">$69.00</p>
                         </div>
                     </div>
@@ -135,11 +135,11 @@
                   <div class="filter-price mt-6"></div>
                   <div class="d-flex justify-content-between align-items-center mt-7">
                       <div class="input-group mb-0 me-2 border">
-                          <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">$</span>
+                          <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
                           <input type="number" min="00" max="1000" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0">
                       </div>
                       <div class="input-group mb-0 ms-2 border">
-                          <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">$</span>
+                          <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
                           <input type="number" min="00" max="1000" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0">
                       </div>
                   </div>          </div>
@@ -165,54 +165,94 @@
                       <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-0">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-0">Adidas  <span
-                                  class="text-muted ms-1 fs-9">(21)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-0">Keychron  <span
+                                  class="text-muted ms-1 fs-9">(2)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-1">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-1">Asics  <span
-                                  class="text-muted ms-1 fs-9">(13)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-1">Ducky  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-2">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-2">Canterbury  <span
-                                  class="text-muted ms-1 fs-9">(18)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-2">Redragon  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-3">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-3">Converse  <span
-                                  class="text-muted ms-1 fs-9">(25)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-3">Royal Kludge  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-4">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-4">Donnay  <span
-                                  class="text-muted ms-1 fs-9">(11)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-4">GMMK  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-5">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-5">Nike  <span
-                                  class="text-muted ms-1 fs-9">(19)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-5">Leopold  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-6">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-6">Millet  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-6">Corsair  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-7">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-7">Puma  <span
-                                  class="text-muted ms-1 fs-9">(11)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-7">Coolermaster  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-8">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-8">Reebok  <span
-                                  class="text-muted ms-1 fs-9">(19)</span></label>
-                      </div>                <div class="form-group form-check-custom mb-1">
+                              for="filter-brands-modal-8">Razer  <span
+                                  class="text-muted ms-1 fs-9">(0)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
                           <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
                           <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">Under Armour  <span
+                              for="filter-brands-modal-9">Logitech  <span
                                   class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>              </div>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
+                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
+                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                              for="filter-brands-modal-9">HyperX  <span
+                                  class="text-muted ms-1 fs-9">(24)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
+                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
+                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                              for="filter-brands-modal-9">SteelSeries  <span
+                                  class="text-muted ms-1 fs-9">(24)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
+                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
+                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                              for="filter-brands-modal-9">ROG  <span
+                                  class="text-muted ms-1 fs-9">(24)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
+                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
+                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                              for="filter-brands-modal-9">MSi  <span
+                                  class="text-muted ms-1 fs-9">(24)</span></label>
+                      </div>
+                      <div class="form-group form-check-custom mb-1">
+                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
+                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                              for="filter-brands-modal-9">Predator  <span
+                                  class="text-muted ms-1 fs-9">(24)</span></label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -229,76 +269,20 @@
                   <div class="filter-options mt-3">
                     <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
                         <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-0">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-0">6.5</label>
+                        <label class="form-check-label fw-normal" for="filter-sizes-modal-0">Full-size</label>
                     </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
                         <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-1">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-1">7</label>
+                        <label class="form-check-label fw-normal" for="filter-sizes-modal-1">TKL</label>
                     </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
                         <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-2">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-2">7.5</label>
+                        <label class="form-check-label fw-normal" for="filter-sizes-modal-2">75%</label>
                     </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
                         <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-3">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-3">8</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-4">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-4">8.5</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-5">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-5">9</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-6">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-6">9.5</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-7">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-7">10</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-8">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-8">10.5</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-9">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-9">11</label>
-                    </div>              <div class="form-group d-inline-block mr-2 mb-2 form-check-bg form-check-custom">
-                        <input type="checkbox" class="form-check-bg-input" id="filter-sizes-modal-10">
-                        <label class="form-check-label fw-normal" for="filter-sizes-modal-10">11.5</label>
+                        <label class="form-check-label fw-normal" for="filter-sizes-modal-3">60%</label>
                     </div>            </div>
                 </div>
               </div>
               <!-- / Sizes Filter -->
-
-              <!-- Colour Filter -->
-              <div class="py-4 widget-filter border-top">
-                <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
-                  data-bs-toggle="collapse" href="#filter-modal-colour" role="button" aria-expanded="true"
-                  aria-controls="filter-modal-colour">
-                  Colour
-                </a>
-                <div id="filter-modal-colour" class="collapse show">
-                  <div class="filter-options mt-3">
-                    <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-primary">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-0">
-                        <label class="form-check-label" for="filter-colours-modal-0"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-success">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-1">
-                        <label class="form-check-label" for="filter-colours-modal-1"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-danger">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-2">
-                        <label class="form-check-label" for="filter-colours-modal-2"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-info">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-3">
-                        <label class="form-check-label" for="filter-colours-modal-3"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-warning">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-4">
-                        <label class="form-check-label" for="filter-colours-modal-4"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-dark">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-5">
-                        <label class="form-check-label" for="filter-colours-modal-5"></label>
-                    </div>              <div class="form-group d-inline-block mr-1 mb-1 form-check-solid-bg-checkmark form-check-custom form-check-secondary">
-                        <input type="checkbox" class="form-check-color-input" id="filter-colours-modal-6">
-                        <label class="form-check-label" for="filter-colours-modal-6"></label>
-                    </div>            </div>
-                </div>
-              </div>
-              <!-- / Colour Filter -->
             </div>
             <!-- / Filters-->
 

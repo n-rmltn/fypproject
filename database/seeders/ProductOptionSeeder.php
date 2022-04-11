@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -17,12 +16,20 @@ class ProductOptionSeeder extends Seeder
     {
         DB::table('product_option')->insert([
             [
-                'product_id'=>'1',
-                'product_option_name'=>'Version',
+                'product_id' => '1',
+                'product_option_name' => 'Version',
             ],
             [
-                'product_id'=>'1',
-                'product_option_name'=>'Switches',
+                'product_id' => '1',
+                'product_option_name' => 'Switches',
+            ],
+            [
+                'product_id' => '2',
+                'product_option_name' => 'Version',
+            ],
+            [
+                'product_id' => '2',
+                'product_option_name' => 'Switches',
             ],
         ]);
     }

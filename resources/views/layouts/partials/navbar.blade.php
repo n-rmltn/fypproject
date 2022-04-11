@@ -182,7 +182,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <h6 class="dropdown-heading">Prebuilt</h6>
                         <ul class="list-unstyled">
                         <li class="dropdown-list-item">
-                            <a class="dropdown-item" href="#"
+                            <a class="dropdown-item" href="{{ route('catalog') }}"
                             >Full-size</a
                             >
                         </li>
@@ -415,10 +415,10 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" role="button"> Headphone </a>
+            <a class="nav-link" href="{{ route('catalog') }}" role="button"> Headphone </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" role="button"> Monitor </a>
+            <a class="nav-link" href="{{ route('catalog') }}" role="button"> Monitor </a>
         </li>
         </ul>
         <!-- / Menu-->
