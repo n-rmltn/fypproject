@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title'); ?> Keychron K2 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <!-- Main Section-->
@@ -69,11 +70,11 @@
 
             <form action="<?php echo e(route('cart.store')); ?>" method="post">
             <h1 class="mb-1 fs-2 fw-bold">
-                <?php echo e($product->product_name); ?>
+                <?php echo e($product->product_name_long); ?>
 
             </h1>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="fs-4 m-0 product-base-price" data-baseprice="<?php echo e($product->product_base_price); ?>">$<?php echo e($product->product_base_price); ?></p>
+                <p class="fs-4 m-0 product-base-price" data-baseprice="<?php echo e($product->product_base_price); ?>">RM<?php echo e($product->product_base_price); ?></p>
             </div>
             <?php $__empty_1 = true; $__currentLoopData = $product->option; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <!-- Backlight -->
