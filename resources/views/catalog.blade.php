@@ -76,7 +76,7 @@
 
                             @endforelse
                         </small>
-                                <p class="mt-2 mb-0 small">$69.00</p>
+                                <p class="mt-2 mb-0 small">RM{{ $val->product_base_price }}</p>
                     </div>
                 </div>
                 <!--/ Card Product-->
