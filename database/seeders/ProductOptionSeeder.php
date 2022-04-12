@@ -31,6 +31,30 @@ class ProductOptionSeeder extends Seeder
                 'product_id' => '2',
                 'product_option_name' => 'Switches',
             ],
+            [
+                'product_id' => '3',
+                'product_option_name' => 'Version',
+            ],
+            [
+                'product_id' => '3',
+                'product_option_name' => 'Switches',
+            ],
+            [
+                'product_id' => '4',
+                'product_option_name' => 'Version',
+            ],
+            [
+                'product_id' => '4',
+                'product_option_name' => 'Switches',
+            ],
+            [
+                'product_id' => '5',
+                'product_option_name' => 'Version',
+            ],
+            [
+                'product_id' => '5',
+                'product_option_name' => 'Switches',
+            ],
         ]);
     }
 }

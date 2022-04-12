@@ -93,10 +93,10 @@
 
             <form action="{{ route('cart.store') }}" method="post">
             <h1 class="mb-1 fs-2 fw-bold">
-                {{ $product->product_name; }}
+                {{ $product->product_name_long; }}
             </h1>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="fs-4 m-0 product-base-price" data-baseprice="{{ $product->product_base_price; }}">${{ $product->product_base_price; }}</p>
+                <p class="fs-4 m-0 product-base-price" data-baseprice="{{ $product->product_base_price; }}">RM{{ $product->product_base_price; }}</p>
             </div>
             @forelse ( $product->option as $option)
                 <!-- Backlight -->

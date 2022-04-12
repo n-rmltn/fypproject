@@ -55,6 +55,66 @@ class ProductImagesSeeder extends Seeder
                 'product_images_name' => 'product-keychronk4-4.webp',
                 'product_images_priority' => '4',
             ],
+            [
+                'product_id' => '3',
+                'product_images_name' => 'product-keychronk10-1.webp',
+                'product_images_priority' => '1',
+            ],
+            [
+                'product_id' => '3',
+                'product_images_name' => 'product-keychronk10-2.webp',
+                'product_images_priority' => '2',
+            ],
+            [
+                'product_id' => '3',
+                'product_images_name' => 'product-keychronk10-3.webp',
+                'product_images_priority' => '3',
+            ],
+            [
+                'product_id' => '3',
+                'product_images_name' => 'product-keychronk10-4.webp',
+                'product_images_priority' => '4',
+            ],
+            [
+                'product_id' => '4',
+                'product_images_name' => 'product-keychronk8-1.webp',
+                'product_images_priority' => '1',
+            ],
+            [
+                'product_id' => '4',
+                'product_images_name' => 'product-keychronk8-2.webp',
+                'product_images_priority' => '2',
+            ],
+            [
+                'product_id' => '4',
+                'product_images_name' => 'product-keychronk8-3.webp',
+                'product_images_priority' => '3',
+            ],
+            [
+                'product_id' => '4',
+                'product_images_name' => 'product-keychronk8-4.gif',
+                'product_images_priority' => '4',
+            ],
+            [
+                'product_id' => '5',
+                'product_images_name' => 'product-keychronk6-1.webp',
+                'product_images_priority' => '1',
+            ],
+            [
+                'product_id' => '5',
+                'product_images_name' => 'product-keychronk6-2.webp',
+                'product_images_priority' => '2',
+            ],
+            [
+                'product_id' => '5',
+                'product_images_name' => 'product-keychronk6-3.webp',
+                'product_images_priority' => '3',
+            ],
+            [
+                'product_id' => '5',
+                'product_images_name' => 'product-keychronk6-4.gif',
+                'product_images_priority' => '4',
+            ],
         ]); //
     }
 }

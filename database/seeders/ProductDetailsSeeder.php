@@ -35,6 +35,36 @@ class ProductDetailsSeeder extends Seeder
                 'product_details_header' => 'Bluetooth',
                 'product_details_content' => 'Bluetooth 5.1. Up to 3 devices.',
             ],
+            [
+                'product_id' => '3',
+                'product_details_header' => 'Battery Size',
+                'product_details_content' => '4000 mAh',
+            ],
+            [
+                'product_id' => '3',
+                'product_details_header' => 'Bluetooth',
+                'product_details_content' => 'Bluetooth 5.1. Up to 3 devices.',
+            ],
+            [
+                'product_id' => '4',
+                'product_details_header' => 'Battery Size',
+                'product_details_content' => '4000 mAh',
+            ],
+            [
+                'product_id' => '4',
+                'product_details_header' => 'Bluetooth',
+                'product_details_content' => 'Bluetooth 5.1. Up to 3 devices.',
+            ],
+            [
+                'product_id' => '5',
+                'product_details_header' => 'Battery Size',
+                'product_details_content' => '4000 mAh',
+            ],
+            [
+                'product_id' => '5',
+                'product_details_header' => 'Bluetooth',
+                'product_details_content' => 'Bluetooth 5.1. Up to 3 devices.',
+            ],
         ]); //
     }
 }
