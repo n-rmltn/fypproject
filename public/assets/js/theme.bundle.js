@@ -136,7 +136,7 @@
                 option_price = parseInt(sel.dataset.addprice);
                 added_price += option_price;
             });
-            price.innerText = "$"+(added_price).toFixed(2);
+            price.innerText = "RM"+(added_price).toFixed(2);
         });
       });
     })();

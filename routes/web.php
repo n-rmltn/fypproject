@@ -39,7 +39,7 @@ Route::get('/checkout', function () {return view('checkout');})->name('checkout'
 Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
 Route::get('/checkout/payment', function () {return view('payment');})->name('payment');
 
-Route::get('/catalog', function () {return view('catalog');})->name('catalog');
+//Route::get('/catalog', function () {return view('catalog');});
 /* Route::get('/product', function () {
     return view('product');
 }); */

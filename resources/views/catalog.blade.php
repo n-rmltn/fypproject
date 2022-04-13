@@ -53,48 +53,37 @@
 
         <!-- Products-->
         <div class="row g-4">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-1.webp') }}" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> View Product</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '1') }}">Keychron K2</a>
-                            <small class="text-muted d-block">3 Options, 4 switches</small>
-                                    <p class="mt-2 mb-0 small">$69.00</p>
-                        </div>
-                    </div>
-                    <!--/ Card Product-->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <!-- Card Product-->
-                    <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
-                        <div class="card-img position-relative">
-                            <div class="card-badges">
-                                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
+            @forelse ($products as $prod => $val)
+            <div class="col-12 col-sm-6 col-lg-4">
+                <!-- Card Product-->
+                <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
+                    <div class="card-img position-relative">
+                        <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                        <picture class="position-relative overflow-hidden d-block bg-light">
+                            <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-'.$val->product_id.'.webp') }}" alt="">
+                        </picture>
+                            <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
+                                <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> View Product</button>
                             </div>
-                            <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                                <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-2.webp') }}" alt="">
-                            </picture>
-                                <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                                    <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> View Product</button>
-                                </div>
-                        </div>
-                        <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="{{ route('product.show', '2') }}">Keychron K4</a>
-                                <p class="mt-2 mb-0 small">$69.00</p>
-                        </div>
                     </div>
-                    <!--/ Card Product-->
+                    <div class="card-body px-0">
+                        <a class="text-decoration-none link-cover" href="{{ route('product.show', $val->product_id) }}">{{ $val->product_name_long }}</a>
+
+                        <small class="text-muted d-block">
+                            @forelse ( $val->option as $option => $value)
+                            {{ count($value->list) }} {{ $value->product_option_name }}
+                            @empty
+
+                            @endforelse
+                        </small>
+                                <p class="mt-2 mb-0 small">RM{{ $val->product_base_price }}</p>
+                    </div>
                 </div>
+                <!--/ Card Product-->
+            </div>
+            @empty
+                No Product Found
+            @endforelse
         </div>
         <!-- / Products-->
 

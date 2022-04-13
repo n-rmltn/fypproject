@@ -46,7 +46,123 @@ class ProductOptionListSeeder extends Seeder
                 'product_option_id'=>'2',
                 'product_option_list_name'=>'GATERON G PRO BROWN',
                 'product_option_list_additional_price'=>'0',
-            ]
+            ],[
+                'product_option_id'=>'3',
+                'product_option_list_name'=>'WHITE BACKLIGHT',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'3',
+                'product_option_list_name'=>'RGB BACKLIGHT',
+                'product_option_list_additional_price'=>'5.00',
+            ],
+            [
+                'product_option_id'=>'3',
+                'product_option_list_name'=>'RGB BACKLIGHT ALUMINUM FRAME',
+                'product_option_list_additional_price'=>'10.00',
+            ],
+            [
+                'product_option_id'=>'4',
+                'product_option_list_name'=>'GATERON G PRO RED',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'4',
+                'product_option_list_name'=>'GATERON G PRO BLUE',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'4',
+                'product_option_list_name'=>'GATERON G PRO BROWN',
+                'product_option_list_additional_price'=>'0',
+            ],[
+                'product_option_id'=>'5',
+                'product_option_list_name'=>'WHITE BACKLIGHT',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'5',
+                'product_option_list_name'=>'RGB BACKLIGHT',
+                'product_option_list_additional_price'=>'5.00',
+            ],
+            [
+                'product_option_id'=>'5',
+                'product_option_list_name'=>'RGB BACKLIGHT ALUMINUM FRAME',
+                'product_option_list_additional_price'=>'10.00',
+            ],
+            [
+                'product_option_id'=>'6',
+                'product_option_list_name'=>'GATERON G PRO RED',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'6',
+                'product_option_list_name'=>'GATERON G PRO BLUE',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'6',
+                'product_option_list_name'=>'GATERON G PRO BROWN',
+                'product_option_list_additional_price'=>'0',
+            ],[
+                'product_option_id'=>'7',
+                'product_option_list_name'=>'WHITE BACKLIGHT',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'7',
+                'product_option_list_name'=>'RGB BACKLIGHT',
+                'product_option_list_additional_price'=>'5.00',
+            ],
+            [
+                'product_option_id'=>'7',
+                'product_option_list_name'=>'RGB BACKLIGHT ALUMINUM FRAME',
+                'product_option_list_additional_price'=>'10.00',
+            ],
+            [
+                'product_option_id'=>'8',
+                'product_option_list_name'=>'GATERON G PRO RED',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'8',
+                'product_option_list_name'=>'GATERON G PRO BLUE',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'8',
+                'product_option_list_name'=>'GATERON G PRO BROWN',
+                'product_option_list_additional_price'=>'0',
+            ],[
+                'product_option_id'=>'9',
+                'product_option_list_name'=>'WHITE BACKLIGHT',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'9',
+                'product_option_list_name'=>'RGB BACKLIGHT',
+                'product_option_list_additional_price'=>'5.00',
+            ],
+            [
+                'product_option_id'=>'9',
+                'product_option_list_name'=>'RGB BACKLIGHT ALUMINUM FRAME',
+                'product_option_list_additional_price'=>'10.00',
+            ],
+            [
+                'product_option_id'=>'10',
+                'product_option_list_name'=>'GATERON G PRO RED',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'10',
+                'product_option_list_name'=>'GATERON G PRO BLUE',
+                'product_option_list_additional_price'=>'0',
+            ],
+            [
+                'product_option_id'=>'10',
+                'product_option_list_name'=>'GATERON G PRO BROWN',
+                'product_option_list_additional_price'=>'0',
+            ],
         ]);
     }
 }
