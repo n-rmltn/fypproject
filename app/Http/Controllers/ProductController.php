@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -12,10 +13,37 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
-        return view('catalog')->with('products',$products);//
+        $array = ['product_status' => 1];
+        $req = [];
+        if($request->input('category')){
+            $category = $request->input('category');
+            $req += ['category' => $category];
+            $array += ['Product_categories' => $category];
+        }
+        $prod = Product::where($array);
+        if($request->input('sort')){
+            $sort = $request->input('sort');
+            if($sort == 'price_asc'){
+                $sorted = $prod->orderby('product_base_price', 'ASC');
+            }
+            else if($sort == 'price_desc'){
+                $sorted = $prod->orderby('product_base_price', 'DESC');
+            }
+            else if($sort == 'name_asc'){
+                $sorted = $prod->orderby('product_name_short', 'ASC');
+            }
+            else{
+                $sorted = $prod->orderby('product_name_short', 'DESC');
+            }
+            $req += ['sort' => $sort];
+        }
+        else{
+            $sorted = $prod->orderby('product_name_short');
+        }
+        $products = $sorted->get();
+        return view('catalog')->with('products',$products)->with('req',$req);//
     }
 
     /**
@@ -48,7 +76,11 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('product')->with('product',$product);////
+        return view('product')->with('product',$product);
+    }
+
+    private function sort(){
+        $token = csrf_token();
     }
 
     /**

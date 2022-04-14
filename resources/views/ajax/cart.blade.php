@@ -25,7 +25,7 @@
 
         @endforelse
     </div>
-    <p class="fw-bolder text-end text-muted m-0 item_price" data-price="{{ number_format((float)$data['item_price'], 2, '.', '');}}">${{ number_format((float)$data['item_price'], 2, '.', '');}}</p>
+    <p class="fw-bolder text-end text-muted m-0 item_price" data-price="{{ number_format((float)$data['item_price'], 2, '.', '');}}">RM {{ number_format((float)$data['item_price'], 2, '.', '');}}</p>
     </div>
 </div><!-- Cart Product-->
 @empty

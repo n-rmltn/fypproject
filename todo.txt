@@ -1,12 +1,10 @@
 catalog page
     sorting
-remove item cart
 payment based on cart
 payment webhook
 account
     register
     login
-index product featured
 
 admin page
 login
@@ -24,4 +22,5 @@ add more product
 added some babyyy
 
 search ~ done
-
+remove item cart ~ done
+index product featured ~ done
