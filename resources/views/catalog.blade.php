@@ -27,14 +27,14 @@
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                           <li class="breadcrumb-item"><a href="{{ route('product.index') }}">All Product</a></li>
-                          @isset($category)
-                            <li class="breadcrumb-item active" aria-current="page">{{ $category }}</li>
-                          @endisset
+                          @if(isset($req['category']))
+                            <li class="breadcrumb-item active" aria-current="page">{{ $req['category'] }}</li>
+                          @endif
                         </ol>
                     </nav>
                     <h1 class="fw-bold fs-3 mb-2">
-                        @if(isset($category))
-                        {{ ucfirst($category) }}
+                        @if(isset($req['category']))
+                        {{ ucfirst($req['category']) }}
                         @else
                         All Product
                         @endif
@@ -49,16 +49,19 @@
                         <i class="ri-equalizer-line me-2"></i> Filters
                     </button>
                     <!-- / Filter Trigger-->
-
+                    <form action="{{ URL::current() }}" method="get">
+                        @if (isset($req['category']))
+                            <input type="hidden" name="category" value="{{ $req['category'] }}">
+                        @endif
                     <!-- Sort Options-->
-                        <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7">
-                            <option selected>Sort By</option>
-                            <option value="price_asc">Price: Asc</option>
-                            <option value="price_desc">Price: Desc</option>
-                            <option value="name_asc">Name: Asc</option>
-                            <option value="name_desc">Name: Desc</option>
+                        <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
+                            <option value="price_asc"@if (isset($req['sort'])&& $req['sort'] == 'price_asc') selected @endif>Sort By Price: Asc</option>
+                            <option value="price_desc"@if (isset($req['sort'])&& $req['sort'] == 'price_desc') selected @endif>Sort By Price: Desc</option>
+                            <option value="name_asc"@if (isset($req['sort'])&& $req['sort'] == 'name_asc' || !isset($req['sort'])) selected @endif>Sort By Name: Asc</option>
+                            <option value="name_desc"@if (isset($req['sort'])&& $req['sort'] == 'name_desc') selected @endif>Sort By Name: Desc</option>
                         </select>
                     <!-- / Sort Options-->
+                    </form>
                 </div>
             </div>            <!-- /Category Toolbar-->
 

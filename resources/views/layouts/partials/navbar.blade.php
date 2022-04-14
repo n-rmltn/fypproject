@@ -163,7 +163,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
         <li class="nav-item dropdown dropdown position-static">
             <a
             class="nav-link dropdown-toggle"
-            href="{{ route('product.show','keyboard') }}"
+            href="{{ route('product.index',['category' => 'keyboard']) }}"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -410,15 +410,15 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             <!-- / Keyboard dropdown menu-->
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('product.show','mouse') }}" role="button">
+            <a class="nav-link" href="{{ route('product.index',['category' => 'mouse']) }}" role="button">
             Mouse
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('product.show','headphone') }}" role="button"> Headphone </a>
+            <a class="nav-link" href="{{ route('product.index',['category' => 'headphone']) }}" role="button"> Headphone </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('product.show','monitor') }}" role="button"> Monitor </a>
+            <a class="nav-link" href="{{ route('product.index',['category' => 'monitor']) }}" role="button"> Monitor </a>
         </li>
         </ul>
         <!-- / Menu-->
