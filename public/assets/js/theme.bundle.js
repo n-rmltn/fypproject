@@ -322,7 +322,8 @@
             !!this.menuParent &&
             this.menuParent.querySelector(".dropdown-menu")),
           (this.showEvents = ["mouseenter"]),
-          (this.hideEvents = ["mouseleave", "click"]),
+          (this.hideEvents = ["mouseleave"]),
+          (this.clickEvent = ["click"]),
           (this.cssVarBreakPoint =
             getComputedStyle(document.documentElement).getPropertyValue(
               "--theme-breakpoint-lg"
@@ -342,7 +343,12 @@
             this.menuParent.addEventListener(t, function () {
               e.hideMenu();
             });
-          }));
+        }),
+          this.clickEvent.forEach((t) => {
+            this.menuParent.addEventListener(t, function () {
+                e.click();
+            });
+        }))
       }
       showMenu() {
         window.innerWidth < this.breakpointLG ||
@@ -357,6 +363,11 @@
           this.menuToggle &&
             (this.menuToggle.classList.remove("show"),
             this.menuToggle.setAttribute("aria-expanded", "false")));
+      }
+      click(){
+        this.hideMenu();
+        var $link = this.menuParent.querySelector(".nav-link").href;
+        window.location.href = $link;
       }
     }
     document.addEventListener("DOMContentLoaded", () => {

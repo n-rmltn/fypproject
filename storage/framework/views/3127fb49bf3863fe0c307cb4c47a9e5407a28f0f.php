@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title'); ?> Home <?php $__env->stopSection(); ?>
 <?php $__env->startSection('body_class'); ?> bg-dark <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -518,26 +517,20 @@
                     }
                     }'>
                     <div class="swiper-wrapper">
+                        <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product => $prod): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="000">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/products/product-1.webp')); ?>" alt=" ">
+                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/products/product-'.$prod->product_id.'.webp')); ?>" alt=" ">
                                 </picture>
-                                <p class="title-small mb-2 text-muted">Must Haves</p>
-                                <h4 class="lead fw-bold text-white">Premium Essentials</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
+                                <p class="title-small mb-2 text-muted"><?php echo e($prod->brand->product_brand_name); ?></p>
+                                <h4 class="lead fw-bold text-white"><?php echo e($prod->product_name_short); ?></h4>
+                                <a href="<?php echo e(route('product.show', $prod->product_id)); ?>" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
                             </div>
                         </div>
-                        <div class="swiper-slide align-self-stretch bg-transparent h-auto">
-                            <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="100">
-                                <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="<?php echo e(asset('assets/images/categories/category-2.jpg')); ?>" alt=" ">
-                                </picture>
-                                <p class="title-small mb-2 text-muted">Curated Selection</p>
-                                <h4 class="lead fw-bold text-white">Our Favourites</h4>
-                                <a href="#" class="btn btn-psuedo align-self-start text-muted">Shop Now</a>
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+
+                        <?php endif; ?>
                     </div>
 
                     <div class="swiper-btn swiper-prev swiper-disabled-hide swiper-btn-side btn-icon bg-white text-dark ms-3 shadow mt-n5"><i class="ri-arrow-left-s-line "></i></div>

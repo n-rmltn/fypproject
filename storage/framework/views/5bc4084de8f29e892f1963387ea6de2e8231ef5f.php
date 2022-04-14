@@ -163,7 +163,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
         <li class="nav-item dropdown dropdown position-static">
             <a
             class="nav-link dropdown-toggle"
-            href="<?php echo e(route('product.index')); ?>"
+            href="<?php echo e(route('product.show','keyboard')); ?>"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -182,7 +182,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
                         <h6 class="dropdown-heading">Prebuilt</h6>
                         <ul class="list-unstyled">
                         <li class="dropdown-list-item">
-                            <a class="dropdown-item" href="<?php echo e(route('product.index')); ?>"
+                            <a class="dropdown-item" href="<?php echo e(route('product.show','keyboard')); ?>"
                             >Full-size</a
                             >
                         </li>
@@ -410,15 +410,15 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             <!-- / Keyboard dropdown menu-->
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(route('product.index')); ?>" role="button">
+            <a class="nav-link" href="<?php echo e(route('product.show','mouse')); ?>" role="button">
             Mouse
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(route('product.index')); ?>" role="button"> Headphone </a>
+            <a class="nav-link" href="<?php echo e(route('product.show','headphone')); ?>" role="button"> Headphone </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(route('product.index')); ?>" role="button"> Monitor </a>
+            <a class="nav-link" href="<?php echo e(route('product.show','monitor')); ?>" role="button"> Monitor </a>
         </li>
         </ul>
         <!-- / Menu-->

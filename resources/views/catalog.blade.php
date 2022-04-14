@@ -7,7 +7,7 @@
 
     <!-- Category Top Banner -->
     <div class="py-10 bg-img-cover bg-overlay-dark position-relative overflow-hidden bg-pos-center-center rounded-0"
-        style="background-image: url(./assets/images/banners/banner-category-top.jpg);">
+        style="background-image: url({{ asset('assets/images/banners/banner-category-top.jpg') }});">
         <div class="container-fluid position-relative z-index-20" data-aos="fade-right" data-aos-delay="300">
             <h1 class="fw-bold display-6 mb-4 text-white">Products</h1>
             <div class="col-12 col-md-6">
@@ -26,11 +26,21 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
-                          <li class="breadcrumb-item"><a href="#">All Product</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Keyboard</li>
+                          <li class="breadcrumb-item"><a href="{{ route('product.index') }}">All Product</a></li>
+                          @isset($category)
+                            <li class="breadcrumb-item active" aria-current="page">{{ $category }}</li>
+                          @endisset
                         </ol>
-                    </nav>        <h1 class="fw-bold fs-3 mb-2">Keyboard (1)</h1>
-                    <p class="m-0 text-muted small">Showing 1 - 1 of 1</p>
+                    </nav>
+                    <h1 class="fw-bold fs-3 mb-2">
+                        @if(isset($category))
+                        {{ ucfirst($category) }}
+                        @else
+                        All Product
+                        @endif
+                        ({{ count($products) }})
+                    </h1>
+                    <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
@@ -43,9 +53,10 @@
                     <!-- Sort Options-->
                         <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7">
                             <option selected>Sort By</option>
-                            <option value="1">Hi Low</option>
-                            <option value="2">Low Hi</option>
-                            <option value="3">Name</option>
+                            <option value="price_asc">Price: Asc</option>
+                            <option value="price_desc">Price: Desc</option>
+                            <option value="name_asc">Name: Asc</option>
+                            <option value="name_desc">Name: Desc</option>
                         </select>
                     <!-- / Sort Options-->
                 </div>
@@ -89,9 +100,9 @@
 
         <!-- Pagination-->
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
-            <small class="text-muted">Showing 1 of 1 products</small>
+            <small class="text-muted">Showing {{ count($products) }} of {{ count($products) }} products</small>
             <div class="progress f-h-1 mt-3">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <a href="#" class="btn btn-outline-dark btn-sm mt-5 align-self-center py-3 px-4 border-2">Load More</a>
         </div>            <!-- / Pagination-->

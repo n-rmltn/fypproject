@@ -14,8 +14,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('product_status',1)->get();
         return view('catalog')->with('products',$products);//
+    }
+
+    public function category($category)
+    {
+        $products = Product::where([['Product_categories',$category],['product_status',1]])->get();
+        return view('catalog')->with('products',$products)->with('category',$category);//
     }
 
     /**
@@ -47,8 +53,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        return view('product')->with('product',$product);////
+        if(is_numeric($id)){
+            $product = Product::find($id);
+            return view('product')->with('product',$product);
+        }
+        else{
+            $products = Product::where([['Product_categories',$id],['product_status',1]])->get();
+            return view('catalog')->with('products',$products)->with('category',$id);//
+        }
     }
 
     /**

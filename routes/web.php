@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StripePaymentController;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 /*
@@ -33,7 +34,10 @@ use Illuminate\Http\Request;
     });
 }); */
 
-Route::get('/', function () {return view('index');})->name('welcome');
+Route::get('/', function () {
+    $products = Product::where([['Product_featured',1],['product_status',1]])->get();
+    return view('index')->with('products',$products);
+})->name('welcome');
 
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');
 Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
@@ -60,3 +64,4 @@ Route::post('/purchase', function (Request $request) {
     // ...
 });
 Route::resource('cart', CartController::class)->name('*','cart');
+//Route::get('/product/{category}',[ProductController::class,'category'])->name('category','product')->where('category', '[A-Za-z]+');
