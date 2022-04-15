@@ -32,9 +32,9 @@ class ProductController extends Controller
         }
         $products = Product::with('brand')->where($array);
         if($request->input('brand')){
-            $brands = $request->input('brand');
-            $req += ['brand' => $brands];
-            $products = $products->whereIn('product_brand_id',$brands);
+            $brand_filter = $request->input('brand');
+            $req += ['brand' => $brand_filter];
+            $products = $products->whereIn('product_brand_id',$brand_filter);
         }
         if($request->input('sort')){
             $sort = $request->input('sort');

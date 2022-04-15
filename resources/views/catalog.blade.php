@@ -40,7 +40,7 @@
                         @endif
                         ({{ count($products) }})
                     </h1>
-                    <p class="m-0 text-muted small">{{ $brands }}Showing 1 - {{ count($products) }} of {{ count($products) }}</p>
+                    <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
@@ -52,6 +52,11 @@
                     <form action="{{ URL::current() }}" method="get">
                         @if (isset($req['category']))
                             <input type="hidden" name="category" value="{{ $req['category'] }}">
+                        @endif
+                        @if(isset($req['brand']))
+                            @foreach ($req['brand'] as $brand)
+                                <input type="hidden" name="brand[]" value="{{ $brand }}">
+                            @endforeach
                         @endif
                     <!-- Sort Options-->
                         <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
@@ -175,10 +180,18 @@
                     <div class="filter-options" data-pixr-simplebar>
                     @forelse ($brands as $brand => $val)
                         <div class="form-group form-check-custom mb-1">
-                            <input type="checkbox" name="brand[]" value="{{ $val->id }}" class="form-check-input" id="filter-brands-modal-0">
+                            <input type="checkbox" name="brand[]" value="{{ $val->id }}" class="form-check-input" id="filter-brands-modal-{{ $val->id }}"
+                            @if(isset($req['brand']))
+                                @foreach ($req['brand'] as $brand)
+                                    @if ($brand == $val->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                            @endif>
                             <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                                for="filter-brands-modal-0">{{ $val->product_brand_name }}  <span
-                                    class="text-muted ms-1 fs-9">(2)</span></label>
+                                for="filter-brands-modal-{{ $val->id }}">{{ $val->product_brand_name }}
+                                {{-- <span class="text-muted ms-1 fs-9">(2)</span> --}}
+                            </label>
                         </div>
                     @empty
                         No Brand Found
