@@ -1,11 +1,21 @@
+navbar keyboard click mobile
 catalog page
     sorting ~ done
     filtering
+        price
+        brand ~ done
+    pagination
+product page
+    breadcrumb
+    suggestions
 payment based on cart
 payment webhook
 account
     register
     login
+    ordered
+    logout
+    settings
 
 admin page
 login
@@ -17,6 +27,7 @@ account show/remove/edit
 
 database
 user
+cart
 order
 
 add more product
