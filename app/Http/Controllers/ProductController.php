@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Product_Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -15,35 +16,48 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
         $array = ['product_status' => 1];
         $req = [];
+        $brands = Product_Brand::wherehas('product', function($q)  use ($array){
+            $q->where($array);
+        })->get();
         if($request->input('category')){
             $category = $request->input('category');
             $req += ['category' => $category];
             $array += ['Product_categories' => $category];
+            $brands = Product_Brand::wherehas('product', function($q)  use ($array){
+                $q->where($array);
+            })->get();
         }
-        $prod = Product::where($array);
+        $products = Product::with('brand')->where($array);
+        if($request->input('brand')){
+            $brands = $request->input('brand');
+            $req += ['brand' => $brands];
+            $products = $products->whereIn('product_brand_id',$brands);
+        }
         if($request->input('sort')){
             $sort = $request->input('sort');
             if($sort == 'price_asc'){
-                $sorted = $prod->orderby('product_base_price', 'ASC');
+                $products = $products->orderby('product_base_price', 'ASC');
             }
             else if($sort == 'price_desc'){
-                $sorted = $prod->orderby('product_base_price', 'DESC');
+                $products = $products->orderby('product_base_price', 'DESC');
             }
             else if($sort == 'name_asc'){
-                $sorted = $prod->orderby('product_name_short', 'ASC');
+                $products = $products->orderby('product_name_short', 'ASC');
             }
             else{
-                $sorted = $prod->orderby('product_name_short', 'DESC');
+                $products = $products->orderby('product_name_short', 'DESC');
             }
             $req += ['sort' => $sort];
         }
         else{
-            $sorted = $prod->orderby('product_name_short');
+            $products = $products->orderby('product_name_short');
         }
-        $products = $sorted->get();
-        return view('catalog')->with('products',$products)->with('req',$req);//
+        $products = $products->get();
+
+        return view('catalog')->with('products',$products)->with('req',$req)->with('brands',$brands);//
     }
 
     /**

@@ -1,5 +1,6 @@
 catalog page
-    sorting
+    sorting ~ done
+    filtering
 payment based on cart
 payment webhook
 account
