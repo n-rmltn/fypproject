@@ -53,6 +53,11 @@
                         @if (isset($req['category']))
                             <input type="hidden" name="category" value="{{ $req['category'] }}">
                         @endif
+                        @if(isset($req['brand']))
+                            @foreach ($req['brand'] as $brand)
+                                <input type="hidden" name="brand[]" value="{{ $brand }}">
+                            @endforeach
+                        @endif
                     <!-- Sort Options-->
                         <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
                             <option value="price_asc"@if (isset($req['sort'])&& $req['sort'] == 'price_asc') selected @endif>Sort By Price: Asc</option>
@@ -67,6 +72,7 @@
 
         <!-- Products-->
         <div class="row g-4">
+
             @forelse ($products as $prod => $val)
             <div class="col-12 col-sm-6 col-lg-4">
                 <!-- Card Product-->
@@ -117,6 +123,13 @@
 <!-- Offcanvas Imports-->
     <!-- Filters Offcanvas-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFilters" aria-labelledby="offcanvasFiltersLabel">
+        <form id="filter" action="{{ URL::current() }}" method="get">
+        @if (isset($req['category']))
+            <input type="hidden" name="category" value="{{ $req['category'] }}">
+        @endif
+        @if (isset($req['sort']))
+            <input type="hidden" name="sort" value="{{ $req['sort'] }}">
+        @endif
         <div class="offcanvas-header pb-0 d-flex align-items-center">
           <h5 class="offcanvas-title" id="offcanvasFiltersLabel">Category Filters</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -165,96 +178,25 @@
                   </div>
                   <div class="simplebar-wrapper">
                     <div class="filter-options" data-pixr-simplebar>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-0">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-0">Keychron  <span
-                                  class="text-muted ms-1 fs-9">(2)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-1">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-1">Ducky  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-2">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-2">Redragon  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-3">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-3">Royal Kludge  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-4">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-4">GMMK  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-5">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-5">Leopold  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-6">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-6">Corsair  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-7">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-7">Coolermaster  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-8">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-8">Razer  <span
-                                  class="text-muted ms-1 fs-9">(0)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">Logitech  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">HyperX  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">SteelSeries  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">ROG  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">MSi  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
-                      <div class="form-group form-check-custom mb-1">
-                          <input type="checkbox" class="form-check-input" id="filter-brands-modal-9">
-                          <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
-                              for="filter-brands-modal-9">Predator  <span
-                                  class="text-muted ms-1 fs-9">(24)</span></label>
-                      </div>
+                    @forelse ($brands as $brand => $val)
+                        <div class="form-group form-check-custom mb-1">
+                            <input type="checkbox" name="brand[]" value="{{ $val->id }}" class="form-check-input" id="filter-brands-modal-{{ $val->id }}"
+                            @if(isset($req['brand']))
+                                @foreach ($req['brand'] as $brand)
+                                    @if ($brand == $val->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                            @endif>
+                            <label class="form-check-label fw-normal text-body flex-grow-1 d-flex align-items-center"
+                                for="filter-brands-modal-{{ $val->id }}">{{ $val->product_brand_name }}
+                                {{-- <span class="text-muted ms-1 fs-9">(2)</span> --}}
+                            </label>
+                        </div>
+                    @empty
+                        No Brand Found
+                    @endforelse
+
                     </div>
                   </div>
                 </div>
@@ -291,8 +233,9 @@
 
             <!-- Filter Button-->
             <div class="border-top pt-3">
-              <a href="#" class="btn btn-dark mt-2 d-block hover-lift-sm hover-boxshadow" data-bs-dismiss="offcanvas" aria-label="Close">Done</a>
+              <a href="#" class="btn btn-dark mt-2 d-block hover-lift-sm hover-boxshadow" onclick="document.getElementById('filter').submit()" data-bs-dismiss="offcanvas" aria-label="Close">Done</a>
             </div>
+            </form>
             <!-- /Filter Button-->
           </div>
         </div>
