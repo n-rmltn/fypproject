@@ -30,11 +30,22 @@ class ProductController extends Controller
                 $q->where($array);
             })->get();
         }
-        $products = Product::with('brand')->where($array);
+        $products = Product::where($array);
+        $price_min = Product::where($array)->orderby('product_base_price', 'ASC')->first('product_base_price');
+        $price_max = Product::where($array)->orderby('product_base_price', 'DESC')->first('product_base_price');
+        $req += ['start_min' => $price_min['product_base_price']];
+        $req += ['start_max' => $price_max['product_base_price']];
         if($request->input('brand')){
             $brand_filter = $request->input('brand');
             $req += ['brand' => $brand_filter];
             $products = $products->whereIn('product_brand_id',$brand_filter);
+        }
+        if($request->input('price_min') && $request->input('price_max') ){
+            $min = $request->input('price_min');
+            $max = $request->input('price_max');
+            $req += ['price_min' => $min];
+            $req += ['price_max' => $max];
+            $products = $products->where('product_base_price', '>' ,$min)->where('product_base_price', '<' ,$max);
         }
         if($request->input('sort')){
             $sort = $request->input('sort');

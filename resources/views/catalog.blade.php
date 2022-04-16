@@ -58,6 +58,12 @@
                                 <input type="hidden" name="brand[]" value="{{ $brand }}">
                             @endforeach
                         @endif
+                        @if (isset($req['price_min']))
+                            <input type="hidden" name="price_min" value="{{ $req['price_min'] }}">
+                        @endif
+                        @if (isset($req['price_max']))
+                            <input type="hidden" name="price_max" value="{{ $req['price_max'] }}">
+                        @endif
                     <!-- Sort Options-->
                         <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
                             <option value="price_asc"@if (isset($req['sort'])&& $req['sort'] == 'price_asc') selected @endif>Sort By Price: Asc</option>
@@ -134,7 +140,7 @@
           <h5 class="offcanvas-title" id="offcanvasFiltersLabel">Category Filters</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body" style="overflow: hidden;">
           <div class="d-flex flex-column justify-content-between w-100 h-100">
 
             <!-- Filters-->
@@ -152,11 +158,23 @@
                   <div class="d-flex justify-content-between align-items-center mt-7">
                       <div class="input-group mb-0 me-2 border">
                           <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
-                          <input type="number" min="00" max="1000" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0">
+                          <input type="number" name="price_min" min="{{ $req['start_min'] }}" max="{{ $req['start_max'] }}" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0"
+                          @if (isset($req['price_min']))
+                            data-start_min="{{ $req['price_min'] }}"
+                          @else
+                            data-start_min="0"
+                          @endif
+                          >
                       </div>
                       <div class="input-group mb-0 ms-2 border">
                           <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
-                          <input type="number" min="00" max="1000" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0">
+                          <input type="number" name="price_max" min="{{ $req['start_min'] }}" max="{{ $req['start_max'] }}" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0"
+                          @if (isset($req['price_max']))
+                          data-start_max="{{ $req['price_max'] }}"
+                          @else
+                          data-start_max="1000"
+                          @endif
+                          >
                       </div>
                   </div>          </div>
               </div>
@@ -203,7 +221,7 @@
               </div>
               <!-- / Brands Filter -->
 
-              <!-- Sizes Filter -->
+              {{-- <!-- Sizes Filter --> // todo soon
               <div class="py-4 widget-filter border-top">
                 <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
                   data-bs-toggle="collapse" href="#filter-modal-sizes" role="button" aria-expanded="true"
@@ -227,7 +245,7 @@
                     </div>            </div>
                 </div>
               </div>
-              <!-- / Sizes Filter -->
+              <!-- / Sizes Filter --> --}}
             </div>
             <!-- / Filters-->
 
