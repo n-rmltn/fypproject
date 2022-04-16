@@ -17,7 +17,7 @@
             <a href="{{ route('product.index') }}">All Product</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="{{ route('product.index') }}">Keyboard</a>
+            <a href="{{ route('product.index',['category' => $product->product_categories]) }}">{{ $product->product_categories }}</a>
             </li>
             <li
             class="breadcrumb-item breadcrumb-light active"
@@ -289,105 +289,88 @@
     <div class="row g-0">
         <!-- Related Products-->
         <div class="col-12" data-aos="fade-up">
-        <h3 class="fs-4 fw-bolder mt-7 mb-4">You May Also Like</h3>
-        <!-- Swiper Latest -->
-        <div
-            class="swiper-container"
-            data-swiper
-            data-options='{
-                    "spaceBetween": 10,
-                    "loop": true,
-                    "autoplay": {
-                        "delay": 5000,
-                        "disableOnInteraction": false
-                    },
-                    "navigation": {
-                        "nextEl": ".swiper-next",
-                        "prevEl": ".swiper-prev"
-                    },
-                    "breakpoints": {
-                        "600": {
-                        "slidesPerView": 2
-                        },
-                        "1024": {
-                        "slidesPerView": 3
-                        },
-                        "1400": {
-                        "slidesPerView": 4
-                        }
-                    }
-                    }'
-        >
-            <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <!-- Card Product-->
-                <div
-                class="card border border-transparent position-relative overflow-hidden h-100 transparent"
-                >
-                <div class="card-img position-relative">
-                    <div class="card-badges">
-                    <span class="badge badge-card"
-                        ><span
-                        class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"
-                        ></span>
-                        Sale</span
-                    >
-                    </div>
-                    <span
-                    class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"
-                    ><i class="ri-heart-line"></i
-                    ></span>
-                    <picture
-                    class="position-relative overflow-hidden d-block bg-light"
-                    >
-                    <img
-                        class="w-100 img-fluid position-relative z-index-10"
-                        title=""
-                        src="{{ asset('assets/images/products/product-1.webp') }}"
-                        alt=""
-                    />
-                    </picture>
-                    <div
-                    class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2"
-                    >
-                    <button class="btn btn-quick-add">
-                        <i class="ri-add-line me-2"></i> Quick Add
-                    </button>
-                    </div>
-                </div>
-                <div class="card-body px-0">
-                    <a
-                    class="text-decoration-none link-cover"
-                    href="./product"
-                    >Keychron K2 Wireless</a
-                    >
-                    <small class="text-muted d-block"
-                    >3 versions, 3 switches</small
-                    >
-                    <p class="mt-2 mb-0 small">
-                    <s class="text-muted">$89.90</s>
-                    <span class="text-danger">$69.00</span>
-                    </p>
-                </div>
-                </div>
-                <!--/ Card Product-->
-            </div>
-            </div>
+            <h3 class="fs-4 fw-bolder mt-7 mb-4">You May Also Like</h3>
+            <!-- Swiper Latest -->
+            <div class="swiper-container" data-swiper data-options='{
+                "spaceBetween": 10,
+                "loop": true,
+                "autoplay": {
+                  "delay": 5000,
+                  "disableOnInteraction": false
+                },
+                "navigation": {
+                  "nextEl": ".swiper-next",
+                  "prevEl": ".swiper-prev"
+                },
+                "breakpoints": {
+                  "600": {
+                    "slidesPerView": @if (count($suggestions) < 2)
+                        {{ count($suggestions) }}
+                    @else
+                        2
+                    @endif
+                  },
+                  "1024": {
+                    "slidesPerView": @if (count($suggestions) < 3)
+                        {{ count($suggestions) }}
+                    @else
+                        3
+                    @endif
+                  },
+                  "1400": {
+                    "slidesPerView": @if (count($suggestions) < 4)
+                        {{ count($suggestions) }}
+                    @else
+                        4
+                    @endif
+                  }
+                }
+              }'>
+              <div class="swiper-wrapper">
+                  @forelse ($suggestions as $suggestion => $suggest)
+                    <div class="swiper-slide">
+                        <!-- Card Product-->
+                        <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
+                            <div class="card-img position-relative">
+                                <div class="card-badges">
+                                </div>
+                                <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                                <picture class="position-relative overflow-hidden d-block bg-light">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('assets/images/products/product-'.$suggest->product_id.'.webp') }}" alt="">
+                                </picture>
+                                    <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
+                                        <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
+                                    </div>
+                            </div>
+                            <div class="card-body px-0">
+                                <a class="text-decoration-none link-cover" href="{{ route('product.show',$suggest->product_id) }}">{{ $suggest->product_name_short }}</a>
+                                <small class="text-muted d-block">
+                                    @forelse ( $suggest->option as $option => $value)
+                                    {{ count($value->list) }} {{ $value->product_option_name }}
+                                    @empty
 
-            <!-- Add Arrows -->
-            <div
-            class="swiper-prev top-50 start-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 start-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover"
-            >
-            <i class="ri-arrow-left-s-line ri-lg"></i>
+                                    @endforelse</small>
+                                        <p class="mt-2 mb-0 small">{{ $suggest->product_base_price }}</p>
+                            </div>
+                        </div>
+                        <!--/ Card Product-->
+                      </div>
+                  @empty
+                      No Suggestions Found
+                  @endforelse
+              </div>
+
+              <!-- Add Arrows -->
+              <div
+                class="swiper-prev top-50  start-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 start-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
+                <i class="ri-arrow-left-s-line ri-lg"></i></div>
+              <div
+                class="swiper-next top-50 end-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 end-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
+                <i class="ri-arrow-right-s-line ri-lg"></i></div>
+
+
             </div>
-            <div
-            class="swiper-next top-50 end-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 end-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover"
-            >
-            <i class="ri-arrow-right-s-line ri-lg"></i>
-            </div>
-        </div>
-        <!-- / Swiper Latest-->
-        </div>
+            <!-- / Swiper Latest-->                </div>
         <!-- / Related Products-->
 {{--
         <!-- Reviews-->

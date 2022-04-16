@@ -1,13 +1,14 @@
-navbar keyboard click mobile
+navbar keyboard click mobile ~ done
 catalog page
     sorting ~ done
     filtering
-        price
+        price ~ done
         brand ~ done
-    pagination
-product page
-    breadcrumb
-    suggestions
+        size
+    pagination ~ done
+product page ~ done
+    breadcrumb ~ done
+    suggestions ~ done
 payment based on cart
 payment webhook
 account

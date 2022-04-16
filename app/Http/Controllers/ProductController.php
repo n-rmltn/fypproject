@@ -25,16 +25,33 @@ class ProductController extends Controller
         if($request->input('category')){
             $category = $request->input('category');
             $req += ['category' => $category];
-            $array += ['Product_categories' => $category];
+            $array += ['product_categories' => $category];
             $brands = Product_Brand::wherehas('product', function($q)  use ($array){
                 $q->where($array);
             })->get();
         }
-        $products = Product::with('brand')->where($array);
+        $products = Product::where($array);
+        $price_min = Product::where($array)->orderby('product_base_price', 'ASC')->first('product_base_price');
+        $price_max = Product::where($array)->orderby('product_base_price', 'DESC')->first('product_base_price');
+        if(($price_min || $price_max) != null && $price_min != $price_max){
+            $req += ['start_min' => $price_min['product_base_price']];
+            $req += ['start_max' => $price_max['product_base_price']];
+        }
+        else{
+            $req += ['start_min' => '0'];
+            $req += ['start_max' => '1000'];
+        }
         if($request->input('brand')){
             $brand_filter = $request->input('brand');
             $req += ['brand' => $brand_filter];
             $products = $products->whereIn('product_brand_id',$brand_filter);
+        }
+        if($request->input('price_min') && $request->input('price_max') ){
+            $min = $request->input('price_min');
+            $max = $request->input('price_max');
+            $req += ['price_min' => $min];
+            $req += ['price_max' => $max];
+            $products = $products->where('product_base_price', '>' ,$min)->where('product_base_price', '<' ,$max);
         }
         if($request->input('sort')){
             $sort = $request->input('sort');
@@ -55,7 +72,7 @@ class ProductController extends Controller
         else{
             $products = $products->orderby('product_name_short');
         }
-        $products = $products->get();
+        $products = $products->paginate(9);
 
         return view('catalog')->with('products',$products)->with('req',$req)->with('brands',$brands);//
     }
@@ -90,7 +107,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('product')->with('product',$product);
+        $suggestions = Product::where('product_categories',$product->product_categories)->inRandomOrder()->limit(8)->get();
+        return view('product')->with('product',$product)->with('suggestions',$suggestions);
     }
 
     private function sort(){

@@ -40,7 +40,7 @@
                         @endif
                         ({{ count($products) }})
                     </h1>
-                    <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p>
+                    {{-- <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p> --}}
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
@@ -57,6 +57,12 @@
                             @foreach ($req['brand'] as $brand)
                                 <input type="hidden" name="brand[]" value="{{ $brand }}">
                             @endforeach
+                        @endif
+                        @if (isset($req['price_min']))
+                            <input type="hidden" name="price_min" value="{{ $req['price_min'] }}">
+                        @endif
+                        @if (isset($req['price_max']))
+                            <input type="hidden" name="price_max" value="{{ $req['price_max'] }}">
                         @endif
                     <!-- Sort Options-->
                         <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
@@ -109,11 +115,8 @@
 
         <!-- Pagination-->
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
-            <small class="text-muted">Showing {{ count($products) }} of {{ count($products) }} products</small>
-            <div class="progress f-h-1 mt-3">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <a href="#" class="btn btn-outline-dark btn-sm mt-5 align-self-center py-3 px-4 border-2">Load More</a>
+
+            {!! $products->withQueryString()->links() !!}
         </div>            <!-- / Pagination-->
     </div>
 
@@ -134,7 +137,7 @@
           <h5 class="offcanvas-title" id="offcanvasFiltersLabel">Category Filters</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body" style="overflow: hidden;">
           <div class="d-flex flex-column justify-content-between w-100 h-100">
 
             <!-- Filters-->
@@ -152,11 +155,23 @@
                   <div class="d-flex justify-content-between align-items-center mt-7">
                       <div class="input-group mb-0 me-2 border">
                           <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
-                          <input type="number" min="00" max="1000" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0">
+                          <input type="number" name="price_min" min="{{ $req['start_min'] }}" max="{{ $req['start_max'] }}" step="1" class="filter-min form-control-sm border flex-grow-1 text-muted border-0"
+                          @if (isset($req['price_min']))
+                            data-start_min="{{ $req['price_min'] }}"
+                          @else
+                            data-start_min="0"
+                          @endif
+                          >
                       </div>
                       <div class="input-group mb-0 ms-2 border">
                           <span class="input-group-text bg-transparent fs-7 p-2 text-muted border-0">RM</span>
-                          <input type="number" min="00" max="1000" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0">
+                          <input type="number" name="price_max" min="{{ $req['start_min'] }}" max="{{ $req['start_max'] }}" step="1" class="filter-max form-control-sm flex-grow-1 text-muted border-0"
+                          @if (isset($req['price_max']))
+                          data-start_max="{{ $req['price_max'] }}"
+                          @else
+                          data-start_max="1000"
+                          @endif
+                          >
                       </div>
                   </div>          </div>
               </div>
@@ -203,7 +218,7 @@
               </div>
               <!-- / Brands Filter -->
 
-              <!-- Sizes Filter -->
+              {{-- <!-- Sizes Filter --> // todo soon
               <div class="py-4 widget-filter border-top">
                 <a class="small text-body text-decoration-none text-secondary-hover transition-all transition-all fs-6 fw-bolder d-block collapse-icon-chevron"
                   data-bs-toggle="collapse" href="#filter-modal-sizes" role="button" aria-expanded="true"
@@ -227,7 +242,7 @@
                     </div>            </div>
                 </div>
               </div>
-              <!-- / Sizes Filter -->
+              <!-- / Sizes Filter --> --}}
             </div>
             <!-- / Filters-->
 

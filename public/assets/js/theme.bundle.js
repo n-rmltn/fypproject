@@ -365,9 +365,15 @@
             this.menuToggle.setAttribute("aria-expanded", "false")));
       }
       click(){
-        this.hideMenu();
-        var $link = this.menuParent.querySelector(".nav-link").href;
-        window.location.href = $link;
+        if(window.matchMedia("(any-hover: none)").matches){
+            if(this.menuToggle.getAttribute("aria-expanded") == true){
+                this.hideMenu();
+            }
+        }
+        else{
+            var $link = this.menuParent.querySelector(".nav-link").href;
+            window.location.href = $link;
+        }
       }
     }
     document.addEventListener("DOMContentLoaded", () => {
@@ -397,19 +403,24 @@
       var e = document.querySelectorAll(".filter-price") || [];
       const t = (e) => {
         const t = e.closest(".widget-filter-price");
+        var n = !!t && t.querySelector(".filter-min"),
+          o = !!t && t.querySelector(".filter-max"),
+          start_min = parseInt(n.dataset.start_min),
+          start_max = parseInt(o.dataset.start_max),
+          min_price = parseInt(n.min),
+          max_price = parseInt(o.max),
+          divide = (max_price-min_price)/4;
         d.a.create(e, {
-          start: [60, 900],
+          start: [start_min, start_max],
           connect: !0,
           tooltips: [!0, !0],
-          range: { min: 0, max: 1e3 },
+          range: { min: min_price, max: max_price },
           pips: {
             mode: "values",
-            values: [0, 250, 500, 750, 1e3],
+            values: [min_price, min_price+divide, min_price+(2*divide), min_price+(3*divide), max_price],
             density: 100,
           },
         });
-        var n = !!t && t.querySelector(".filter-min"),
-          o = !!t && t.querySelector(".filter-max");
         const r = [n, o];
         e.noUiSlider.on("update", function (e, t) {
           r[t].value = e[t];
