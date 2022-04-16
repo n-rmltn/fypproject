@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title'); ?> Keychron K2 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <!-- Main Section-->
@@ -17,7 +16,7 @@
             <a href="<?php echo e(route('product.index')); ?>">All Product</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="<?php echo e(route('product.index')); ?>">Keyboard</a>
+            <a href="<?php echo e(route('product.index',['category' => $product->product_categories])); ?>"><?php echo e($product->product_categories); ?></a>
             </li>
             <li
             class="breadcrumb-item breadcrumb-light active"

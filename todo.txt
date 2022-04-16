@@ -7,7 +7,7 @@ catalog page
         size
     pagination
 product page
-    breadcrumb
+    breadcrumb ~ done
     suggestions
 payment based on cart
 payment webhook

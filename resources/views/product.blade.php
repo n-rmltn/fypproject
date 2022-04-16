@@ -17,7 +17,7 @@
             <a href="{{ route('product.index') }}">All Product</a>
             </li>
             <li class="breadcrumb-item breadcrumb-light">
-            <a href="{{ route('product.index') }}">Keyboard</a>
+            <a href="{{ route('product.index',['category' => $product->product_categories]) }}">{{ $product->product_categories }}</a>
             </li>
             <li
             class="breadcrumb-item breadcrumb-light active"
