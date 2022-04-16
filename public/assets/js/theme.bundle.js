@@ -365,9 +365,15 @@
             this.menuToggle.setAttribute("aria-expanded", "false")));
       }
       click(){
-        this.hideMenu();
-        var $link = this.menuParent.querySelector(".nav-link").href;
-        window.location.href = $link;
+        if(window.matchMedia("(any-hover: none)").matches){
+            if(this.menuToggle.getAttribute("aria-expanded") == true){
+                this.hideMenu();
+            }
+        }
+        else{
+            var $link = this.menuParent.querySelector(".nav-link").href;
+            window.location.href = $link;
+        }
       }
     }
     document.addEventListener("DOMContentLoaded", () => {

@@ -1,9 +1,10 @@
-navbar keyboard click mobile
+navbar keyboard click mobile ~ done
 catalog page
     sorting ~ done
     filtering
-        price
+        price ~ done
         brand ~ done
+        size
     pagination
 product page
     breadcrumb
