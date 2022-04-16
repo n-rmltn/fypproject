@@ -5,10 +5,10 @@ catalog page
         price ~ done
         brand ~ done
         size
-    pagination
-product page
+    pagination ~ done
+product page ~ done
     breadcrumb ~ done
-    suggestions
+    suggestions ~ done
 payment based on cart
 payment webhook
 account

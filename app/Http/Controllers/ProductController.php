@@ -72,7 +72,7 @@ class ProductController extends Controller
         else{
             $products = $products->orderby('product_name_short');
         }
-        $products = $products->get();
+        $products = $products->paginate(9);
 
         return view('catalog')->with('products',$products)->with('req',$req)->with('brands',$brands);//
     }
@@ -107,7 +107,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('product')->with('product',$product);
+        $suggestions = Product::where('product_categories',$product->product_categories)->inRandomOrder()->limit(8)->get();
+        return view('product')->with('product',$product)->with('suggestions',$suggestions);
     }
 
     private function sort(){

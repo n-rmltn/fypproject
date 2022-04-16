@@ -40,7 +40,7 @@
                         @endif
                         ({{ count($products) }})
                     </h1>
-                    <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p>
+                    {{-- <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p> --}}
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
@@ -115,11 +115,8 @@
 
         <!-- Pagination-->
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
-            <small class="text-muted">Showing {{ count($products) }} of {{ count($products) }} products</small>
-            <div class="progress f-h-1 mt-3">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <a href="#" class="btn btn-outline-dark btn-sm mt-5 align-self-center py-3 px-4 border-2">Load More</a>
+
+            {!! $products->withQueryString()->links() !!}
         </div>            <!-- / Pagination-->
     </div>
 

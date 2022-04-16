@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title'); ?> Home <?php $__env->stopSection(); ?>
 <?php $__env->startSection('body_class'); ?> bg-dark <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
