@@ -19,12 +19,12 @@ account ~ done
     settings ~ done
 
 admin page
-login
-add/remove/edit product
+login ~ done
+add/remove/edit product ~ done
 order
     list
     edit status
-account show/remove/edit
+account show/remove/edit ~ done
 
 database
 user

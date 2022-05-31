@@ -18,11 +18,6 @@
             <!-- / Logo-->
             <div class="shadow-xl p-4 p-lg-5 bg-white">
                 <h1 class="text-center fw-bold mb-5 fs-2">Login</h1>
-                <a href="#" class="btn btn-facebook d-block mb-2"><i class="ri-facebook-circle-fill align-bottom"></i> Login
-                    with Facebook</a>
-                <a href="#" class="btn btn-twitter d-block mb-2"><i class="ri-twitter-fill align-bottom"></i> Login with
-                    Twitter</a>
-                <span class="text-muted text-center d-block fw-bolder my-4">OR</span>
                 <form>
                     <div class="form-group">
                       <label class="form-label" for="login-email">Email address</label>

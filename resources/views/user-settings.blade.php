@@ -51,10 +51,6 @@
                     <input type="text" class="form-control" id="update-city" placeholder="Kota Kinabalu">
                   </div>
                   <div class="form-group">
-                    <label class="form-label" for="update-poscode">Postal Code</label>
-                    <input type="text" class="form-control" id="update-poscode" placeholder="88000">
-                  </div>
-                  <div class="form-group">
                     <label class="form-label" for="update-state">State</label>
                     <select class="form-control" id="update-state">
                       <option>Johor</option>
@@ -70,9 +66,7 @@
                       <option>Sarawak</option>
                       <option>Selangor</option>
                       <option>Terengganu</option>
-                  </div>
-                  <div class="form-group visually-hidden">
-                    <input type="text" class="form-control visually-hidden" id="ntg">
+                    </select>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-poscode">Postal Code</label>

@@ -5,7 +5,7 @@
 
     <!-- Main Section-->
     <section
-        class="mt-0 d-flex justify-content-center align-items-center p-4">
+        class="mt-0 overflow-hidden vh-100 d-flex justify-content-center align-items-center p-4">
         <!-- Page Content Goes Here -->
 
         <!-- Login Form-->
@@ -19,11 +19,6 @@
             <!-- / Logo-->
             <div class="shadow-xl p-4 p-lg-5 bg-white">
                 <h1 class="text-center mb-5 fs-2 fw-bold">Open Account</h1>
-                <a href="#" class="btn btn-facebook d-block mb-2"><i class="ri-facebook-circle-fill align-bottom"></i> Login
-                    with Facebook</a>
-                <a href="#" class="btn btn-twitter d-block mb-2"><i class="ri-twitter-fill align-bottom"></i> Login with
-                    Twitter</a>
-                <span class="text-muted text-center d-block fw-bolder my-4">OR</span>
                 <form>
                     <div class="form-group">
                       <label class="form-label" for="register-fname">First name</label>
