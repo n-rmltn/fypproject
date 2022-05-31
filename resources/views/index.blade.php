@@ -186,7 +186,7 @@
                 <span class="text-outline-light">Gaming</span> Monitors
             </h2>
             <div data-swiper-parallax-y="-25">
-                <a href="#" class="btn btn-psuedo text-white" role="button"
+                <a href="{{ route('product.index',['category' => 'monitor']) }}" class="btn btn-psuedo text-white" role="button"
                 >Browse Monitors</a
                 >
             </div>
@@ -617,7 +617,7 @@
     <!-- / Homepage Intro-->
 
     <!-- Homepage Banners-->
-    <div class="pt-7 mb-5 mb-lg-10">
+    {{--  <div class="pt-7 mb-5 mb-lg-10">
         <div class="row g-4">
         <div
             class="col-12 col-xl-6 position-relative"
@@ -733,7 +733,7 @@
                 <div class="card-overlay">
                     <p class="lead fw-bolder mb-2">MSI MPG Artymis</p>
                     <a
-                    href="#"
+                    href="{{ route('product.index',['category' => 'monitor']) }}"
                     class="btn btn-psuedo text-white py-2"
                     role="button"
                     >Shop Monitor</a
@@ -744,7 +744,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
     <!-- / Homepage Banners-->
     </div>
 

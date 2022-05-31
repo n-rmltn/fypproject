@@ -25,7 +25,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '320.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5WeDmnxMQagsyYOeME5rh',
             ],
             [
                 'product_name_short' => 'Keychron K4',
@@ -37,7 +37,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '320.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5XyDmnxMQagsyvjznd1ig',
             ],
             [
                 'product_name_short' => 'Keychron K10',
@@ -49,7 +49,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '390.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5YkDmnxMQagsyLfmp3waS',
             ],
             [
                 'product_name_short' => 'Keychron K8',
@@ -61,7 +61,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '320.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5aXDmnxMQagsyd06rlGhg',
             ],
             [
                 'product_name_short' => 'Keychron K6',
@@ -73,7 +73,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '320.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Ducky One 2 Mini Blackout',
@@ -85,7 +85,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '420.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Ducky One 2 RGB TKL White',
@@ -97,7 +97,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '430.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Ducky One 2 Tuxedo',
@@ -109,7 +109,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '460.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Ducky Feather',
@@ -121,7 +121,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '250.00',
                 'product_status' => '1',
                 'product_featured' => '1',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Ducky Secret',
@@ -133,7 +133,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '170.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Redragon K556',
@@ -145,7 +145,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '270.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
             [
                 'product_name_short' => 'Redragon K552',
@@ -157,7 +157,7 @@ class ProductTableSeeder extends Seeder
                 'product_base_price' => '150.00',
                 'product_status' => '1',
                 'product_featured' => '0',
-                'product_stripe_id' => 'price_1KhD0lEpRCJdieCxAVKUK4av',
+                'product_stripe_id' => 'price_1Kr5c5DmnxMQagsyzufBaBWh',
             ],
         ]
         ); //

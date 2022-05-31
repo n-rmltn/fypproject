@@ -21,7 +21,7 @@
                     <nav class="d-none d-md-block">
                         <ul class="list-unstyled d-flex justify-content-start mt-4 align-items-center fw-bolder small">
                             <li class="me-4"><a class="nav-link-checkout"
-                                href="{{ route('welcome') }}">home</a></li>
+                                href="{{ route('welcome') }}">Home</a></li>
                             <li class="me-4"><a class="nav-link-checkout active"
                                     href="{{ route('cart.index') }}">Your Cart</a></li>
                         </ul>

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title') Catalog @endsection
+@section('body_class') bg-dark @endsection
 @section('content')
 <!-- Main Section-->
 <section class="mt-0 ">
@@ -25,14 +26,14 @@
                 <div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
-                          <li class="breadcrumb-item"><a href="{{ route('product.index') }}">All Product</a></li>
+                          <li class="breadcrumb-item text-white"><a href="{{ route('welcome') }}">Home</a></li>
+                          <li class="breadcrumb-item text-white"><a href="{{ route('product.index') }}">All Product</a></li>
                           @if(isset($req['category']))
-                            <li class="breadcrumb-item active" aria-current="page">{{ $req['category'] }}</li>
+                            <li class="breadcrumb-item text-white active " aria-current="page">{{ $req['category'] }}</li>
                           @endif
                         </ol>
                     </nav>
-                    <h1 class="fw-bold fs-3 mb-2">
+                    <h1 class="fw-bold fs-3 mb-2 text-white">
                         @if(isset($req['category']))
                         {{ ucfirst($req['category']) }}
                         @else
@@ -40,12 +41,12 @@
                         @endif
                         ({{ count($products) }})
                     </h1>
-                    {{-- <p class="m-0 text-muted small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p> --}}
+                    {{-- <p class="m-0 text-white small">Showing 1 - {{ count($products) }} of {{ count($products) }}</p> --}}
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4 mt-lg-0 flex-column flex-md-row">
 
                     <!-- Filter Trigger-->
-                    <button class="btn bg-light p-3 me-md-3 d-flex align-items-center fs-7 lh-1 w-100 mb-2 mb-md-0 w-md-auto " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters" aria-controls="offcanvasFilters">
+                    <button class="btn bg-dark p-3 me-md-3 d-flex align-items-center fs-7 lh-1 w-100 mb-2 mb-md-0 w-md-auto text-white " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters" aria-controls="offcanvasFilters">
                         <i class="ri-equalizer-line me-2"></i> Filters
                     </button>
                     <!-- / Filter Trigger-->
@@ -65,7 +66,7 @@
                             <input type="hidden" name="price_max" value="{{ $req['price_max'] }}">
                         @endif
                     <!-- Sort Options-->
-                        <select class="form-select form-select-sm border-0 bg-light p-3 pe-5 lh-1 fs-7" name="sort" onchange="this.form.submit()">
+                        <select class="form-select form-select-sm border-1 bg-dark p-3 pe-5 lh-1 fs-7 text-white" name="sort" onchange="this.form.submit()">
                             <option value="price_asc"@if (isset($req['sort'])&& $req['sort'] == 'price_asc') selected @endif>Sort By Price: Asc</option>
                             <option value="price_desc"@if (isset($req['sort'])&& $req['sort'] == 'price_desc') selected @endif>Sort By Price: Desc</option>
                             <option value="name_asc"@if (isset($req['sort'])&& $req['sort'] == 'name_asc' || !isset($req['sort'])) selected @endif>Sort By Name: Asc</option>
@@ -82,10 +83,10 @@
             @forelse ($products as $prod => $val)
             <div class="col-12 col-sm-6 col-lg-4">
                 <!-- Card Product-->
-                <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
+                <div class="card border border-transparent position-relative overflow-hidden h-100 transparent bg-dark">
                     <div class="card-img position-relative">
                         <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
-                        <picture class="position-relative overflow-hidden d-block bg-light">
+                        <picture class="position-relative overflow-hidden d-block bg-dark">
                             <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('/assets/images/products/product-'.$val->product_id.'.webp') }}" alt="">
                         </picture>
                             <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
@@ -93,7 +94,7 @@
                             </div>
                     </div>
                     <div class="card-body px-0">
-                        <a class="text-decoration-none link-cover" href="{{ route('product.show', $val->product_id) }}">{{ $val->product_name_long }}</a>
+                        <a class="text-decoration-none link-cover text-white" href="{{ route('product.show', $val->product_id) }}">{{ $val->product_name_long }}</a>
 
                         <small class="text-muted d-block">
                             @forelse ( $val->option as $option => $value)
@@ -102,20 +103,19 @@
 
                             @endforelse
                         </small>
-                                <p class="mt-2 mb-0 small">RM{{ $val->product_base_price }}</p>
+                                <p class="mt-2 mb-0 small text-white">RM{{ $val->product_base_price }}</p>
                     </div>
                 </div>
                 <!--/ Card Product-->
             </div>
             @empty
-                No Product Found
+                <p class="text-white">No product available</p>
             @endforelse
         </div>
         <!-- / Products-->
 
         <!-- Pagination-->
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
-
             {!! $products->withQueryString()->links() !!}
         </div>            <!-- / Pagination-->
     </div>

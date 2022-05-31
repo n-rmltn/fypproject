@@ -83,7 +83,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
 
         <!-- Navbar Login-->
         <li class="ms-1 d-none d-lg-inline-block">
-        <a class="nav-link text-light" href="#"> Account </a>
+        <a class="nav-link text-light" href="{{ route('login') }}"> Account </a>
         </li>
         <!-- /Navbar Login-->
 

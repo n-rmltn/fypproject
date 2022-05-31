@@ -11,12 +11,12 @@ product page ~ done
     suggestions ~ done
 payment based on cart
 payment webhook
-account
-    register
-    login
-    ordered
-    logout
-    settings
+account ~ done
+    register ~ done
+    login ~ done
+    ordered ~ done
+    logout ~ done
+    settings ~ done
 
 admin page
 login
@@ -32,7 +32,7 @@ cart
 order
 
 add more product
-added some babyyy
+    added some
 
 search ~ done
 remove item cart ~ done

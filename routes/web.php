@@ -39,6 +39,14 @@ Route::get('/', function () {
     return view('index')->with('products',$products);
 })->name('welcome');
 
+Route::get('/login', function () {return view('login');;})->name('login');
+Route::get('/register', function () {return view('register');;})->name('register');
+Route::get('/user', function () {return view('user-orders');;})->name('orders');
+Route::get('/user/settings', function () {return view('user-settings');;})->name('settings');
+Route::get('/user/password', function () {return view('user-password');;})->name('password');
+
+Route::get('/forgot_pass', function () {return view('user-forgotpass');;})->name('forgot');
+
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');
 Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
 Route::get('/checkout/payment', function () {return view('payment');})->name('payment');

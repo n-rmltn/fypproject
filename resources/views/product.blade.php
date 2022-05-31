@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Keychron K2 @endsection
+@section('title') {{ $product->product_name_short; }} @endsection
 @section('content')
 <!-- Main Section-->
 <section class="mt-0">
