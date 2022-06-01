@@ -11,14 +11,14 @@ product page ~ done
     suggestions ~ done
 payment based on cart
 payment webhook
-account ~ done
+account UI ~ done
     register ~ done
     login ~ done
     ordered ~ done
     logout ~ done
     settings ~ done
 
-admin page
+admin page UI ~ done
 login ~ done
 add/remove/edit product ~ done
 order
