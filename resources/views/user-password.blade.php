@@ -18,7 +18,7 @@
             </a>
             <!-- / Logo-->
             <div class="shadow-xl p-4 p-lg-5 bg-white">
-            <h1 class="text-center mb-5 fs-2 fw-bold">Account Settings</h1>
+            <h1 class="text-center mb-5 fs-2 fw-bold">Change Password</h1>
             <div class="d-flex justify-content-center mb-5">
                 <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders</a>
                 <a href="{{ route('settings') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Settings </a>
@@ -34,7 +34,7 @@
                     <label class="form-label" for="update-pass">New Password</label>
                     <input type="password" class="form-control" id="update-pass">
                   </div>
-                  <button type="submit" class="btn btn-dark d-block w-100 my-4">Update Password</button>
+                  <button type="submit" class="btn btn-dark d-block w-100 my-4">Change Password</button>
                 </form>
                       <!-- / Products-->
         </div>

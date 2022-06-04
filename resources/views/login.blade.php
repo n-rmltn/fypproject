@@ -34,7 +34,6 @@
                 </form>
                 <p class="d-block text-center text-muted">New customer? <a class="text-muted" href="{{ route('register') }}">Sign up for an account</a></p>
             </div>
-
         </div>
         <!-- / Login Form-->
 
