@@ -130,6 +130,7 @@
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item d-flex align-items-center" href="#">Logout</a></li>
+                  <li><a class="dropdown-item d-flex align-items-center" href="{{ route('welcome') }}">Return to site</a></li>
                 </ul>
               </div>        <!-- / Profile Menu-->
     
