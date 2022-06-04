@@ -37,3 +37,14 @@ add more product
 search ~ done
 remove item cart ~ done
 index product featured ~ done
+
+route user
+    login / register 
+        user
+        settings
+        pass
+        logout
+
+route admin
+    login
+        adminpage

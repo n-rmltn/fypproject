@@ -45,6 +45,13 @@ Route::get('/user', function () {return view('user-orders');;})->name('orders');
 Route::get('/user/settings', function () {return view('user-settings');;})->name('settings');
 Route::get('/user/password', function () {return view('user-password');;})->name('password');
 
+Route::get('/admin', function () {return view('admin');;})->name('admin');
+Route::get('/admin/orders', function () {return view('admin-orders');;})->name('admin-orders');
+Route::get('/admin/product', function () {return view('admin-product');;})->name('admin-product');
+Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
+Route::get('/admin/user', function () {return view('admin-user');;})->name('admin-user');
+Route::get('/admin/user/alt', function () {return view('admin-user-alter');;})->name('admin-user-alter');
+
 Route::get('/forgot_pass', function () {return view('user-forgotpass');;})->name('forgot');
 
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');
