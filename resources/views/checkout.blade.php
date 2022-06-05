@@ -22,75 +22,180 @@
                             <ul class="list-unstyled d-flex justify-content-start mt-4 align-items-center fw-bolder small">
                                 <li class="me-4"><a class="nav-link-checkout "
                                         href="./cart.html">Your Cart</a></li>
-                                <li class="me-4"><a class="nav-link-checkout "
-                                        href="./checkout.html">Information</a></li>
                                 <li class="me-4"><a class="nav-link-checkout active"
+                                        href="./checkout.html">Information</a></li>
+                                <li class="me-4"><a class="nav-link-checkout "
                                         href="./checkout-shipping.html">Shipping</a></li>
                                 <li><a class="nav-link-checkout nav-link-last "
                                         href="./checkout-payment.html">Payment</a></li>
                             </ul>
                         </nav>                        <div class="mt-5">
-                            <!-- Checkout Information Summary -->
-                            <ul class="list-group mb-5 d-none d-lg-block rounded-0">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-start align-items-center">
-                                        <span class="text-muted small me-2 f-w-36 fw-bolder">Contact</span>
-                                        <span class="small">test@email.com</span>
-                                    </div>
-                                    <a href="./checkout.html" class="text-muted small" role="button">Change</a>
-                                </li>
-                            </ul><!-- / Checkout Information Summary-->
-                            
                             <!-- Checkout Panel Information-->
-                            <h3 class="fs-5 fw-bolder mb-4 border-bottom pb-4">Shipping Method</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-4">
+                              <h3 class="fs-5 fw-bolder m-0 lh-1">Contact Information</h3>
+                              <small class="text-muted fw-bolder">Already registered? <a href="./login.html">Login</a></small>
+                            </div>
+                            <div class="row">
+                              <!-- First Name-->
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="firstNameBilling" class="form-label">First name</label>
+                                  <input type="text" class="form-control" id="firstNameBilling" placeholder="" value="" required="">
+                                </div>
+                              </div>
                             
-                            <!-- Shipping Option-->
-                            <div class="form-check form-group form-check-custom form-radio-custom form-radio-highlight mb-3">
-                              <input class="form-check-input" type="radio" name="checkoutShippingMethod" id="checkoutShippingMethodOne" checked>
-                              <label class="form-check-label" for="checkoutShippingMethodOne">
-                                <span class="d-flex justify-content-between align-items-start">
-                                  <span>
-                                    <span class="mb-0 fw-bolder d-block">Click & Collect Shipping</span>
-                                    <small class="fw-bolder">Collect from our London store</small>
-                                  </span>
-                                  <span class="small fw-bolder text-uppercase">Free</span>
-                                </span>
-                              </label>
+                              <!-- Last Name-->
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="lastNameBilling" class="form-label">Last name</label>
+                                  <input type="text" class="form-control" id="lastNameBilling" placeholder="" value="" required="">
+                                </div>
+                              </div>
+                            
+                              <!-- Email-->
+                              <div class="col-12">
+                                <div class="form-group">
+                                  <label for="email" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                </div>
+                            
+                                <!-- Mailing List Signup-->
+                                <div class="form-group form-check m-0">
+                                  <input type="checkbox" class="form-check-input" id="add-mailinglist" checked>
+                                  <label class="form-check-label small text-muted" for="add-mailinglist">Keep me updated with your latest news and offers</label>
+                                </div>
+                              </div>
                             </div>
                             
-                            <!-- Shipping Option-->
-                            <div class="form-check form-group form-check-custom form-radio-custom form-radio-highlight mb-3">
-                              <input class="form-check-input" type="radio" name="checkoutShippingMethod" id="checkoutShippingMethodTwo">
-                              <label class="form-check-label" for="checkoutShippingMethodTwo">
-                                <span class="d-flex justify-content-between align-items-start">
-                                  <span>
-                                    <span class="mb-0 fw-bolder d-block">UPS Next Day</span>
-                                    <small class="fw-bolder">For all orders placed before 1pm Monday to Thursday</small>
-                                  </span>
-                                  <span class="small fw-bolder text-uppercase">$19.99</span>
-                                </span>
-                              </label>
+                            <h3 class="fs-5 mt-5 fw-bolder mb-4 border-bottom pb-4">Shipping Address</h3>
+                            <div class="row">
+                              <!-- First Name-->
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="firstName" class="form-label">First name</label>
+                                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                                </div>
+                              </div>
+                            
+                              <!-- Last Name-->
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="lastName" class="form-label">Last name</label>
+                                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                                </div>
+                              </div>
+                            
+                              <!-- Address-->
+                              <div class="col-12">
+                                <div class="form-group">
+                                  <label for="address" class="form-label">Address</label>
+                                  <input type="text" class="form-control" id="address" placeholder="123 Some Street Somewhere" required="">
+                                </div>
+                              </div>
+                            
+                              <!-- Country-->
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label for="country" class="form-label">Country</label>
+                                  <select class="form-select" id="country" required="">
+                                    <option value="">Please Select...</option>
+                                    <option>United States</option>
+                                  </select>
+                                </div>
+                              </div>
+                            
+                              <!-- State-->
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="state" class="form-label">State</label>
+                                  <select class="form-select" id="state" required="">
+                                    <option value="">Please Select...</option>
+                                    <option>California</option>
+                                  </select>
+                                </div>
+                              </div>
+                            
+                              <!-- Post Code-->
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="zip" class="form-label">Zip/Post Code</label>
+                                  <input type="text" class="form-control" id="zip" placeholder="" required="">
+                                </div>
+                              </div>
                             </div>
                             
-                            <!-- Shipping Option-->
-                            <div class="form-check form-group form-check-custom form-radio-custom form-radio-highlight mb-3">
-                              <input class="form-check-input" type="radio" name="checkoutShippingMethod" id="checkoutShippingMethodThree">
-                              <label class="form-check-label" for="checkoutShippingMethodThree">
-                                <span class="d-flex justify-content-between align-items-start">
-                                  <span>
-                                    <span class="mb-0 fw-bolder d-block">DHL Priority Service</span>
-                                    <small class="fw-bolder">24 - 36 hour delivery</small>
-                                  </span>
-                                  <span class="small fw-bolder text-uppercase">$9.99</span>
-                                </span>
-                              </label>
+                            <div class="pt-4 mt-4 pb-5 border-top d-flex justify-content-between align-items-center">
+                              <!-- Shipping Same Checkbox-->
+                              <div class="form-group form-check m-0">
+                                <input type="checkbox" class="form-check-input" id="same-address" checked>
+                                <label class="form-check-label" for="same-address">Use for billing address</label>
+                              </div>
                             </div>
                             
-                            <div class="pt-5 mt-5 pb-5 border-top d-flex flex-column flex-md-row justify-content-between align-items-center">
-                              <a href="./checkout.html" class="btn ps-md-0 btn-link fw-bolder w-100 w-md-auto mb-2 mb-md-0" role="button">Back to information</a>
-                              <a href="./checkout-payment.html" class="btn btn-dark w-100 w-md-auto" role="button">Proceed to payment</a>
+                            <!-- Billing Address-->
+                            <div class="billing-address d-none">
+                              <h3 class="fs-5 fw-bolder mb-4 border-bottom pb-4">Billing Address</h3>
+                              <div class="row">
+                                <!-- First Name-->
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="firstNameAddress" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="firstNameAddress" placeholder="" value="" required="">
+                                  </div>
+                                </div>
+                            
+                                <!-- Last Name-->
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="lastNameAddress" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="lastNameAddress" placeholder="" value="" required="">
+                                  </div>
+                                </div>
+                            
+                                <!-- Address-->
+                                <div class="col-12">
+                                  <div class="form-group">
+                                    <label for="addressAddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="addressAddress" placeholder="123 Some Street Somewhere" required="">
+                                  </div>
+                                </div>
+                            
+                                <!-- Country-->
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="countryAddress" class="form-label">Country</label>
+                                    <select class="form-select" id="countryAddress" required="">
+                                      <option value="">Please Select...</option>
+                                      <option>United States</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            
+                                <!-- State-->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="stateAddress" class="form-label">State</label>
+                                    <select class="form-select" id="stateAddress" required="">
+                                      <option value="">Please Select...</option>
+                                      <option>California</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            
+                                <!-- Post Code-->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="zipAddress" class="form-label">Zip/Post Code</label>
+                                    <input type="text" class="form-control" id="zipAddress" placeholder="" required="">
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                        </div>
+                            <!-- / Billing Address-->
+                            
+                            <div class="pt-5 mt-5 pb-5 border-top d-flex justify-content-md-end align-items-center">
+                              <a href="./checkout-shipping.html" class="btn btn-dark w-100 w-md-auto" role="button">Proceed to shipping</a>
+                            </div>                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 bg-light pt-lg-10 aside-checkout pb-5 pb-lg-0 my-5 my-lg-0">
@@ -135,31 +240,21 @@
                                 </div>
                             </div>    <!-- / Cart Item-->
                         </div>
-                        <div class="py-4 border-bottom">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="m-0 fw-bolder fs-6">Subtotal</p>
-                                <p class="m-0 fs-6 fw-bolder">$422.99</p>
+                        <div class="pb-4 border-bottom">
+                        <div class="d-flex flex-column flex-md-row justify-content-md-between mb-4 mb-md-2">
+                            <div>
+                                <p class="m-0 fw-bold fs-5">Grand Total</p>
+                                {{-- <span class="text-muted small">Inc $45.89 sales tax</span> --}}
                             </div>
-                            <div class="d-flex justify-content-between align-items-center ">
-                                <p class="m-0 fw-bolder fs-6">Shipping</p>
-                                <p class="m-0 fs-6 fw-bolder">$8.95</p>
-                            </div>
+                            <p class="m-0 fs-5 fw-bold">${{ number_format((float)$grandtotal, 2, '.', '');}}</p>
                         </div>
-                        <div class="py-4 border-bottom">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <p class="m-0 fw-bold fs-5">Grand Total</p>
-                                    <span class="text-muted small">Inc $45.89 sales tax</span>
-                                </div>
-                                <p class="m-0 fs-5 fw-bold">$422.99</p>
-                            </div>
+                    </div>{{--
+                    <div class="py-4">
+                        <div class="input-group mb-0">
+                            <input type="text" class="form-control" placeholder="Enter coupon code">
+                            <button class="btn btn-secondary btn-sm px-4">Apply</button>
                         </div>
-                        <div class="py-4">
-                            <div class="input-group mb-0">
-                                <input type="text" class="form-control" placeholder="Enter your coupon code">
-                                <button class="btn btn-dark btn-sm px-4">Apply</button>
-                            </div>
-                        </div>
+                    </div> --}}
                     </div>
                 </div>
             </div>

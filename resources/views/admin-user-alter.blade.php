@@ -33,12 +33,8 @@
                         </div>
                         <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="update-fname" class="form-label">First Name</label>
-                                    <input class="form-control" id="update-fname" type="text" placeholder="First Name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="update-lname" class="form-label">Last Name</label>
-                                    <input class="form-control mb-2" id="update-lname" type="text" placeholder="Last Name">
+                                    <label for="update-name" class="form-label">Name</label>
+                                    <input class="form-control" id="update-name" type="text" placeholder="Name">
                                 </div>
                         </div>
                     </div>

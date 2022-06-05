@@ -21,12 +21,8 @@
                 <h1 class="text-center mb-5 fs-2 fw-bold">Open Account</h1>
                 <form>
                     <div class="form-group">
-                      <label class="form-label" for="register-fname">First name</label>
-                      <input type="text" class="form-control" id="register-fname" placeholder="Enter your first name">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="register-lname">Last name</label>
-                      <input type="text" class="form-control" id="register-lname" placeholder="Enter your last name">
+                      <label class="form-label" for="register-name">Name</label>
+                      <input type="text" class="form-control" id="register-name" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                       <label class="form-label" for="register-email">Email address</label>

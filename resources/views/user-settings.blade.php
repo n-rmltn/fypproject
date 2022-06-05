@@ -27,12 +27,8 @@
               </div>
               <form>
                   <div class="form-group">
-                    <label class="form-label" for="update-fname">First name</label>
-                    <input type="text" class="form-control" id="update-fname" placeholder="Normand">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="update-lname">Last name</label>
-                    <input type="text" class="form-control" id="update-lname" placeholder="Lubaton">
+                    <label class="form-label" for="update-name">Name</label>
+                    <input type="text" class="form-control" id="update-name" placeholder="Normand">
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-email">Email address</label>
