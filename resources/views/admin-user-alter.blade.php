@@ -10,17 +10,17 @@
           <div class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Edit User</li>
               </ol>
           </nav>
           </div>
-        </div>        
+        </div>
         <!-- / Breadcrumbs-->
 
         <!-- Content-->
         <section class="container-fluid">
-            
+
         <!-- Page Title -->
         <h2 class="fs-4 mb-3">Edit User</h2>
         <form>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <!-- / User Details-->
-    
+
                     <!-- Address-->
                     <div class="card mb-4">
                         <div class="card-header justify-content-between align-items-center d-flex">
@@ -84,7 +84,7 @@
                     </div>
                     <!-- / Address-->
                 </div>
-    
+
                 <div class="col-12 col-md-6">
                     <!-- Contact Details-->
                     <div class="card mb-4">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <!-- / Contact Details-->
-    
+
                     <!-- Password-->
                     <div class="card mb-4 visually-hidden">
                         <div class="card-header justify-content-between align-items-center d-flex">
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">Update Information</button>
                     <!-- / Password-->
                 </div>
@@ -129,8 +129,8 @@
             <footer class="  footer">
                 <p class="small text-muted m-0">All rights reserved | © Norm 2021</p>
             </footer>
-            
-            
+
+
             <!-- Sidebar Menu Overlay-->
             <div class="menu-overlay-bg"></div>
             <!-- / Sidebar Menu Overlay-->

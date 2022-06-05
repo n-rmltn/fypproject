@@ -9,12 +9,12 @@
           <div class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Orders</li>
               </ol>
           </nav>
           </div>
-        </div>        
+        </div>
         <!-- / Breadcrumbs-->
 
         <!-- Content-->
@@ -25,7 +25,7 @@
 
             <!-- Middle Row Widgets-->
             <div class="row g-4 mb-4 mt-0">
-  
+
                 <!-- Latest Orders-->
                 <div class="col-12">
                     <div class="card mb-4 h-100">
@@ -134,7 +134,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>    
+                            </div>
                             <nav>
                                 <ul class="pagination justify-content-end mt-3 mb-0">
                                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -152,14 +152,14 @@
             </div>
             <!-- / Middle Row Widgets-->
 
-            
+
 
             <!-- Footer -->
             <footer class="  footer">
                 <p class="small text-muted m-0">All rights reserved | © Norm 2021</p>
             </footer>
-            
-            
+
+
             <!-- Sidebar Menu Overlay-->
             <div class="menu-overlay-bg"></div>
             <!-- / Sidebar Menu Overlay-->

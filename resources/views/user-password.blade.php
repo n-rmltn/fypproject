@@ -29,14 +29,35 @@
                 @endif
                 <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
-              <form>
+              @if(app('request')->input('msg') && app('request')->input('msg') === 'success')
+                <div class="alert alert-success" role="alert">
+                    <ul class="list-unstyled mb-0">
+                        <li>Your Password Has Been Updated</li>
+                    </ul>
+                </div>
+                @endif
+                @if(isset ($errors) && count($errors) > 0)
+                    <div class="alert alert-warning" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="post" action="{{ route('password.update') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                   <div class="form-group">
-                    <label class="form-label d-flex justify-content-between align-items-center" for="current-pass">Current Password <a href="{{ route('forgot') }}" class="text-muted small">Forgot your password?</a></label>
-                    <input type="password" class="form-control" id="change-pass">
+                    <label class="form-label d-flex justify-content-between align-items-center" for="current-pass">Current Password <a href="{{ route('forgot') }}" class="text-muted small" hidden>Forgot your password?</a></label>
+                    <input type="password" class="form-control" id="change-pass" name="current_password" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-pass">New Password</label>
-                    <input type="password" class="form-control" id="update-pass">
+                    <input type="password" class="form-control" name="new_password" id="update-pass" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="update-pass">Confirm New Password</label>
+                    <input type="password" class="form-control" name="new_confirm_password" id="update-pass" required>
                   </div>
                   <button type="submit" class="btn btn-dark d-block w-100 my-4">Change Password</button>
                 </form>

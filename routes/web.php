@@ -50,7 +50,9 @@ Route::group(['middleware' => ['guest']], function() {
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/user', function () {return view('user-orders');})->name('orders');
     Route::get('/user/settings', function () {return view('user-settings');})->name('settings');
+    Route::post('user/settings/update', [UserController::class, 'update'])->name('settings.update');
     Route::get('/user/password', function () {return view('user-password');})->name('password');
+    Route::post('user/password/update', [UserController::class, 'update_password'])->name('password.update');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 

@@ -8,7 +8,7 @@
               <span class="fw-black text-uppercase tracking-wide fs-6 lh-1">KBDmy</span>
           </div>    </a>
         <div class="d-flex justify-content-between align-items-center flex-grow-1 navbar-actions">
-    
+
           <!-- Search Bar and Menu Toggle-->
           <div class="d-flex align-items-center">
             <!-- Menu Toggle-->
@@ -21,10 +21,10 @@
             <!-- / Menu Toggle-->
           </div>
           <!-- / Search Bar and Menu Toggle-->
-    
+
           <!-- Right Side Widgets-->
           <div class="d-flex align-items-center">
-    
+
             <!-- Notifications-->
             <div class="d-none d-sm-flex dropdown mx-1">
               <button class="btn-action text-muted" type="button" id="notificationsDropdown" data-bs-toggle="dropdown"
@@ -105,7 +105,7 @@
                 <div><a class="dropdown-item text-primary fw-bolder text-center border-top pt-3" href="#">See more &rarr;</a></div>
               </div>
             </div>        <!-- / Notifications-->
-    
+
             <!-- Profile Menu-->
             <div class="dropdown ms-1">
                 <button class="btn btn-link btn-icon p-0 position-relative bg-primary-faded text-primary fw-bolder me-3" type="button" id="profileDropdown"
@@ -125,17 +125,17 @@
                       </div>
                       <small class="badge bg-success-faded text-success rounded-pill">Admin</small>
                     </div>
-                  </li>     
+                  </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item d-flex align-items-center" href="#">Logout</a></li>
+                  <li><a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">Logout</a></li>
                   <li><a class="dropdown-item d-flex align-items-center" href="{{ route('welcome') }}">Return to site</a></li>
                 </ul>
               </div>        <!-- / Profile Menu-->
-    
+
           </div>
         </div>
       </div>
-    </nav>    
+    </nav>
     <!-- / Navbar-->

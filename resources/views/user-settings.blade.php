@@ -29,30 +29,47 @@
                 @endif
                 <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
-              <form>
+              @if(app('request')->input('msg') && app('request')->input('msg') === 'success')
+                <div class="alert alert-success" role="alert">
+                    <ul class="list-unstyled mb-0">
+                        <li>User Details Has Been Updated</li>
+                    </ul>
+                </div>
+                @endif
+                @if(isset ($errors) && count($errors) > 0)
+                    <div class="alert alert-warning" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="post" action="{{ route('settings.update') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                   <div class="form-group">
                     <label class="form-label" for="update-name">Name</label>
-                    <input type="text" class="form-control" id="update-name" placeholder="Name" value="{{ auth()->user()->name }}">
+                    <input type="text" class="form-control" id="update-name" name="name" placeholder="Name" value="{{ auth()->user()->name }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-email">Email address</label>
-                    <input type="email" class="form-control" id="update-email" placeholder="Email address" value="{{ auth()->user()->email }}">
+                    <input type="email" class="form-control" id="update-email" name="email" placeholder="Email address" value="{{ auth()->user()->email }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-address1">Address 1</label>
-                    <input type="text" class="form-control" id="update-address1" placeholder="Address 1" value="{{ auth()->user()->address_1 }}">
+                    <input type="text" class="form-control" id="update-address1" name="address_1" placeholder="Address 1" value="{{ auth()->user()->address_1 }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-address2">Address 2</label>
-                    <input type="text" class="form-control" id="update-address2" placeholder="Address 2" value="{{ auth()->user()->address_2 }}">
+                    <input type="text" class="form-control" id="update-address2" name="address_2" placeholder="Address 2" value="{{ auth()->user()->address_2 }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-city">City</label>
-                    <input type="text" class="form-control" id="update-city" placeholder="Kota Kinabalu" value="{{ auth()->user()->address_1 }}">
+                    <input type="text" class="form-control" id="update-city" name="city" placeholder="City" value="{{ auth()->user()->city }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-state">State</label>
-                    <select class="form-select" id="update-state">
+                    <select class="form-select" id="update-state" name="state" required>
                       <option @if(auth()->user()->state === null) selected @endif>Select State</option>
                       <option value="Johor" @if(auth()->user()->state === 'Johor') selected @endif>Johor</option>
                       <option value="Kedah" @if(auth()->user()->state === 'Kedah') selected @endif>Kedah</option>
@@ -74,11 +91,11 @@
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-poscode">Postal Code</label>
-                    <input type="text" class="form-control" id="update-poscode" placeholder="Postal Code" value="{{ auth()->user()->postal }}">
+                    <input type="text" class="form-control" id="update-poscode" name="postal" placeholder="Postal Code" value="{{ auth()->user()->postal }}" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-phone">Phone</label>
-                    <input type="text" class="form-control" id="update-phone" placeholder="Phone" value="{{ auth()->user()->phone }}">
+                    <input type="text" class="form-control" id="update-phone" name="phone" placeholder="Phone" value="{{ auth()->user()->phone }}" required>
                   </div>
                   <button type="submit" class="btn btn-dark d-block w-100 my-4">Update Info</button>
                 </form>
