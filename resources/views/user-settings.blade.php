@@ -23,7 +23,7 @@
                 <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders</a>
                 <a href="{{ route('settings') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Settings </a>
                 <a href="{{ route('password') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Password </a>
-                <a href="#" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
+                <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
               <form>
                   <div class="form-group">

@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -39,20 +40,26 @@ Route::get('/', function () {
     return view('index')->with('products',$products);
 })->name('welcome');
 
-Route::get('/login', function () {return view('login');;})->name('login');
-Route::get('/register', function () {return view('register');;})->name('register');
-Route::get('/user', function () {return view('user-orders');;})->name('orders');
-Route::get('/user/settings', function () {return view('user-settings');;})->name('settings');
-Route::get('/user/password', function () {return view('user-password');;})->name('password');
+Route::group(['middleware' => ['guest']], function() {
+    Route::get('/login', function () {return view('login');})->name('login');
+    Route::post('/login', [UserController::class, 'Authenticate'])->name('login.perform');
+    Route::get('/register', function () {return view('register');})->name('register');
+});
 
-Route::get('/admin', function () {return view('admin');;})->name('admin');
-Route::get('/admin/orders', function () {return view('admin-orders');;})->name('admin-orders');
-Route::get('/admin/product', function () {return view('admin-product');;})->name('admin-product');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/user', function () {return view('user-orders');})->name('orders');
+    Route::get('/user/settings', function () {return view('user-settings');})->name('settings');
+    Route::get('/user/password', function () {return view('user-password');})->name('password');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+});
+Route::get('/admin', function () {return view('admin');})->name('admin');
+Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
+Route::get('/admin/product', function () {return view('admin-product');})->name('admin-product');
 Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
-Route::get('/admin/user', function () {return view('admin-user');;})->name('admin-user');
-Route::get('/admin/user/alt', function () {return view('admin-user-alter');;})->name('admin-user-alter');
+Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
+Route::get('/admin/user/alt', function () {return view('admin-user-alter');})->name('admin-user-alter');
 
-Route::get('/forgot_pass', function () {return view('user-forgotpass');;})->name('forgot');
+Route::get('/forgot_pass', function () {return view('user-forgotpass');})->name('forgot');
 
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');
 Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
