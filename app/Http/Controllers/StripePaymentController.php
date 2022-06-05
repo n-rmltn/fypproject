@@ -22,7 +22,7 @@ class StripePaymentController extends Controller
             ]],
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/',
-            'cancel_url' => route('cart.index'),
+            'cancel_url' => route('checkout'),
             'shipping_address_collection' => [
                 'allowed_countries' => ['MY'],
             ],

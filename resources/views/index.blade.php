@@ -574,7 +574,7 @@
             many more.
         </p>
         <p class="lead text-muted">
-            With worldwide shipping and unbeatable prices - now's a great time
+            With Malaysia-wide shipping and unbeatable prices - now's a great time
             to pick out something from our range.
         </p>
         <a href="{{ route('product.index') }}" class="btn btn-psuedo text-white" role="button"
