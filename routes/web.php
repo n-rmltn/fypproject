@@ -44,6 +44,7 @@ Route::group(['middleware' => ['guest']], function() {
     Route::get('/login', function () {return view('login');})->name('login');
     Route::post('/login', [UserController::class, 'Authenticate'])->name('login.perform');
     Route::get('/register', function () {return view('register');})->name('register');
+    Route::get('/forgot_pass', function () {return view('user-forgotpass');})->name('forgot');
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -52,14 +53,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/user/password', function () {return view('user-password');})->name('password');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
-Route::get('/admin', function () {return view('admin');})->name('admin');
-Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
-Route::get('/admin/product', function () {return view('admin-product');})->name('admin-product');
-Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
-Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
-Route::get('/admin/user/alt', function () {return view('admin-user-alter');})->name('admin-user-alter');
 
-Route::get('/forgot_pass', function () {return view('user-forgotpass');})->name('forgot');
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/admin', function () {return view('admin');})->name('admin');
+    Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
+    Route::get('/admin/product', function () {return view('admin-product');})->name('admin-product');
+    Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
+    Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
+    Route::get('/admin/user/alt', function () {return view('admin-user-alter');})->name('admin-user-alter');
+});
 
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');
 Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');

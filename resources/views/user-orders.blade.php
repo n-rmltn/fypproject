@@ -20,9 +20,13 @@
             <div class="shadow-xl p-4 p-lg-5 bg-white">
               <h1 class="text-center fw-bold mb-5 fs-2">Welcome, <span class="">{{ auth()->user()->name }} </span></h1>
               <div class="d-flex justify-content-center mb-5">
-                <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders</a>
+                <a href="{{ route('welcome') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Home </a>
+                <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders </a>
                 <a href="{{ route('settings') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Settings </a>
                 <a href="{{ route('password') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Password </a>
+                @if (auth()->user()->is_admin === 1)
+                    <a href="{{ route('admin') }}" class="btn rounded bg-success d-inline-flex m-2 justify-content-center text-white"> Admin </a>
+                @endif
                 <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
                 <!-- Products-->

@@ -9,7 +9,7 @@
         <!-- Page Content Goes Here -->
 
         <!-- Login Form-->
-        <div class="col col-md-8 col-lg-6 col-xxl-5 rounded">
+        <div class="col col-md-8 col-lg-6 col-xxl-8 rounded">
             <!-- Logo-->
             <a class="navbar-brand fw-bold fs-3 flex-shrink-0 order-0 align-self-center justify-content-center d-flex mx-0 px-0 text-white" href="{{ route('welcome') }}">
                 <div class="d-flex align-items-center">
@@ -20,9 +20,13 @@
             <div class="shadow-xl p-4 p-lg-5 bg-white">
             <h1 class="text-center mb-5 fs-2 fw-bold">Change Password</h1>
             <div class="d-flex justify-content-center mb-5">
-                <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders</a>
+                <a href="{{ route('welcome') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Home </a>
+                <a href="{{ route('orders') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Orders </a>
                 <a href="{{ route('settings') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Settings </a>
                 <a href="{{ route('password') }}" class="btn rounded bg-dark d-inline-flex m-2 justify-content-center text-white"> Password </a>
+                @if (auth()->user()->is_admin === 1)
+                    <a href="{{ route('admin') }}" class="btn rounded bg-success d-inline-flex m-2 justify-content-center text-white"> Admin </a>
+                @endif
                 <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
               <form>
