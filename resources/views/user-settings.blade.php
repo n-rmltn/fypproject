@@ -48,7 +48,7 @@
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="update-state">State</label>
-                    <select class="form-control" id="update-state">
+                    <select class="form-select" id="update-state">
                       <option>Johor</option>
                       <option>Kedah</option>
                       <option>Kelantan</option>
