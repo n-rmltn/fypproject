@@ -23,7 +23,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if(Auth::user() &&  Auth::user()->address_1 !== null){
+                    return redirect()->route('orders');
+                }
+                else{
+                    return redirect()->route('settings');
+                }
             }
         }
 

@@ -9,12 +9,12 @@
           <div class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">User Listing</li>
               </ol>
           </nav>
           </div>
-        </div>        
+        </div>
         <!-- / Breadcrumbs-->
 
         <!-- Content-->
@@ -25,7 +25,7 @@
                     <h6 class="card-title m-0">User Listing</h6>
                 </div>
                 <div class="card-body">
-    
+
                     <!-- User listing Actions-->
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <!-- /user listing Actions-->
-    
+
                     <!-- User Listing Table-->
                     <div class="table-responsive">
                         <table class="table m-0 table-striped">
@@ -119,7 +119,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>    
+                    </div>
                     <!-- /User Listing Table-->
                     <nav>
                         <ul class="pagination justify-content-end mt-3 mb-0">
@@ -137,8 +137,8 @@
             <footer class="  footer">
                 <p class="small text-muted m-0">All rights reserved | © Norm 2021</p>
             </footer>
-            
-            
+
+
             <!-- Sidebar Menu Overlay-->
             <div class="menu-overlay-bg"></div>
             <!-- / Sidebar Menu Overlay-->

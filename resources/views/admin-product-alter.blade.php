@@ -9,17 +9,17 @@
           <div class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Add Product</li>
               </ol>
           </nav>
           </div>
-        </div>        
+        </div>
         <!-- / Breadcrumbs-->
 
         <!-- Content-->
         <section class="container-fluid">
-            
+
         <!-- Page Title -->
         <h2 class="fs-4 mb-3">Add Product</h2>
         <form>
@@ -60,7 +60,7 @@
                                 </div>
                         </div>
                     </div>
-    
+
                     <div class="card mb-4">
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Prices</h6>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="col-12 col-md-6">
                     <div class="card mb-4">
                         <div class="card-header justify-content-between align-items-center d-flex">
@@ -144,7 +144,7 @@
                                 </div>
                         </div>
                     </div>
-    
+
                     <div class="card mb-4">
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Product Thumbnail</h6>
@@ -161,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="card mb-4">
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Product Images</h6>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </div>
             </div>
@@ -188,8 +188,8 @@
             <footer class="  footer">
                 <p class="small text-muted m-0">All rights reserved | © Norm 2021</p>
             </footer>
-            
-            
+
+
             <!-- Sidebar Menu Overlay-->
             <div class="menu-overlay-bg"></div>
             <!-- / Sidebar Menu Overlay-->

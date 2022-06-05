@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('address_1')->nullable()->default(null);
+            $table->string('address_2')->nullable()->default(null);
+            $table->string('city')->nullable()->default(null);
+            $table->enum('state', ['Johor','Kedah','Kelantan','Malacca','Negeri Sembilan','Pahang','Penang','Perak','Perlis','Sabah','Sarawak','Selangor','Terengganu','Kuala Lumpur','Labuan','Putrajaya'])->nullable()->default(null);
+            $table->string('postal')->nullable()->default(null);
+            $table->string('phone')->nullable()->default(null);
+            $table->boolean('is_admin')->default(0);
         });
     }
 

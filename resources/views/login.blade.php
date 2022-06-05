@@ -18,18 +18,44 @@
             <!-- / Logo-->
             <div class="shadow-xl p-4 p-lg-5 bg-white">
                 <h1 class="text-center fw-bold mb-5 fs-2">Login</h1>
-                <form>
+                @if(isset ($errors) && count($errors) > 0)
+                    <div class="alert alert-warning" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if(Session::get('success', false))
+                    <?php $data = Session::get('success'); ?>
+                    @if (is_array($data))
+                        @foreach ($data as $msg)
+                            <div class="alert alert-warning" role="alert">
+                                <i class="fa fa-check"></i>
+                                {{ $msg }}
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fa fa-check"></i>
+                            {{ $data }}
+                        </div>
+                    @endif
+                @endif
+                <form method="post" action="{{ route('login.perform') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-group">
                       <label class="form-label" for="login-email">Email address</label>
-                      <input type="email" class="form-control" id="login-email" placeholder="name@email.com">
+                      <input type="email" class="form-control" name="email" placeholder="name@email.com">
                     </div>
                     <div class="form-group">
                       <label for="login-password" class="form-label d-flex justify-content-between align-items-center">
                         Password
                         <a href="{{ route('forgot') }}" class="text-muted small">Forgot your password?</a>
                       </label>
-                      <input type="password" class="form-control" id="login-password" placeholder="Enter your password">
-                      <p class="text-danger visually-hidden">Invalid password or email</p>
+                      <input type="password" class="form-control" name="password" placeholder="Enter your password">
                     </div>
                     <button type="submit" class="btn btn-dark d-block w-100 my-4">Login</button>
                 </form>

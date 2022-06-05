@@ -9,12 +9,12 @@
           <div class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
               </ol>
           </nav>
           </div>
-        </div>        
+        </div>
         <!-- / Breadcrumbs-->
 
         <!-- Content-->
@@ -41,7 +41,7 @@
                         </div>
                     </div>                </div>
                 <!-- / Number Orders Widget-->
-                    
+
 
             </div>
             <!-- / Top Row Widgets-->
@@ -52,20 +52,20 @@
             </div>
             <!-- / Middle Row Widgets-->
 
-            
+
 
             <!-- Footer -->
             <footer class="footer">
               <p class="small text-muted m-0">All rights reserved | © Norm 2022</p>
             </footer>
-    
+
             <!-- Sidebar Menu Overlay-->
             <div class="menu-overlay-bg"></div>
             <!-- / Sidebar Menu Overlay-->
-            
+
             <!-- Modal Imports-->
             <!-- Place your modal imports here-->
-            
+
 
         </section>
         <!-- / Content-->
