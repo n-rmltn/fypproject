@@ -24,6 +24,10 @@
                                 href="{{ route('welcome') }}">Home</a></li>
                             <li class="me-4"><a class="nav-link-checkout active"
                                     href="{{ route('cart.index') }}">Your Cart</a></li>
+                            <li class="me-4"><a class="nav-link-checkout"
+                                    href="{{ route('checkout') }}">Information</a></li>
+                            <li class="me-4"><a class="nav-link-checkout"
+                                    href="{{ route('payment') }}">Payment</a></li>
                         </ul>
                     </nav>                        <div class="mt-5">
                         <h3 class="fs-5 fw-bolder mb-0 border-bottom pb-4">Your Cart</h3>
@@ -91,10 +95,7 @@
                         </div>
                     </div> --}}
 
-                    <form action="/payment" method="POST">
-                        @csrf
-                    <button id="checkout-button" class="btn btn-dark w-100 text-center" role="button">Proceed to checkout</button>                    </div>
-                    </form>
+                    <a href="{{ route('checkout') }}" class="btn btn-dark w-100 mt-2" role="button">Proceed to information</a>
             </div>
         </div>
     </div>
