@@ -29,6 +29,7 @@
                         <a href="{{ route('forgot') }}" class="text-muted small">Forgot your password?</a>
                       </label>
                       <input type="password" class="form-control" id="login-password" placeholder="Enter your password">
+                      <p class="text-danger visually-hidden">Invalid password or email</p>
                     </div>
                     <button type="submit" class="btn btn-dark d-block w-100 my-4">Login</button>
                 </form>
