@@ -28,6 +28,7 @@ class User extends Authenticatable
         'postal',
         'phone',
         'is_admin',
+        'created_at',
     ];
 
     /**

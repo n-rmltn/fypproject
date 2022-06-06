@@ -39,7 +39,7 @@ remove item cart ~ done
 index product featured ~ done
 
 route user
-    login / register 
+    login / register
         user
         settings
         pass
@@ -49,10 +49,8 @@ route admin
     login
         adminpage
 
-shipping statuses
-    preparing
-    shipped
-    received
-    completed
-    refunded
-    canceled
+user
+    order list
+        order item
+            foreign
+            product

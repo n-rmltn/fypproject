@@ -44,6 +44,7 @@ Route::group(['middleware' => ['guest']], function() {
     Route::get('/login', function () {return view('login');})->name('login');
     Route::post('/login', [UserController::class, 'Authenticate'])->name('login.perform');
     Route::get('/register', function () {return view('register');})->name('register');
+    Route::post('/register', [UserController::class, 'register'])->name('register.perform');
     Route::get('/forgot_pass', function () {return view('user-forgotpass');})->name('forgot');
 });
 
@@ -63,8 +64,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/orders/details', function () {return view('admin-orders-details');})->name('admin-orders-details');
     Route::get('/admin/product', [ProductController::class,'admin_list'])->name('admin-product');
     Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
-    Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
-    Route::get('/admin/user/alt', function () {return view('admin-user-alter');})->name('admin-user-alter');
+    Route::get('/admin/user', [UserController::class, 'admin_user'])->name('admin-user');
+    Route::get('/admin/user/alt/{id}', [UserController::class, 'admin_edit_user'])->name('admin-user-alter');
+    Route::post('/admin/user/alt/{id}/update', [UserController::class, 'admin_edit_user_update'])->name('admin-user-alter.update');
 });
 
 Route::get('/checkout', function () {return view('checkout');})->name('checkout');

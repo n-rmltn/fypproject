@@ -84,7 +84,6 @@
                             <div class="collapse" id="collapseMenuItemUsers">
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin-user') }}">User Listing</a></li>
-                                    <li><a href="{{ route('admin-user-alter') }}">Edit User</a></li>
                                 </ul>
                             </div>
                         </li>

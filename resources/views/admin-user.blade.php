@@ -26,15 +26,23 @@
                 </div>
                 <div class="card-body">
 
+                    @if(app('request')->input('msg') && app('request')->input('msg') === 'success')
+                    <div class="alert alert-success" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            <li>User Details Has Been Updated</li>
+                        </ul>
+                    </div>
+                    @endif
+
                     <!-- User listing Actions-->
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3 visually-hidden">
                         <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
                             <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
                               placeholder="Search" aria-label="Search">
                             <button class="btn btn-link p-0 text-muted" type="submit"><i class="ri-search-2-line"></i></button>
                         </form>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-sm btn-primary" href="#"><i class="ri-add-circle-line align-bottom"></i> New User</a>
+                            <a class="btn btn-sm btn-primary" href="#" hidden><i class="ri-add-circle-line align-bottom"></i> New User</a>
                         </div>
                     </div>
                     <!-- /user listing Actions-->
@@ -53,20 +61,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($users as $user => $val)
                                 <tr>
                                     <td>
                                         <div class="d-flex justify-content-start align-items-start">
-                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">N</button>
+                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">{{ ucfirst(substr($val->name,0,1)) }}</button>
                                             <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>Normand</span>&nbsp;<span>Lubaton</span></p>
-                                                <span class="d-block text-muted">normandlubaton@icloud.com</span>
-                                                <span class="d-block text-muted">01131389418</span>
+                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>{{ $val->name }}</span></p>
+                                                <span class="d-block text-muted">{{ $val->email }}</span>
+                                                <span class="d-block text-muted">{{ $val->phone }}</span>
                                             </div>
                                         </div>
                                     </td>
+                                    @if ($val->is_admin === 1)
                                     <td>Administrator</td>
-                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i> Sabah</td>
-                                    <td class="text-muted">24th Jan, 2021</td>
+                                    @else
+                                    <td>User</td>
+                                    @endif
+                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i>
+                                    @if ($val->state === null)
+                                        Not Defined
+                                    @else
+                                        {{ $val->state }}
+                                    @endif
+                                    </td>
+                                    <td class="text-muted">@if ($val->created_at === null)
+                                        Not Defined
+                                    @else
+                                        {{ $val->created_at }}
+                                    @endif</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <span class="small text-muted">0</span>
@@ -79,55 +102,22 @@
                                                 <i class="ri-more-2-line"></i>
                                             </button>
                                             <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin-user-alter', $val->id) }}">Edit</a></li>
                                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex justify-content-start align-items-start">
-                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">I</button>
-                                            <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>Ian</span>&nbsp;<span>Idiel</span></p>
-                                                <span class="d-block text-muted">ianidiel@gmail.com</span>
-                                                <span class="d-block text-muted">0165823579</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>User</td>
-                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i> Kedah</td>
-                                    <td class="text-muted">24th Jan, 2021</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="small text-muted">2</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                id="dropdownOrder-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-line"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @empty
+                                    <p class="text-white">No product available</p>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
                     <!-- /User Listing Table-->
                     <nav>
                         <ul class="pagination justify-content-end mt-3 mb-0">
-                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            {!! $users->links() !!}
                         </ul>
                       </nav>
                 </div>
