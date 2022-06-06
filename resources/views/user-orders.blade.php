@@ -29,78 +29,111 @@
                 @endif
                 <a href="{{ route('logout') }}" class="btn rounded bg-danger d-inline-flex m-2 justify-content-center text-white"> Log Out </a>
               </div>
-                <!-- Products-->
-                  <div class="row g-4 justify-content-center">
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- Card Product-->
-                        <div class="card border rounded border-transparent position-relative overflow-hidden h-100 transparent">
-                          <div class="card-img position-relative">
-                            <div class="card-badges">
-                              <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span>Shipping</span>
+              
+              <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table m-0 table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Billing Name</th>
+                                            <th>Date</th>
+                                            <th>Payment Method</th>
+                                            <th>Items</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="fw-bolder">#1234-5679</span>
+                                            </td>
+                                            <td>Patria Nelson</td>
+                                            <td class="text-muted">24th June, 2021</td>
+                                            <td class="text-muted">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="ri-visa-line ri-lg me-2"></i> **** 6789
+                                                </div>
+                                            </td>
+                                            <td class="text-muted">5</td>
+                                            <th class="text-muted">RM123.99</th>
+                                            <td><span class="badge rounded-pill bg-success-faded text-success">completed</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                                        id="dropdownOrder-0" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-2-line"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fw-bolder">#1235-7755</span>
+                                            </td>
+                                            <td>Dominic Patterson</td>
+                                            <td class="text-muted">22nd June, 2021</td>
+                                            <td class="text-muted">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="ri-mastercard-fill ri-lg me-2"></i> **** 1233
+                                                </div>
+                                            </td>
+                                            <td class="text-muted">5</td>
+                                            <th class="text-muted">RM123.99</th>
+                                            <td><span class="badge rounded-pill bg-info-faded text-info">processing</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                                        id="dropdownOrder-1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-2-line"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-1">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fw-bolder">#1236-6579</span>
+                                            </td>
+                                            <td>Steven Smith</td>
+                                            <td class="text-muted">21st June, 2021</td>
+                                            <td class="text-muted">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="ri-paypal-line ri-lg me-2"></i> **** 7766
+                                                </div>
+                                            </td>
+                                            <td class="text-muted">5</td>
+                                            <th class="text-muted">RM123.99</th>
+                                            <td><span class="badge rounded-pill bg-danger-faded text-danger">cancelled</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                                        id="dropdownOrder-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-2-line"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-2">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                              <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.webp" alt="">
-                            </picture>
-                            <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                              <button class="btn btn-quick-add"><i class="ri-delete-bin-2-fill me-2"></i> Cancel Order</button>
-                            </div>
-                          </div>
-                          <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="">Keychron K2</a>
-                            <small class="text-muted d-block">White Backlight, Gateron G Pro Blue</small>
-                            <p class="mt-2 mb-0 small">$329.99</p>
-                          </div>
-                        </div>
-                        <!--/ Card Product-->
-                      </div>
-                      <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- Card Product-->
-                        <div class="card border rounded border-transparent position-relative overflow-hidden h-100 transparent">
-                          <div class="card-img position-relative">
-                            <div class="card-badges">
-                              <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span>Shipping</span>
-                            </div>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                              <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.webp" alt="">
-                            </picture>
-                            <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                              <button class="btn btn-quick-add"><i class="ri-delete-bin-2-fill me-2"></i> Cancel Order</button>
-                            </div>
-                          </div>
-                          <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="">Keychron K2</a>
-                            <small class="text-muted d-block">White Backlight, Gateron G Pro Blue</small>
-                            <p class="mt-2 mb-0 small">$329.99</p>
-                          </div>
-                        </div>
-                        <!--/ Card Product-->
-                      </div>
-                      <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- Card Product-->
-                        <div class="card border rounded border-transparent position-relative overflow-hidden h-100 transparent">
-                          <div class="card-img position-relative">
-                            <div class="card-badges">
-                              <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span>Shipping</span>
-                            </div>
-                            <picture class="position-relative overflow-hidden d-block bg-light">
-                              <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.webp" alt="">
-                            </picture>
-                            <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
-                              <button class="btn btn-quick-add"><i class="ri-delete-bin-2-fill me-2"></i> Cancel Order</button>
-                            </div>
-                          </div>
-                          <div class="card-body px-0">
-                            <a class="text-decoration-none link-cover" href="">Keychron K2</a>
-                            <small class="text-muted d-block">White Backlight, Gateron G Pro Blue</small>
-                            <p class="mt-2 mb-0 small">$329.99</p>
-                          </div>
-                        </div>
-                        <!--/ Card Product-->
-                      </div>
-                    </div>
-
             </div>
-                      <!-- / Products-->
         </div>
         <!-- /Page Content -->
     </section>
