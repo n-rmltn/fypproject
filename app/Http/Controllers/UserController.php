@@ -133,4 +133,10 @@ class UserController extends Controller
 
         return redirect()->route('settings');
     }
+    public function admin_user(Request $request)
+    {
+        $users = User::paginate(10);
+
+        return view('admin-user')->with('users',$users);//
+    }
 }

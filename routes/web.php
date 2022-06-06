@@ -62,7 +62,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
     Route::get('/admin/product', [ProductController::class,'admin_list'])->name('admin-product');
     Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
-    Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
+    Route::get('/admin/user', [UserController::class, 'admin_user'])->name('admin-user');
     Route::get('/admin/user/alt', function () {return view('admin-user-alter');})->name('admin-user-alter');
 });
 

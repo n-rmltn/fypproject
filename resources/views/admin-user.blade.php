@@ -53,20 +53,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($users as $user => $val)
                                 <tr>
                                     <td>
                                         <div class="d-flex justify-content-start align-items-start">
-                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">N</button>
+                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">{{ ucfirst(substr($val->name,0,1)) }}</button>
                                             <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>Normand</span>&nbsp;<span>Lubaton</span></p>
-                                                <span class="d-block text-muted">normandlubaton@icloud.com</span>
-                                                <span class="d-block text-muted">01131389418</span>
+                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>{{ $val->name }}</span></p>
+                                                <span class="d-block text-muted">{{ $val->email }}</span>
+                                                <span class="d-block text-muted">{{ $val->phone }}</span>
                                             </div>
                                         </div>
                                     </td>
+                                    @if ($val->is_admin === 1)
                                     <td>Administrator</td>
-                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i> Sabah</td>
-                                    <td class="text-muted">24th Jan, 2021</td>
+                                    @else
+                                    <td>User</td>
+                                    @endif
+                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i>
+                                    @if ($val->state === null)
+                                        Not Defined
+                                    @else
+                                        {{ $val->state }}
+                                    @endif
+                                    </td>
+                                    <td class="text-muted">@if ($val->created_at === null)
+                                        Not Defined
+                                    @else
+                                        {{ $val->created_at }}
+                                    @endif</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <span class="small text-muted">0</span>
@@ -85,38 +100,9 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex justify-content-start align-items-start">
-                                            <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">I</button>
-                                            <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1"><span>Ian</span>&nbsp;<span>Idiel</span></p>
-                                                <span class="d-block text-muted">ianidiel@gmail.com</span>
-                                                <span class="d-block text-muted">0165823579</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>User</td>
-                                    <td class="text-muted"><i class="ri-map-pin-line align-bottom"></i> Kedah</td>
-                                    <td class="text-muted">24th Jan, 2021</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="small text-muted">2</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                id="dropdownOrder-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-line"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @empty
+                                    <p class="text-white">No product available</p>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

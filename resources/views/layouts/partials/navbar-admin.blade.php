@@ -113,11 +113,11 @@
                   <span
                     class="position-absolute bottom-0 start-75 p-1 bg-success border border-3 border-white rounded-circle">
                     <span class="visually-hidden">New alerts</span>
-                  </span>{{ substr(auth()->user()->name,0,1) }}
+                  </span>{{ ucfirst(substr(auth()->user()->name,0,1)) }}
                 </button>
                 <ul class="dropdown-menu dropdown-md dropdown-menu-end" aria-labelledby="profileDropdown">
                   <li class="d-flex py-2 align-items-start">
-                    <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">{{ substr(auth()->user()->name,0,1) }}</button>
+                    <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">{{ ucfirst(substr(auth()->user()->name,0,1)) }}</button>
                     <div class="d-flex align-items-start justify-content-between flex-grow-1">
                       <div>
                         <p class="lh-1 mb-2 fw-semibold text-body">{{ auth()->user()->name }}</p>
