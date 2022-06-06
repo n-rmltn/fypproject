@@ -28,11 +28,23 @@
 
                 <!-- Latest Orders-->
                 <div class="col-12">
+                    
                     <div class="card mb-4 h-100">
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Orders</h6>
                         </div>
+                    
                         <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
+                                    <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
+                                    placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-link p-0 text-muted" type="submit"><i class="ri-search-2-line"></i></button>
+                                </form>
+                                <div class="d-flex justify-content-end">
+                                    <a class="btn btn-sm btn-primary" href="#"><i class="ri-add-circle-line align-bottom"></i> Add Product</a>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table m-0 table-striped">
                                     <thead>
@@ -61,7 +73,7 @@
                                             </td>
                                             <td class="text-muted">5</td>
                                             <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-success-faded text-success">completed</span></td>
+                                            <td><span class="badge rounded-pill bg-primary-faded text-primary">preparing</span></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
@@ -69,65 +81,10 @@
                                                         <i class="ri-more-2-line"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bolder">#1235-7755</span>
-                                            </td>
-                                            <td>Dominic Patterson</td>
-                                            <td class="text-muted">22nd June, 2021</td>
-                                            <td class="text-muted">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="ri-mastercard-fill ri-lg me-2"></i> **** 1233
-                                                </div>
-                                            </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-info-faded text-info">processing</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                        id="dropdownOrder-1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="ri-more-2-line"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-1">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bolder">#1236-6579</span>
-                                            </td>
-                                            <td>Steven Smith</td>
-                                            <td class="text-muted">21st June, 2021</td>
-                                            <td class="text-muted">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="ri-paypal-line ri-lg me-2"></i> **** 7766
-                                                </div>
-                                            </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-danger-faded text-danger">cancelled</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                        id="dropdownOrder-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="ri-more-2-line"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-2">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('admin-orders-details') }}">View details</a></li>
+                                                        <li><a class="dropdown-item" href="#">Update to shipped</a></li>
+                                                        <li><a class="dropdown-item" href="#">Update to completed</a></li>
+                                                        <li><a class="dropdown-item" href="#">Cancel order</a></li>
                                                     </ul>
                                                 </div>
                                             </td>
@@ -143,7 +100,7 @@
                                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
-                              </nav>
+                            </nav>
                         </div>
                     </div>
                 </div>

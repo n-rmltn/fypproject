@@ -139,6 +139,23 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="add-opt" class="form-label">Detail Amount</label>
+                                    <input class="form-control mb-2" id="add-opt" type="number" placeholder="Amount">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="add-city" class="form-label">Details</label>
+                                    <div class="input-group mb-1">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var">
+                                        <span class="input-group-text">-</span>
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice">
+                                    </div>
+                                    <div class="input-group mb-1">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var">
+                                        <span class="input-group-text">-</span>
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
                                     <label for="add-stripekey" class="form-label">Stripe Key</label>
                                     <input class="form-control" id="add-stripekey" type="text" placeholder="Stripe Key">
                                 </div>
