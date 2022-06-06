@@ -27,7 +27,7 @@ class UserController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->get('remember'))) {
             $request->session()->regenerate();
 
             if(Auth::user() &&  Auth::user()->address_1 !== null){
@@ -103,7 +103,7 @@ class UserController extends Controller
                 ->withInput();
         }
 
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        User::find(auth()->user()->id)->update(['password'=> $request->new_password]);
 
         return redirect()->route('password', ['msg' => 'success']);
     }
@@ -131,7 +131,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('settings');
+        return redirect()->intended(route('settings'));
     }
     public function admin_user(Request $request)
     {

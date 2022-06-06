@@ -56,6 +56,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/user/password', function () {return view('user-password');})->name('password');
     Route::post('user/password/update', [UserController::class, 'update_password'])->name('password.update');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
+    Route::get('/checkout/payment', function () {return view('payment');})->name('payment');
+    Route::get('/checkout', function () {return view('checkout');})->name('checkout');
 });
 
 Route::group(['middleware' => ['admin']], function () {
@@ -69,9 +72,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/admin/user/alt/{id}/update', [UserController::class, 'admin_edit_user_update'])->name('admin-user-alter.update');
 });
 
-Route::get('/checkout', function () {return view('checkout');})->name('checkout');
-Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
-Route::get('/checkout/payment', function () {return view('payment');})->name('payment');
 
 //Route::get('/catalog', function () {return view('catalog');});
 /* Route::get('/product', function () {
