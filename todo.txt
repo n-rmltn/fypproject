@@ -48,3 +48,11 @@ route user
 route admin
     login
         adminpage
+
+shipping statuses
+    preparing
+    shipped
+    received
+    completed
+    refunded
+    canceled

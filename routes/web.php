@@ -49,6 +49,7 @@ Route::group(['middleware' => ['guest']], function() {
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/user', function () {return view('user-orders');})->name('orders');
+    Route::get('/user/details', function () {return view('user-orders-details');})->name('orders-details');
     Route::get('/user/settings', function () {return view('user-settings');})->name('settings');
     Route::post('user/settings/update', [UserController::class, 'update'])->name('settings.update');
     Route::get('/user/password', function () {return view('user-password');})->name('password');
@@ -59,6 +60,7 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', function () {return view('admin');})->name('admin');
     Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
+    Route::get('/admin/orders/details', function () {return view('admin-orders-details');})->name('admin-orders-details');
     Route::get('/admin/product', [ProductController::class,'admin_list'])->name('admin-product');
     Route::get('/admin/product/alter', function () {return view('admin-product-alter');;})->name('admin-product-alter');
     Route::get('/admin/user', function () {return view('admin-user');})->name('admin-user');
