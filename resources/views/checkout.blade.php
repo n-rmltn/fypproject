@@ -29,7 +29,7 @@
                             <li class="me-4"><a class="nav-link-checkout"
                                     href="{{ route('payment') }}">Payment</a></li>
                         </ul>
-                    </nav>                        
+                    </nav>
                         <div class="mt-5">
                             <!-- Checkout Panel Information-->
                             <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-4">
@@ -40,33 +40,33 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="nameBilling" class="form-label">Name</label>
-                                  <input type="text" class="form-control" id="nameBilling" placeholder="Normand Lubaton" value="" required="">
+                                  <input type="text" class="form-control" id="nameBilling" placeholder="Name" value="{{ auth()->user()->name }}" required>
                                 </div>
                               </div>
                               <!-- Email-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                  <input type="email" class="form-control" id="email" placeholder="you@example.com" value="{{ auth()->user()->email }}" required>
                                 </div>
                               </div>
                               <!-- Phone-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="numberBilling" class="form-label">Phone</label>
-                                  <input type="text" class="form-control" id="numberBilling" placeholder="01131389418" value="" required="">
+                                  <input type="text" class="form-control" id="numberBilling" placeholder="Phone" value="{{ auth()->user()->phone }}" required>
                                 </div>
                               </div>
                             </div>
-                            
+
                             <h3 class="fs-5 mt-2 fw-bolder mb-4 border-bottom pb-4">Shipping Address</h3>
                             <div class="row">
-                            
+
                               <!-- Address 1-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="address1" class="form-label">Address 1</label>
-                                  <input type="text" class="form-control" id="address1" placeholder="123 Some Street Somewhere" required="">
+                                  <input type="text" class="form-control" id="address1" placeholder="Address 1" value="{{ auth()->user()->address_1 }}" required>
                                 </div>
                               </div>
 
@@ -74,50 +74,54 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="address2" class="form-label">Address 2</label>
-                                  <input type="text" class="form-control" id="address2" placeholder="123 Some Street Somewhere" required="">
+                                  <input type="text" class="form-control" id="address2" placeholder="Address 2" value="{{ auth()->user()->address_2 }}" required>
                                 </div>
                               </div>
-                            
+
                               <!-- City -->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="city" class="form-label">City</label>
-                                  <input type="text" class="form-control" id="city" placeholder="Kota Kinabalu" required="">
+                                  <input type="text" class="form-control" id="city" placeholder="City" value="{{ auth()->user()->city }}" required>
                                 </div>
                               </div>
-                            
+
                               <!-- State-->
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label" for="state">State</label>
-                                    <select class="form-select" id="update-state">
-                                    <option>Johor</option>
-                                    <option>Kedah</option>
-                                    <option>Kelantan</option>
-                                    <option>Malacca</option>
-                                    <option>Negeri Sembilan</option>
-                                    <option>Pahang</option>
-                                    <option>Penang</option>
-                                    <option>Perak</option>
-                                    <option>Perlis</option>
-                                    <option>Sabah</option>
-                                    <option>Sarawak</option>
-                                    <option>Selangor</option>
-                                    <option>Terengganu</option>
-                                    </select>
+                                    <select class="form-select" id="update-state" name="state" required>
+                                        <option @if(auth()->user()->state === null) selected @endif>Select State</option>
+                                        <option value="Johor" @if(auth()->user()->state === 'Johor') selected @endif>Johor</option>
+                                        <option value="Kedah" @if(auth()->user()->state === 'Kedah') selected @endif>Kedah</option>
+                                        <option value="Kelantan" @if(auth()->user()->state === 'Kelantan') selected @endif>Kelantan</option>
+                                        <option value="Malacca" @if(auth()->user()->state === 'Malacca') selected @endif>Malacca</option>
+                                        <option value="Negeri Sembilan" @if(auth()->user()->state === 'Negeri Sembilan') selected @endif>Negeri Sembilan</option>
+                                        <option value="Pahang" @if(auth()->user()->state === 'Pahang') selected @endif>Pahang</option>
+                                        <option value="Penang" @if(auth()->user()->state === 'Penang') selected @endif>Penang</option>
+                                        <option value="Perak" @if(auth()->user()->state === 'Perak') selected @endif>Perak</option>
+                                        <option value="Perlis" @if(auth()->user()->state === 'Perlis') selected @endif>Perlis</option>
+                                        <option value="Sabah" @if(auth()->user()->state === 'Sabah') selected @endif>Sabah</option>
+                                        <option value="Sarawak" @if(auth()->user()->state === 'Sarawak') selected @endif>Sarawak</option>
+                                        <option value="Selangor" @if(auth()->user()->state === 'Selangor') selected @endif>Selangor</option>
+                                        <option value="Terengganu" @if(auth()->user()->state === 'Terengganu') selected @endif>Terengganu</option>
+                                        <option value="Kuala Lumpur" @if(auth()->user()->state === 'Kuala Lumpur') selected @endif>Kuala Lumpur</option>
+                                        <option value="Labuan" @if(auth()->user()->state === 'Labuan') selected @endif>Labuan</option>
+                                        <option value="Putrajaya" @if(auth()->user()->state === 'Putrajaya') selected @endif>Putrajaya</option>
+                                      </select>
                                 </div>
                               </div>
-                            
+
                               <!-- Post Code-->
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="poscode" class="form-label">Postal Code</label>
-                                  <input type="text" class="form-control" id="poscode" placeholder="" required="">
+                                  <input type="text" class="form-control" id="poscode" placeholder="Postal Code" value="{{ auth()->user()->postal }}" required>
                                 </div>
                               </div>
                             </div>
                             <div class="pt-5 mt-2 pb-5 border-top d-flex justify-content-md-end align-items-center">
-                            </div>                        
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,7 +163,7 @@
                             <button class="btn btn-secondary btn-sm px-4">Apply</button>
                         </div>
                     </div> --}}
-                    
+
                     <a href="{{ route('payment') }}" class="btn btn-dark w-100 mt-2" role="button">Proceed to payment</a>
                     </div>
                 </div>

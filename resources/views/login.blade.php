@@ -57,7 +57,7 @@
                       </label>
                       <input type="password" class="form-control" name="password" placeholder="Enter your password">
                     </div>
-                    <input type="checkbox" class="form-check-label" name="rememberme"> Remember me
+                    <input type="checkbox" class="form-check-label" name="remember"> Remember me
                     <button type="submit" class="btn btn-dark d-block w-100 my-4">Login</button>
                 </form>
                 <p class="d-block text-center text-muted">New customer? <a class="text-muted" href="{{ route('register') }}">Sign up for an account</a></p>
