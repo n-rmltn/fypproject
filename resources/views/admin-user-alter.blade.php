@@ -11,7 +11,8 @@
             <nav class="mb-0" aria-label="breadcrumb">
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin-user') }}">User Listing</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ $user->name }}</li>
               </ol>
           </nav>
           </div>
@@ -23,7 +24,19 @@
 
         <!-- Page Title -->
         <h2 class="fs-4 mb-3">Edit User</h2>
-        <form>
+
+        @if(isset ($errors) && count($errors) > 0)
+        <div class="alert alert-warning" role="alert">
+            <ul class="list-unstyled mb-0">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <form method="post" action="{{ route('admin-user-alter.update', $user->id) }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row g-4">
                 <div class="col-12 col-md-6">
                     <!-- User Details-->
@@ -34,7 +47,7 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="update-name" class="form-label">Name</label>
-                                    <input class="form-control" id="update-name" type="text" placeholder="Name">
+                                    <input class="form-control" id="update-name" type="text" placeholder="Name" name="name" value="{{ $user->name }}" required>
                                 </div>
                         </div>
                     </div>
@@ -48,37 +61,41 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="update-address1" class="form-label">Address 1</label>
-                                    <input class="form-control" id="update-address1" type="text" placeholder="Address 1">
+                                    <input class="form-control" id="update-address1" type="text" placeholder="Address 1" name="address_1" value="{{ $user->address_1 }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="update-address2" class="form-label">Address 2</label>
-                                    <input class="form-control mb-2" id="update-address2" type="text" placeholder="Address 2">
+                                    <input class="form-control mb-2" id="update-address2" type="text" placeholder="Address 2" name="address_2" value="{{ $user->address_2 }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="update-city" class="form-label">City</label>
-                                    <input class="form-control mb-2" id="update-city" type="text" placeholder="City">
+                                    <input class="form-control mb-2" id="update-city" type="text" placeholder="City" name="city" value="{{ $user->city }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="update-state" class="form-label">State</label>
-                                    <select class="form-control" id="update-state">
-                                        <option>Johor</option>
-                                        <option>Kedah</option>
-                                        <option>Kelantan</option>
-                                        <option>Malacca</option>
-                                        <option>Negeri Sembilan</option>
-                                        <option>Pahang</option>
-                                        <option>Penang</option>
-                                        <option>Perak</option>
-                                        <option>Perlis</option>
-                                        <option>Sabah</option>
-                                        <option>Sarawak</option>
-                                        <option>Selangor</option>
-                                        <option>Terengganu</option>
-                                    </select>
+                                    <select class="form-select" id="update-state" name="state" required>
+                                        <option @if($user->state === null) selected @endif>Select State</option>
+                                        <option value="Johor" @if($user->state === 'Johor') selected @endif>Johor</option>
+                                        <option value="Kedah" @if($user->state === 'Kedah') selected @endif>Kedah</option>
+                                        <option value="Kelantan" @if($user->state === 'Kelantan') selected @endif>Kelantan</option>
+                                        <option value="Malacca" @if($user->state === 'Malacca') selected @endif>Malacca</option>
+                                        <option value="Negeri Sembilan" @if($user->state === 'Negeri Sembilan') selected @endif>Negeri Sembilan</option>
+                                        <option value="Pahang" @if($user->state === 'Pahang') selected @endif>Pahang</option>
+                                        <option value="Penang" @if($user->state === 'Penang') selected @endif>Penang</option>
+                                        <option value="Perak" @if($user->state === 'Perak') selected @endif>Perak</option>
+                                        <option value="Perlis" @if($user->state === 'Perlis') selected @endif>Perlis</option>
+                                        <option value="Sabah" @if($user->state === 'Sabah') selected @endif>Sabah</option>
+                                        <option value="Sarawak" @if($user->state === 'Sarawak') selected @endif>Sarawak</option>
+                                        <option value="Selangor" @if($user->state === 'Selangor') selected @endif>Selangor</option>
+                                        <option value="Terengganu" @if($user->state === 'Terengganu') selected @endif>Terengganu</option>
+                                        <option value="Kuala Lumpur" @if($user->state === 'Kuala Lumpur') selected @endif>Kuala Lumpur</option>
+                                        <option value="Labuan" @if($user->state === 'Labuan') selected @endif>Labuan</option>
+                                        <option value="Putrajaya" @if($user->state === 'Putrajaya') selected @endif>Putrajaya</option>
+                                      </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="update-poscode" class="form-label">Postal Code</label>
-                                    <input class="form-control mb-2" id="update-poscode" type="text">
+                                    <input class="form-control mb-2" id="update-poscode" type="text" name="postal" value="{{ $user->postal }}">
                                 </div>
                         </div>
                     </div>
@@ -95,12 +112,12 @@
                                 <div class="mb-3">
                                     <label for="update-email" class="form-label">Email address</label>
                                     <input type="email" class="form-control" id="update-email"
-                                        aria-describedby="emailHelp" placeholder="Enter email">
+                                        aria-describedby="emailHelp" placeholder="Enter email" name="email" value="{{ $user->email }}" required>
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="update-contact" class="form-label">Phone number</label>
-                                    <input class="form-control" id="update-contact" type="text" placeholder="Phone number">
+                                    <input class="form-control" id="update-contact" type="text" placeholder="Phone number" name="phone" value="{{ $user->phone }}">
                                 </div>
                         </div>
                     </div>

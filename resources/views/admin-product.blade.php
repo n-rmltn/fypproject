@@ -28,7 +28,7 @@
 
                     <!-- User listing Actions-->
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
+                        <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center visually-hidden">
                             <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
                               placeholder="Search" aria-label="Search">
                             <button class="btn btn-link p-0 text-muted" type="submit"><i class="ri-search-2-line"></i></button>

@@ -139,4 +139,50 @@ class UserController extends Controller
 
         return view('admin-user')->with('users',$users);//
     }
+    public function admin_edit_user($id)
+    {
+        $user = User::find($id);
+
+        return view('admin-user-alter')->with('user',$user);//
+    }
+    public function admin_edit_user_update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:225|'. Rule::unique('users')->ignore($user->id),
+            'address_1' => 'required|max:255',
+            'address_2' => 'required|max:255',
+            'city' => 'required|max:255',
+            'state' => 'required|max:255',
+            'postal' => 'required|max:255',
+            'phone' => 'required|max:255',
+        ]);
+
+        // if fails redirects back with errors
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Fill user model
+        $user->fill([
+            'name' => $request->name,
+            'email' => $request->email,
+            'address_1' => $request->address_1,
+            'address_2' => $request->address_2,
+            'city' => $request->city,
+            'state' => $request->state,
+            'postal' => $request->postal,
+            'phone' => $request->phone
+        ]);
+
+        // Save user to database
+        $user->save();
+
+        // Redirect to route
+        return redirect()->route('admin-user', ['msg' => 'success']);
+    }
 }

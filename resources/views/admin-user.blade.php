@@ -26,15 +26,23 @@
                 </div>
                 <div class="card-body">
 
+                    @if(app('request')->input('msg') && app('request')->input('msg') === 'success')
+                    <div class="alert alert-success" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            <li>User Details Has Been Updated</li>
+                        </ul>
+                    </div>
+                    @endif
+
                     <!-- User listing Actions-->
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3 visually-hidden">
                         <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
                             <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
                               placeholder="Search" aria-label="Search">
                             <button class="btn btn-link p-0 text-muted" type="submit"><i class="ri-search-2-line"></i></button>
                         </form>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-sm btn-primary" href="#"><i class="ri-add-circle-line align-bottom"></i> New User</a>
+                            <a class="btn btn-sm btn-primary" href="#" hidden><i class="ri-add-circle-line align-bottom"></i> New User</a>
                         </div>
                     </div>
                     <!-- /user listing Actions-->
@@ -94,7 +102,7 @@
                                                 <i class="ri-more-2-line"></i>
                                             </button>
                                             <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin-user-alter', $val->id) }}">Edit</a></li>
                                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                             </ul>
                                         </div>
