@@ -44,6 +44,7 @@ Route::group(['middleware' => ['guest']], function() {
     Route::get('/login', function () {return view('login');})->name('login');
     Route::post('/login', [UserController::class, 'Authenticate'])->name('login.perform');
     Route::get('/register', function () {return view('register');})->name('register');
+    Route::post('/register', [UserController::class, 'register'])->name('register.perform');
     Route::get('/forgot_pass', function () {return view('user-forgotpass');})->name('forgot');
 });
 

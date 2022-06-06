@@ -107,4 +107,30 @@ class UserController extends Controller
 
         return redirect()->route('password', ['msg' => 'success']);
     }
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => ['required','email','max:225',
+            function ($attribute, $value, $fail) {
+                if (User::whereEmail($value)->count() > 0) {
+                    $fail($attribute.' is already used.');
+                }
+            }],
+            'password' => 'required',
+            'confirm_password' => 'same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = User::create(request(['name', 'email', 'password']));
+
+        auth()->login($user);
+
+        return redirect()->route('settings');
+    }
 }

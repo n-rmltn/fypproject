@@ -19,18 +19,49 @@
             <!-- / Logo-->
             <div class="shadow-xl p-4 p-lg-5 bg-white">
                 <h1 class="text-center mb-5 fs-2 fw-bold">Open Account</h1>
-                <form>
+                @if(isset ($errors) && count($errors) > 0)
+                    <div class="alert alert-warning" role="alert">
+                        <ul class="list-unstyled mb-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if(Session::get('success', false))
+                    <?php $data = Session::get('success'); ?>
+                    @if (is_array($data))
+                        @foreach ($data as $msg)
+                            <div class="alert alert-warning" role="alert">
+                                <i class="fa fa-check"></i>
+                                {{ $msg }}
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fa fa-check"></i>
+                            {{ $data }}
+                        </div>
+                    @endif
+                @endif
+                <form method="post" action="{{ route('register.perform') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-group">
                       <label class="form-label" for="register-name">Name</label>
-                      <input type="text" class="form-control" id="register-name" placeholder="Enter your name">
+                      <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                       <label class="form-label" for="register-email">Email address</label>
-                      <input type="email" class="form-control" id="register-email" placeholder="name@email.com">
+                      <input type="email" class="form-control" id="register-email" name="email" placeholder="name@email.com">
                     </div>
                     <div class="form-group">
                       <label class="form-label" for="register-password">Password</label>
-                      <input type="password" class="form-control" id="register-password" placeholder="Enter your password">
+                      <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="register-password">Confirm Password</label>
+                      <input type="password" class="form-control" id="register-password" name="confirm_password" placeholder="Re-Enter your password">
                     </div>
                     <button type="submit" class="btn btn-dark d-block w-100 my-4">Sign Up</button>
                   </form>
