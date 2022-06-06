@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('product_name_short');
             $table->string('product_name_long');
             $table->string('product_cart_images_name');
+            $table->string('product_catalog_images_name');
             $table->enum('product_categories', ['keyboard','mouse','headphones','monitor','other'])->default('other');
             $table->foreignId('product_brand_id')->references('id')->on('product_brand')->constrained();
             $table->string('product_description');
