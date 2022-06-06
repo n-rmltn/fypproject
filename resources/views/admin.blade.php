@@ -21,7 +21,7 @@
         <section class="container-fluid">
 
             <!-- Page Title-->
-            <h2 class="fs-3 fw-bold mb-2">Welcome back, Normand Lubaton 👋</h2>
+            <h2 class="fs-3 fw-bold mb-2">Welcome back, {{ auth()->user()->name }} 👋</h2>
             <p class="text-muted mb-5">Product sales overview.</p>
             <!-- / Page Title-->
             <!-- Top Row Widgets-->
