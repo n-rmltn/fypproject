@@ -67,63 +67,7 @@
                                                         <i class="ri-more-2-line"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bolder">#1235-7755</span>
-                                            </td>
-                                            <td>Dominic Patterson</td>
-                                            <td class="text-muted">22nd June, 2021</td>
-                                            <td class="text-muted">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="ri-mastercard-fill ri-lg me-2"></i> **** 1233
-                                                </div>
-                                            </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-info-faded text-info">processing</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                        id="dropdownOrder-1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="ri-more-2-line"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-1">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="fw-bolder">#1236-6579</span>
-                                            </td>
-                                            <td>Steven Smith</td>
-                                            <td class="text-muted">21st June, 2021</td>
-                                            <td class="text-muted">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="ri-paypal-line ri-lg me-2"></i> **** 7766
-                                                </div>
-                                            </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-danger-faded text-danger">cancelled</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                        id="dropdownOrder-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="ri-more-2-line"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-2">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('orders-details') }}">View details</a></li>
                                                         <li><a class="dropdown-item" href="#">Another action</a></li>
                                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                                                     </ul>
