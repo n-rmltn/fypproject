@@ -16,7 +16,6 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-
         $array = ['product_status' => 1];
         $req = [];
         $brands = Product_Brand::wherehas('product', function($q)  use ($array){
@@ -160,5 +159,12 @@ class ProductController extends Controller
                             }
                         )->get();
         return view('ajax.search')->with('product',$product);
+    }
+
+    public function admin_list(Request $request)
+    {
+        $products = Product::paginate(10);
+
+        return view('admin-product')->with('products',$products);//
     }
 }

@@ -53,28 +53,42 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                                @forelse ($products as $prod => $val)
                                 <tr>
                                     <td>
                                         <div class="d-flex justify-content-start align-items-start">
                                             <div class="avatar avatar-xs me-3 flex-shrink-0">
                                                 <picture>
-                                                    <img class="f-w-10 rounded-circle" src="{{ asset('assets/images/products/product-cart-1.webp') }}"
+                                                    <img class="f-w-10 rounded-circle" src="{{ asset('/assets/images/products/product-cart-'.$val->product_id.'.webp') }}"
                                                     alt="">
                                                 </picture>
                                             </div>
                                             <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1">Keychron K2 Wireless Mechanical Keyboard (Version 2)</p>
-                                                <span class="d-block text-muted">Keychron K2</span>
-                                                <span class="d-block text-muted">Keychron</span>
+                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1">{{ $val->product_name_long }}</p>
+                                                <span class="d-block text-muted">{{ $val->product_name_short }}</span>
+                                                <span class="d-block text-muted">{{ $val->brand->product_brand_name }}</span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>Keyboard</td>
-                                    <td class="text-muted"> RM 320.00</td>
-                                    <td class="text-muted">Available</td>
+                                    <td>{{ $val->product_categories }}</td>
+                                    <td class="text-muted"> RM {{ $val->product_base_price }}</td>
+                                    <td class="text-muted">
+                                        @if ($val->product_status === 1)
+                                            Available
+                                        @else
+                                            Not Available
+                                        @endif
+                                    </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <span class="small text-muted">Yes</span>
+                                            <span class="small text-muted">
+                                                @if ($val->product_featured === true)
+                                                    Featured
+                                                @else
+                                                    Not Featured
+                                                @endif
+                                            </span>
                                         </div>
                                     </td>
                                     <td>
@@ -90,54 +104,16 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex justify-content-start align-items-start">
-                                            <div class="avatar avatar-xs me-3 flex-shrink-0">
-                                                <picture>
-                                                    <img class="f-w-10 rounded-circle" src="{{ asset('assets/images/products/product-cart-2.webp') }}"
-                                                    alt="">
-                                                </picture>
-                                            </div>
-                                            <div>
-                                                <p class="fw-bolder mb-1 d-flex align-items-center lh-1">Keychron K4 Wireless Mechanical Keyboard (Version 2)</p>
-                                                <span class="d-block text-muted">Keychron K4</span>
-                                                <span class="d-block text-muted">Keychron</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Keyboard</td>
-                                    <td class="text-muted"> RM 320.00</td>
-                                    <td class="text-muted">Available</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="small text-muted">Yes</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
-                                                id="dropdownOrder-0" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-line"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @empty
+                                    <p class="text-white">No product available</p>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
                     <!-- /User Listing Table-->
                     <nav>
                         <ul class="pagination justify-content-end mt-3 mb-0">
-                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            {!! $products->links() !!}
                         </ul>
                       </nav>
                 </div>

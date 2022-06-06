@@ -113,15 +113,15 @@
                   <span
                     class="position-absolute bottom-0 start-75 p-1 bg-success border border-3 border-white rounded-circle">
                     <span class="visually-hidden">New alerts</span>
-                  </span>A
+                  </span>{{ substr(auth()->user()->name,0,1) }}
                 </button>
                 <ul class="dropdown-menu dropdown-md dropdown-menu-end" aria-labelledby="profileDropdown">
                   <li class="d-flex py-2 align-items-start">
-                    <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">A</button>
+                    <button class="btn-icon bg-primary-faded text-primary fw-bolder me-3">{{ substr(auth()->user()->name,0,1) }}</button>
                     <div class="d-flex align-items-start justify-content-between flex-grow-1">
                       <div>
-                        <p class="lh-1 mb-2 fw-semibold text-body">Normand Lubaton</p>
-                        <p class="text-muted lh-1 mb-2 small">normandlubaton@icloud.com</p>
+                        <p class="lh-1 mb-2 fw-semibold text-body">{{ auth()->user()->name }}</p>
+                        <p class="text-muted lh-1 mb-2 small">{{ auth()->user()->email }}</p>
                       </div>
                       <small class="badge bg-success-faded text-success rounded-pill">Admin</small>
                     </div>
