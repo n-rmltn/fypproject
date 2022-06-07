@@ -60,7 +60,7 @@
                                         <div class="d-flex justify-content-start align-items-start">
                                             <div class="avatar avatar-xs me-3 flex-shrink-0">
                                                 <picture>
-                                                    <img class="f-w-10 rounded-circle" src="{{ asset('/assets/images/products/product-cart-'.$val->product_id.'.webp') }}"
+                                                    <img class="f-w-10 rounded-circle" src="{{ asset('/assets/images/products/'.$val->product_cart_images_name) }}"
                                                     alt="">
                                                 </picture>
                                             </div>

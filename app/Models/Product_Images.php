@@ -12,6 +12,7 @@ class Product_Images extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
+        'product_id',
         'product_images_name',
         'product_images_priority',
     ];

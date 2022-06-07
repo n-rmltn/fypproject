@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Product_Brand;
+use App\Models\Product_Images;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Arr;
 
 class ProductController extends Controller
@@ -171,24 +173,64 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-
-
         return view('admin-product-alter')->with('product',$product);//
     }
     public function admin_add_prod(Request $request)
     {
-        $request->validate([
-            'cart_img' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
+        $brand = Product_Brand::where('product_brand_name', $request->product_brand)->first();
+        $name = trim($request->product_name_short, " ");
+        $option = json_decode($request->option);
+
+        $product = Product::create([
+            'product_name_short' => $request->product_name_short,
+            'product_name_long' => $request->product_name_long,
+            'product_brand_id' => $brand->id,
+            'product_categories' => $request->product_categories,
+            'product_description' => $request->product_description,
+            'product_base_price' => $request->product_base_price,
+            'product_stripe_id' => $request->stripe_id,
         ]);
+        $product->product_name_short = $request->product_name_short;
+        $product->product_name_long = $request->product_name_long;
+        $product->product_brand_id = $brand->id;
+        $product->save();
+        $validatedData = Validator::make($request->all(), [
+            'cart_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'prod_img' => 'required',
+            'prod_img.*' => 'mimes:jpeg,png,jpg,gif,svg,webp'
+        ]);
+        $i = 0;
+        $cat = '';
+        if($request->hasfile('prod_img'))
+        {
+            foreach($request->file('prod_img') as $file)
+            {
+                $i++;
+                $name = 'product-'.$name.'-'.$i.'.'.$file->extension();
+                $file->move(public_path('assets/images/products'), $name);
+                $data[] = $name;
+                if ($i == 1){
+                    $cat = $name;
+                }
+                $images = Product_Images::create([
+                    'product_id' => $product->product_id,
+                    'product_images_name' => $name,
+                    'product_images_priority' => $i
+                ]);
+            }
+        }
 
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = 'product-cart-'.$product->product_id.'.'.$request->file('cart_img')->extension();
 
-        $request->image->move(public_path('images'), $imageName);
+        $request->file('cart_img')->move(public_path('assets/images/products'), $imageName);
 
-        /* Store $imageName name in DATABASE from HERE */
+        $prod = Product::findOrFail($product->product_id);
+        $prod->fill([
+            'product_cart_images_name' => $imageName,
+            'product_catalog_images_name' => $cat
+        ]);
+        $prod->save();
 
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
+        return redirect()->back()->with('success', $option);
     }
 }

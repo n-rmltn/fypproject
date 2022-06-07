@@ -336,7 +336,7 @@
                                 </div>
                                 <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
                                 <picture class="position-relative overflow-hidden d-block bg-light">
-                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('assets/images/products/product-'.$suggest->product_id.'.webp') }}" alt="">
+                                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="{{ asset('assets/images/products/'.$suggest->product_cart_images_name) }}" alt="">
                                 </picture>
                                     <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                                         <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>

@@ -71,7 +71,7 @@ class ProductTableSeeder extends Seeder
                 'product_name_short' => 'Keychron K6',
                 'product_name_long' => 'Keychron K6 Wireless Mechanical Keyboard',
                 'product_cart_images_name' => 'product-cart-5.webp',
-                'product_catalog_images_name' => 'product-keychronk5-1.webp',
+                'product_catalog_images_name' => 'product-keychronk6-1.webp',
                 'product_categories' => 'keyboard',
                 'product_brand_id' => '1',
                 'product_description' => 'K6 is crafted to maximize your workspace with an ergonomic design, while retaining all necessary multimedia and function keys. The hot-swappable version offers the freedom to easily personalize your typing experience without soldering.',
