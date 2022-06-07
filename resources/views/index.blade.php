@@ -522,7 +522,7 @@
                         <div class="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div class="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="000">
                                 <picture class="d-block mb-4 img-clip-shape-one">
-                                    <img class="w-100" title="" src="{{ asset('assets/images/products/'.$prod->product_cart_images_name) }}" alt=" ">
+                                    <img class="w-100" title="" src="{{ asset('assets/images/products/'.$prod->product_catalog_images_name) }}" alt=" ">
                                 </picture>
                                 <p class="title-small mb-2 text-muted">{{ $prod->brand->product_brand_name }}</p>
                                 <h4 class="lead fw-bold text-white">{{ $prod->product_name_short }}</h4>
