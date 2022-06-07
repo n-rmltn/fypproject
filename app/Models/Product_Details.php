@@ -10,6 +10,7 @@ class Product_Details extends Model
     protected $table = 'product_details';
 
     protected $fillable = [
+        'product_id',
         'product_details_header',
         'product_details_content',
     ];
