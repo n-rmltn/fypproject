@@ -260,6 +260,6 @@ class ProductController extends Controller
         ]);
         $prod->save();
 
-        return redirect()->back()->with('success', $test);
+        return redirect()->route('admin-product-alter', $product->product_id)->with('success', 'Product Added Successfully');
     }
 }

@@ -26,10 +26,8 @@
 
         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
+            <strong>{{ $message }}</strong>
         </div>
-        <img src="images/{{ Session::get('image') }}">
         @endif
 
         @if (count($errors) > 0)
