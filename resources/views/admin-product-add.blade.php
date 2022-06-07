@@ -26,10 +26,8 @@
 
         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
+            <strong>{{ $message }}</strong>
         </div>
-        <img src="images/{{ Session::get('image') }}">
         @endif
 
         @if (count($errors) > 0)
@@ -134,14 +132,14 @@
                                 <div class="mb-3">
                                     <label for="add-city" class="form-label">Details</label>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_1">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_1" required>
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_1">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_1" required>
                                     </div>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_2">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_2" required>
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_2">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_2" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -229,11 +227,11 @@
                             <div class="card-body">\
                                 <div class="mb-3">\
                                     <label for="add-opt" class="form-label">Option Amount</label>\
-                                    <input class="form-control mb-2" id="number_variation_'+ (i+1) +'" type="number" placeholder="Amount" min="2" max="5" step="1" onchange="function_change2('+ (i+1) +')" value="2">\
+                                    <input class="form-control mb-2" id="number_variation_'+ (i+1) +'" type="number" placeholder="Amount" min="2" max="5" step="1" onchange="function_change2('+ (i+1) +')" value="2" required>\
                                 </div>\
                                 <div class="mb-3">\
                                     <label for="add-city" class="form-label">Options</label>\
-                                    <input class="form-control mb-1" id="option_name_'+ (i+1) +'" type="text" placeholder="option name" onchange="function_3()">\
+                                    <input class="form-control mb-1" id="option_name_'+ (i+1) +'" type="text" placeholder="option name" onchange="function_3()" required>\
                                     <div id="variation_container_'+ (i+1) +'">\
                                     </div>\
                                 </div>\
@@ -250,9 +248,9 @@
 
             for(var i = 0; i < parseInt(val); i++) {
                 ele.innerHTML = ele.innerHTML + '<div class="input-group mb-1">\
-                                        <input type="text" class="form-control" id="var_name_'+ no +'_'+ (i+1) +'" placeholder="Variation name" aria-label="Var" onchange="function_3()">\
+                                        <input type="text" class="form-control" id="var_name_'+ no +'_'+ (i+1) +'" placeholder="Variation name" aria-label="Var" onchange="function_3()" required>\
                                         <span class="input-group-text">RM</span>\
-                                        <input type="text" class="form-control" id="var_price_'+ no +'_'+ (i+1) +'" placeholder="Price" aria-label="VarPrice" onchange="function_3()">\
+                                        <input type="text" class="form-control" id="var_price_'+ no +'_'+ (i+1) +'" placeholder="Price" aria-label="VarPrice" onchange="function_3()" required>\
                                     </div>';
             }
         }

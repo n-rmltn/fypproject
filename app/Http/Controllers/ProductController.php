@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Product_Brand;
+use App\Models\Product_Details;
 use App\Models\Product_Images;
+use App\Models\Product_Option;
+use App\Models\Product_Option_List;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Arr;
@@ -180,7 +183,7 @@ class ProductController extends Controller
         $brand = Product_Brand::where('product_brand_name', $request->product_brand)->first();
         $name = trim($request->product_name_short, " ");
         $option = json_decode($request->option);
-
+        $test = '';
         $product = Product::create([
             'product_name_short' => $request->product_name_short,
             'product_name_long' => $request->product_name_long,
@@ -190,10 +193,36 @@ class ProductController extends Controller
             'product_base_price' => $request->product_base_price,
             'product_stripe_id' => $request->stripe_id,
         ]);
-        $product->product_name_short = $request->product_name_short;
-        $product->product_name_long = $request->product_name_long;
-        $product->product_brand_id = $brand->id;
-        $product->save();
+
+        $det_1 = Product_Details::create([
+            'product_id' => $product->product_id,
+            'product_details_header' => $request->detail_name_1,
+            'product_details_content' => $request->detail_desc_1
+        ]);
+
+        $det_2 = Product_Details::create([
+            'product_id' => $product->product_id,
+            'product_details_header' => $request->detail_name_2,
+            'product_details_content' => $request->detail_desc_2
+        ]);
+
+        if (count($option) > 0){
+            foreach($option as $opt){
+                $test = $opt->option_name;
+                $option_q = Product_Option::create([
+                    'product_id' => $product->product_id,
+                    'product_option_name' => $opt->option_name
+                ]);
+                foreach($opt->variation as $var){
+                    $var_q = Product_Option_List::create([
+                        'product_option_id' => $option_q->id,
+                        'product_option_list_name' => $var->var_name,
+                        'product_option_list_additional_price' => $var->var_price,
+                    ]);
+                }
+            };
+        }
+
         $validatedData = Validator::make($request->all(), [
             'cart_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'prod_img' => 'required',
@@ -231,6 +260,6 @@ class ProductController extends Controller
         ]);
         $prod->save();
 
-        return redirect()->back()->with('success', $option);
+        return redirect()->route('admin-product-alter', $product->product_id)->with('success', 'Product Added Successfully');
     }
 }

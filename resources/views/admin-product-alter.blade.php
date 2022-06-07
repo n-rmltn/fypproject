@@ -22,7 +22,25 @@
         <section class="container-fluid">
 
         <!-- Page Title -->
-        <h2 class="fs-4 mb-3">Add Product</h2>
+        <h2 class="fs-4 mb-3">Edit Product</h2>
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form>
             <div class="row g-4">
                 <div class="col-12 col-md-6">
