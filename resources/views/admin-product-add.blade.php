@@ -23,7 +23,27 @@
 
         <!-- Page Title -->
         <h2 class="fs-4 mb-3">Add Product</h2>
-        <form method="post" action="{{ route('admin-add-product.add') }}">
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        <img src="images/{{ Session::get('image') }}">
+        @endif
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="post" action="{{ route('admin-add-product.add') }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row g-4">
                 <div class="col-12 col-md-6">
@@ -34,16 +54,16 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="add-lname" class="form-label">Long Product Name</label>
-                                    <input class="form-control" id="add-lname" type="text" placeholder="Long product name" name="product_name_long">
+                                    <input class="form-control" id="add-lname" type="text" placeholder="Long product name" name="product_name_long" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-sname" class="form-label">Short Product Name</label>
-                                    <input class="form-control mb-2" id="add-sname" type="text" placeholder="Short product name" name="product_name_short">
+                                    <input class="form-control mb-2" id="add-sname" type="text" placeholder="Short product name" name="product_name_short" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-brand" class="form-label">Brand</label>
-                                    <select class="form-control" id="add-brand" name="product_brand">
-                                        <option>Select Brand</option>
+                                    <select class="form-control" id="add-brand" name="product_brand" required>
+                                        <option value="">Select Brand</option>
                                         <option value="Keychron">Keychron</option>
                                         <option value="Ducky">Ducky</option>
                                         <option value="Redragon">Redragon</option>
@@ -71,7 +91,7 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="add-baseprice" class="form-label">Base Price</label>
-                                    <input class="form-control" id="add-baseprice" type="text" placeholder="Base Price" name="product_base_price">
+                                    <input class="form-control" id="add-baseprice" type="text" placeholder="Base Price" name="product_base_price" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-var" class="form-label">Number Of Option</label>
@@ -94,12 +114,12 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-desc" class="form-label">Description</label>
-                                <textarea class="form-control" id="add-desc" rows="5" name="product_description"></textarea>
+                                <textarea class="form-control" id="add-desc" rows="5" name="product_description" required></textarea>
                             </div>
                                 <div class="mb-3">
                                     <label for="add-category" class="form-label">Category</label>
-                                    <select class="form-control" id="add-category" name="product_categories">
-                                        <option>Select Category</option>
+                                    <select class="form-control" id="add-category" name="product_categories" required>
+                                        <option value="">Select Category</option>
                                         <option value="keyboard">Keyboard</option>
                                         <option value="mouse">Mouse</option>
                                         <option value="monitor">Monitor</option>
@@ -138,7 +158,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-thumbnail" class="form-label">Product image</label>
-                                <input class="form-control" type="file" id="add-thumbnail" name="cart_img">
+                                <input class="form-control" type="file" id="add-thumbnail" name="cart_img" required>
                             </div>
                         </div>
                     </div>
@@ -150,7 +170,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-image" class="form-label">Product image(s)</label>
-                                <input class="form-control" type="file" id="add-image" multiple name="prod_img">
+                                <input class="form-control" type="file" id="add-image" multiple name="prod_img[]" required>
                             </div>
                         </div>
                     </div>

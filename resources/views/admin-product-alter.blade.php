@@ -142,14 +142,14 @@
                                 <div class="mb-3">
                                     <label for="add-city" class="form-label">Details</label>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="{{ $product->details[0]->product_details_header }}">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="@if (count($product->details) >0){{ $product->details[0]->product_details_header }}@endif">
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="{{ $product->details[0]->product_details_content }}">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="@if (count($product->details) >0){{ $product->details[0]->product_details_content }}@endif">
                                     </div>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="{{ $product->details[1]->product_details_header }}">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="@if (count($product->details) >0){{ $product->details[1]->product_details_header }}@endif">
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="{{ $product->details[1]->product_details_content }}">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="@if (count($product->details) >0){{ $product->details[1]->product_details_content }}@endif">
                                     </div>
                                 </div>
                                 <div class="mb-3">
