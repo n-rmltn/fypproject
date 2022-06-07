@@ -40,21 +40,21 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="nameBilling" class="form-label">Name</label>
-                                  <input type="text" class="form-control" id="nameBilling" placeholder="Name" value="{{ auth()->user()->name }}" required>
+                                  <input type="text" class="form-control" id="nameBilling" placeholder="Name" name="name" value="{{ auth()->user()->name }}" required>
                                 </div>
                               </div>
                               <!-- Email-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" placeholder="you@example.com" value="{{ auth()->user()->email }}" required>
+                                  <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{ auth()->user()->email }}" required>
                                 </div>
                               </div>
                               <!-- Phone-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="numberBilling" class="form-label">Phone</label>
-                                  <input type="text" class="form-control" id="numberBilling" placeholder="Phone" value="{{ auth()->user()->phone }}" required>
+                                  <input type="text" class="form-control" id="numberBilling" placeholder="Phone" name="phone" value="{{ auth()->user()->phone }}" required>
                                 </div>
                               </div>
                             </div>
@@ -66,7 +66,7 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="address1" class="form-label">Address 1</label>
-                                  <input type="text" class="form-control" id="address1" placeholder="Address 1" value="{{ auth()->user()->address_1 }}" required>
+                                  <input type="text" class="form-control" id="address1" placeholder="Address 1" name="address_1" value="{{ auth()->user()->address_1 }}" required>
                                 </div>
                               </div>
 
@@ -74,7 +74,7 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="address2" class="form-label">Address 2</label>
-                                  <input type="text" class="form-control" id="address2" placeholder="Address 2" value="{{ auth()->user()->address_2 }}" required>
+                                  <input type="text" class="form-control" id="address2" placeholder="Address 2" name="address_2" value="{{ auth()->user()->address_2 }}" required>
                                 </div>
                               </div>
 
@@ -82,7 +82,7 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="city" class="form-label">City</label>
-                                  <input type="text" class="form-control" id="city" placeholder="City" value="{{ auth()->user()->city }}" required>
+                                  <input type="text" class="form-control" id="city" placeholder="City" name="" value="{{ auth()->user()->city }}" required>
                                 </div>
                               </div>
 
@@ -116,7 +116,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="poscode" class="form-label">Postal Code</label>
-                                  <input type="text" class="form-control" id="poscode" placeholder="Postal Code" value="{{ auth()->user()->postal }}" required>
+                                  <input type="text" class="form-control" id="poscode" placeholder="Postal Code" name="postal" value="{{ auth()->user()->postal }}" required>
                                 </div>
                               </div>
                             </div>

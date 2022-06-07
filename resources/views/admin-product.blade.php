@@ -34,7 +34,7 @@
                             <button class="btn btn-link p-0 text-muted" type="submit"><i class="ri-search-2-line"></i></button>
                         </form>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-sm btn-primary" href="#"><i class="ri-add-circle-line align-bottom"></i> Add Product</a>
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin-add-product') }}"><i class="ri-add-circle-line align-bottom"></i> Add Product</a>
                         </div>
                     </div>
                     <!-- /user listing Actions-->
@@ -98,7 +98,7 @@
                                                 <i class="ri-more-2-line"></i>
                                             </button>
                                             <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                <li><a class="dropdown-item" href="./user-edit.html">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin-product-alter', $val->product_id) }}">Edit</a></li>
                                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                                             </ul>
                                         </div>

@@ -29,10 +29,10 @@
                             <li class="me-4"><a class="nav-link-checkout active"
                                     href="{{ route('payment') }}">Payment</a></li>
                         </ul>
-                    </nav>                        
+                    </nav>
                         <div class="mt-5">
                             <!-- Checkout Information Summary -->
-                            <ul class="list-group mb-5 d-none d-lg-block rounded-0">
+                            <ul class="list-group mb-5 d-none d-lg-block rounded-0 visually-hidden">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div class="d-flex justify-content-start align-items-center">
                                         <span class="text-muted small me-2 f-w-36 fw-bolder">Contact</span>
@@ -48,12 +48,12 @@
                                     <a href="{{ route('checkout') }}" class="text-muted small" role="button">Change</a>
                                 </li>
                             </ul><!-- / Checkout Information Summary-->
-                            
+
                             <!-- Checkout Panel Information-->
                             <h3 class="fs-5 fw-bolder mb-4 border-bottom pb-4">Payment Information</h3>
-                            
+
                             <div class="row">
-                            
+
                               <!-- Payment Option-->
                               <div class="col-12">
                                 <div class="form-check form-group form-check-custom form-radio-custom mb-3">
@@ -68,9 +68,9 @@
                                   </label>
                                 </div>
                               </div>
-                            
+
                             </div>
-                            
+
                             <!-- Payment Details-->
                             <div class="card-details">
                               <div class="row pt-3">
@@ -81,21 +81,21 @@
                                     <small class="text-muted">Full name as displayed on card</small>
                                   </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <label for="cc-number" class="form-label">Credit card number</label>
                                     <input type="text" class="form-control" id="cc-number" placeholder="" required="">
                                   </div>
                                 </div>
-                            
+
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="cc-expiration" class="form-label">Expiration</label>
                                     <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
                                   </div>
                                 </div>
-                            
+
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <div class="d-flex">
@@ -112,7 +112,7 @@
                               </div>
                             </div>
                             <!-- / Payment Details-->
-                            
+
                             <div class="pt-2 mt-2 pb-5 border-top d-flex flex-column flex-md-row justify-content-between align-items-center">
                               <a href="{{ route('checkout') }}" class="btn ps-md-0 btn-link fw-bolder w-100 w-md-auto mb-2 mb-md-0" role="button">Back to
                                 information</a>
@@ -158,7 +158,7 @@
                             <button class="btn btn-secondary btn-sm px-4">Apply</button>
                         </div>
                     </div> --}}
-                    
+
                     <form action="/payment" method="POST">
                         @csrf
                     <button id="checkout-button" class="btn btn-dark w-100 text-center mt-2" role="button">Proceed to checkout</button>

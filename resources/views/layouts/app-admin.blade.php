@@ -44,7 +44,7 @@
 
     <!-- Page Title -->
     <title>@yield('title') - {{ config('app.name') }}</title>
-    
+
 </head>
 
 <body class="@yield('body_class')">
@@ -54,9 +54,14 @@
     <!-- Theme JS -->
     <!-- Vendor JS -->
     <script src="{{ asset('assets/js-admin/vendor.bundle.js') }}"></script>
-    
+
     <!-- Theme JS -->
     <script src="{{ asset('assets/js-admin/theme.bundle.js') }}"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+        ></script>
         @yield('script')
 </body>
 </html>
