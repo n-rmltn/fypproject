@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_option_list', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('product_option_id')->references('id')->on('product_option')->constrained();
+            $table->foreignId('product_option_id')->references('id')->on('product_option')->constrained()->onDelete('cascade');
             $table->string('product_option_list_name');
             $table->decimal('product_option_list_additional_price', 8,2);
             $table->boolean('product_option_list_status')->default(1);
