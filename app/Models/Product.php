@@ -25,7 +25,7 @@ class Product extends Model
 
     protected $casts = [
         'product_featured'    =>  'boolean',
-        'product_stripe_id'  =>  'boolean'
+        'product_status'  =>  'boolean'
     ];
 
     public function brand(){

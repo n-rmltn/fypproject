@@ -11,7 +11,7 @@
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('admin-product') }}">Product Listing</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ $product->product_name_short }}</li>
+                  <li class="breadcrumb-item active" aria-current="page">Add Product</li>
               </ol>
           </nav>
           </div>
@@ -23,7 +23,8 @@
 
         <!-- Page Title -->
         <h2 class="fs-4 mb-3">Add Product</h2>
-        <form>
+        <form method="post" action="{{ route('admin-add-product.add') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row g-4">
                 <div class="col-12 col-md-6">
                     <div class="card mb-4">
@@ -33,31 +34,31 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="add-lname" class="form-label">Long Product Name</label>
-                                    <input class="form-control" id="add-lname" type="text" placeholder="Long product name" name="product_name_long" value="{{ $product->product_name_long }}">
+                                    <input class="form-control" id="add-lname" type="text" placeholder="Long product name" name="product_name_long">
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-sname" class="form-label">Short Product Name</label>
-                                    <input class="form-control mb-2" id="add-sname" type="text" placeholder="Short product name" name="product_name_short" value="{{ $product->product_name_short }}">
+                                    <input class="form-control mb-2" id="add-sname" type="text" placeholder="Short product name" name="product_name_short">
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-brand" class="form-label">Brand</label>
-                                    <select class="form-control" id="add-brand">
+                                    <select class="form-control" id="add-brand" name="product_brand">
                                         <option>Select Brand</option>
-                                        <option value="Keychron" @if($product->brand->product_brand_name === 'Keychron') selected @endif>Keychron</option>
-                                        <option value="Ducky" @if($product->brand->product_brand_name === 'Ducky') selected @endif>Ducky</option>
-                                        <option value="Redragon" @if($product->brand->product_brand_name === 'Redragon') selected @endif>Redragon</option>
-                                        <option value="Royal Kludge" @if($product->brand->product_brand_name === 'Royal Kludge') selected @endif>Royal Kludge</option>
-                                        <option value="GMMK" @if($product->brand->product_brand_name === 'GMMK') selected @endif>GMMK</option>
-                                        <option value="Leopold" @if($product->brand->product_brand_name === 'Leopold') selected @endif>Leopold</option>
-                                        <option value="Corsair" @if($product->brand->product_brand_name === 'Corsair') selected @endif>Corsair</option>
-                                        <option value="Coolermaster" @if($product->brand->product_brand_name === 'Coolermaster') selected @endif>Coolermaster</option>
-                                        <option value="Razer" @if($product->brand->product_brand_name === 'Razer') selected @endif>Razer</option>
-                                        <option value="Logitech" @if($product->brand->product_brand_name === 'Logitech') selected @endif>Logitech</option>
-                                        <option value="HyperX" @if($product->brand->product_brand_name === 'HyperX') selected @endif>HyperX</option>
-                                        <option value="SteelSeries" @if($product->brand->product_brand_name === 'SteelSeries') selected @endif>SteelSeries</option>
-                                        <option value="ROG" @if($product->brand->product_brand_name === 'ROG') selected @endif>ROG</option>
-                                        <option value="MSi" @if($product->brand->product_brand_name === 'MSi') selected @endif>MSi</option>
-                                        <option value="Predator" @if($product->brand->product_brand_name === 'Predator') selected @endif>Predator</option>
+                                        <option value="Keychron">Keychron</option>
+                                        <option value="Ducky">Ducky</option>
+                                        <option value="Redragon">Redragon</option>
+                                        <option value="Royal Kludge">Royal Kludge</option>
+                                        <option value="GMMK">GMMK</option>
+                                        <option value="Leopold">Leopold</option>
+                                        <option value="Corsair">Corsair</option>
+                                        <option value="Coolermaster">Coolermaster</option>
+                                        <option value="Razer">Razer</option>
+                                        <option value="Logitech">Logitech</option>
+                                        <option value="HyperX">HyperX</option>
+                                        <option value="SteelSeries">SteelSeries</option>
+                                        <option value="ROG">ROG</option>
+                                        <option value="MSi">MSi</option>
+                                        <option value="Predator">Predator</option>
                                     </select>
                                 </div>
                         </div>
@@ -70,47 +71,18 @@
                         <div class="card-body">
                                 <div class="mb-3">
                                     <label for="add-baseprice" class="form-label">Base Price</label>
-                                    <input class="form-control" id="add-baseprice" type="text" placeholder="{{ $product->product_base_price }}">
+                                    <input class="form-control" id="add-baseprice" type="text" placeholder="Base Price" name="product_base_price">
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-var" class="form-label">Number Of Option</label>
-                                    <input class="form-control mb-2" id="number_option" type="number" min="0" max="2" step="1" placeholder="Amount" value="{{ count($product->option) }}" onchange="function_change()">
+                                    <input class="form-control mb-2" id="number_option" type="number" min="0" max="2" step="1" placeholder="Amount" value="0" onchange="function_change()" name="num_option">
                                     <input id="option" name="option" hidden>
                                 </div>
                         </div>
                     </div>
 
                     <div id="option_container">
-                        @forelse ($product->option as $option => $value)
-                        <div class="card mb-4">
-                            <div class="card-header justify-content-between align-items-center d-flex">
-                                <h6 class="card-title m-0">Option {{ $option+1 }}</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="add-opt" class="form-label">Option Amount</label>
-                                    <input class="form-control mb-2" id="number_variation_{{ $option+1 }}" type="number" placeholder="Amount" min="2" max="5" step="1" onchange="function_change2({{ $option+1 }})" value="{{ count($value->list) }}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="add-city" class="form-label">Options</label>
-                                    <input class="form-control mb-1" id="option_name_{{ $option+1 }}" type="text" placeholder="option name" value="{{ $value->product_option_name }}" onchange="function_3()">
-                                    <div id="variation_container_{{ $option+1 }}">
-                                        @forelse ($value->list as $i => $list)
-                                            <div class="input-group mb-1">
-                                                <input type="text" class="form-control" id="var_name_{{ $option+1 }}_{{ $i+1 }}" placeholder="Variation name" aria-label="Var" value="{{ $list->product_option_list_name }}" onchange="function_3()">
-                                                <span class="input-group-text">RM</span>
-                                                <input type="text" class="form-control" id="var_price_{{ $option+1 }}_{{ $i+1 }}" placeholder="Price" aria-label="VarPrice" value="{{ $list->product_option_list_additional_price }}" onchange="function_3()">
-                                            </div>
-                                        @empty
 
-                                        @endforelse
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-
-                        @endforelse
                     </div>
                 </div>
 
@@ -122,17 +94,17 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-desc" class="form-label">Description</label>
-                                <textarea class="form-control" id="add-desc" rows="5" >{{ $product->product_description }}</textarea>
+                                <textarea class="form-control" id="add-desc" rows="5" name="product_description"></textarea>
                             </div>
                                 <div class="mb-3">
                                     <label for="add-category" class="form-label">Category</label>
-                                    <select class="form-control" id="add-category">
+                                    <select class="form-control" id="add-category" name="product_categories">
                                         <option>Select Category</option>
-                                        <option value="keyboard" @if($product->product_categories === 'keyboard') selected @endif>Keyboard</option>
-                                        <option value="mouse" @if($product->product_categories === 'mouse') selected @endif>Mouse</option>
-                                        <option value="monitor" @if($product->product_categories === 'monitor') selected @endif>Monitor</option>
-                                        <option value="switches" @if($product->product_categories === 'switches') selected @endif>Switches</option>
-                                        <option value="other" @if($product->product_categories === 'other') selected @endif>Accesories</option>
+                                        <option value="keyboard">Keyboard</option>
+                                        <option value="mouse">Mouse</option>
+                                        <option value="monitor">Monitor</option>
+                                        <option value="switches">Switches</option>
+                                        <option value="other">Accesories</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 visually-hidden">
@@ -142,19 +114,19 @@
                                 <div class="mb-3">
                                     <label for="add-city" class="form-label">Details</label>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="{{ $product->details[0]->product_details_header }}">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_1">
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="{{ $product->details[0]->product_details_content }}">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_1">
                                     </div>
                                     <div class="input-group mb-1">
-                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" value="{{ $product->details[1]->product_details_header }}">
+                                        <input type="text" class="form-control" placeholder="Detail name" aria-label="Var" name="detail_name_2">
                                         <span class="input-group-text">-</span>
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" value="{{ $product->details[1]->product_details_content }}">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="VarPrice" name="detail_desc_2">
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="add-stripekey" class="form-label">Stripe Key</label>
-                                    <input class="form-control" id="add-stripekey" type="text" placeholder="Stripe Key" value="{{ $product->product_stripe_id }}">
+                                    <input class="form-control" id="add-stripekey" type="text" placeholder="Stripe Key" name="stripe_id">
                                 </div>
                         </div>
                     </div>
@@ -164,14 +136,9 @@
                             <h6 class="card-title m-0">Product Thumbnail</h6>
                         </div>
                         <div class="card-body">
-                            <img src="{{ asset('assets/images/products/'.$product->product_cart_images_name) }}"
-                                class="card-img-top" alt="HTML Bootstrap Admin Template by Pixel Rocket">
-                            <button type="button" class="btn btn-danger mb-1">Delete Image</button>
-                        </div>
-                        <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-thumbnail" class="form-label">Product image</label>
-                                <input class="form-control" type="file" id="add-thumbnail">
+                                <input class="form-control" type="file" id="add-thumbnail" name="cart_img">
                             </div>
                         </div>
                     </div>
@@ -180,24 +147,15 @@
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Product Images</h6>
                         </div>
-                        @forelse ($product->images as $images)
-                        <div class="card-body">
-                            <img src="{{ asset('assets/images/products/'.$images->product_images_name) }}"
-                                class="card-img-top" alt="HTML Bootstrap Admin Template by Pixel Rocket">
-                            <button type="button" class="btn btn-danger mb-1">Delete Image</button>
-                        </div>
-                        @empty
-
-                        @endforelse
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="add-image" class="form-label">Product image(s)</label>
-                                <input class="form-control" type="file" id="add-image" multiple>
+                                <input class="form-control" type="file" id="add-image" multiple name="prod_img">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Save Product</button>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
                 </div>
             </div>
         </form>
@@ -223,6 +181,11 @@
 
     @section('script')
     <script>
+        $( document ).ready(function_load());
+
+        function function_load () {
+            function_1();
+        }
         function function_change () {
             function_1();
             function_3();
@@ -246,7 +209,7 @@
                             <div class="card-body">\
                                 <div class="mb-3">\
                                     <label for="add-opt" class="form-label">Option Amount</label>\
-                                    <input class="form-control mb-2" id="number_variation_'+ (i+1) +'" type="number" placeholder="Amount" min="2" max="5" step="1" onchange="function_change2('+ (i+1) +')" value="3">\
+                                    <input class="form-control mb-2" id="number_variation_'+ (i+1) +'" type="number" placeholder="Amount" min="2" max="5" step="1" onchange="function_change2('+ (i+1) +')" value="2">\
                                 </div>\
                                 <div class="mb-3">\
                                     <label for="add-city" class="form-label">Options</label>\

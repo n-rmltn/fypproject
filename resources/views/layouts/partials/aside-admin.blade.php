@@ -47,8 +47,7 @@
                             <div class="collapse" id="collapseMenuItemPages">
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin-product') }}">Product List</a></li>
-                                    <li><a href="{{ route('admin-product-alter') }}">Add Product</a></li>
-                                    <li><a href="{{ route('admin-product-alter') }}">Edit Product</a></li>
+                                    {{-- <li><a href="{{ route('admin-product-alter') }}">Add Product</a></li> --}}
                                     <li><a href="{{ route('admin-orders') }}">Orders</a></li>
                                 </ul>
                             </div>

@@ -167,4 +167,28 @@ class ProductController extends Controller
 
         return view('admin-product')->with('products',$products);//
     }
+    public function admin_edit_product(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+
+
+        return view('admin-product-alter')->with('product',$product);//
+    }
+    public function admin_add_prod(Request $request)
+    {
+        $request->validate([
+            'cart_img' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('images'), $imageName);
+
+        /* Store $imageName name in DATABASE from HERE */
+
+        return back()
+            ->with('success','You have successfully upload image.')
+            ->with('image',$imageName);
+    }
 }
