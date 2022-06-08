@@ -115,10 +115,17 @@
                                         </tr>
                                         <tr>
                                             <th>
+                                                @php
+                                                $total = 0;
+                                                foreach ( $booking->Booking_item as $book) {
+                                                    $total += $book->Product->product_base_price;
+                                                }
+                                                @endphp
                                                 Item subtotal
                                             </th>
-                                            <th>
 
+                                            <th>
+                                                {{ number_format((float)$total, 2, '.', ''); }}
                                             </th>
                                         </tr>
                                         <tr>
