@@ -31,7 +31,7 @@
                 <div class="col-12">
                     <div class="card mb-4 h-100">
                         <div class="card-header justify-content-between align-items-center d-flex">
-                            <h6 class="card-title m-0">Order ID <span>#6969-6969</span> details</h6>
+                            <h6 class="card-title m-0">Order ID <span>#{{ $booking->id }}</span> details</h6>
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -53,9 +53,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($booking->Booking_item as $prod => $val)
                                         <tr>
                                             <td>
-                                                <span class="fw-bolder">1</span>
+                                                <span class="fw-bolder">{{ ($prod+1) }}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-start align-items-start">
@@ -66,20 +67,26 @@
                                                         </picture>
                                                     </div>
                                                     <div>
-                                                        <p class="fw-bolder mb-1 d-flex align-items-center lh-1">Keychron K2 Mechanical Keyboard</p>
-                                                        <span class="d-block text-muted">Keychron K2</span>
-                                                        <span class="d-block text-muted">Keychron</span>
+                                                        <p class="fw-bolder mb-1 d-flex align-items-center lh-1">{{ $val->Product->product_name_long }}</p>
+                                                        <span class="d-block text-muted">{{ $val->Product->product_name_short }}</span>
+                                                        <span class="d-block text-muted">{{ $val->Product->brand->product_brand_name }}</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="text-muted">
-                                                <span class="d-block text-muted">White Backlight</span>
-                                                <span class="d-block text-muted">Gateron G Pro Red</span>
+                                                @forelse ( $val->Booking_item_option as $opt)
+                                                    <span class="d-block text-muted">{{ $opt->Product_option_list->product_option_list_name }}</span>
+
+                                                @empty
+
+                                                @endforelse
                                                 <p></p>
                                             </td>
                                             <th class="text-muted">RM123.99</th>
                                         </tr>
-                                        
+                                        @empty
+                                        <p class="text-white">No product available</p>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>

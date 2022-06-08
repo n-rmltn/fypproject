@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Booking_item_option extends Model
 {
     protected $table = 'booking_item_option';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'id',

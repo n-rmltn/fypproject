@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    protected $table = 'product_brand';
+    public $timestamps = false;
+    protected $table = 'booking';
 
     protected $fillable = [
         'id',
@@ -20,6 +21,7 @@ class Booking extends Model
         'phone',
         'total',
         'status',
+        'date',
     ];
 
     public function Booking_item(){

@@ -31,6 +31,8 @@
                         </ul>
                     </nav>
                         <div class="mt-5">
+                            <form method="post" action="{{ route('booking.submit') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <!-- Checkout Panel Information-->
                             <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-4">
                               <h3 class="fs-5 fw-bolder m-0 lh-1">Contact Information</h3>
@@ -40,14 +42,14 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="nameBilling" class="form-label">Name</label>
-                                  <input type="text" class="form-control" id="nameBilling" placeholder="Name" name="name" value="{{ auth()->user()->name }}" required>
+                                  <input type="text" class="form-control" id="nameBilling" placeholder="Name" name="name" value="{{ auth()->user()->name }}" disabled>
                                 </div>
                               </div>
                               <!-- Email-->
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{ auth()->user()->email }}" required>
+                                  <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{ auth()->user()->email }}" disabled>
                                 </div>
                               </div>
                               <!-- Phone-->
@@ -82,7 +84,7 @@
                               <div class="col-12">
                                 <div class="form-group">
                                   <label for="city" class="form-label">City</label>
-                                  <input type="text" class="form-control" id="city" placeholder="City" name="" value="{{ auth()->user()->city }}" required>
+                                  <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{ auth()->user()->city }}" required>
                                 </div>
                               </div>
 
@@ -164,8 +166,9 @@
                         </div>
                     </div> --}}
 
-                    <a href="{{ route('payment') }}" class="btn btn-dark w-100 mt-2" role="button">Proceed to payment</a>
+                    <button type="submit" class="btn btn-dark w-100 mt-2" role="button">Proceed to payment</button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

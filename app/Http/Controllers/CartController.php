@@ -9,6 +9,11 @@ use App\Models\Product;
 use App\Models\Product_Images;
 use App\Models\Product_Option_List;
 
+class option
+{
+    public $name;
+    public $selected;
+}
 class CartController extends Controller
 {
     /**
@@ -64,16 +69,21 @@ class CartController extends Controller
         $prod_name = $products->product_name_short;
         $prod_image = $products->product_cart_images_name;
         $priceval = $products->product_base_price;
+        $arr = [];
 
         foreach($products->option as $option){
+            $opt = new option();
             $option_name = $option->product_option_name;
+            $opt->name = $option_name;
             $option_selected = $request->input('product-option-'.$option_name);
             $option_array[$option_name] = $option_selected;
             foreach($option->list as $list){
                 if($list->product_option_list_name == $option_selected){
+                    $opt->selected = $list->id;
                     $priceval += $list->product_option_list_additional_price;
                 }
             }
+            array_push($arr,$opt);
         }
 
 
@@ -95,6 +105,7 @@ class CartController extends Controller
                 'item_name' => $prod_name,
                 'item_price' => $priceval,
                 'options' => $option_array,
+                'arr' => $arr,
             );
             $cart_data[] = $item_array;
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking_item extends Model
 {
+    public $timestamps = false;
     protected $table = 'booking_item';
 
     protected $fillable = [
@@ -24,6 +25,6 @@ class Booking_item extends Model
     }
 
     public function Booking_item_option(){
-        return $this->hasMany(Booking_item_option::class, 'option_id');
+        return $this->hasMany(Booking_item_option::class, 'id');
     }
 }

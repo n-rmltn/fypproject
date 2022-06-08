@@ -28,12 +28,12 @@
 
                 <!-- Latest Orders-->
                 <div class="col-12">
-                    
+
                     <div class="card mb-4 h-100">
                         <div class="card-header justify-content-between align-items-center d-flex">
                             <h6 class="card-title m-0">Orders</h6>
                         </div>
-                    
+
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
@@ -60,20 +60,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($booking as $book => $val)
                                         <tr>
                                             <td>
-                                                <span class="fw-bolder">#1234-5679</span>
+                                                <span class="fw-bolder">#{{ $val->id }}</span>
                                             </td>
-                                            <td>Patria Nelson</td>
-                                            <td class="text-muted">24th June, 2021</td>
+                                            <td>{{ $val->User->name }}</td>
+                                            <td class="text-muted">{{ $val->date }}</td>
                                             <td class="text-muted">
                                                 <div class="d-flex align-items-center">
-                                                    <i class="ri-visa-line ri-lg me-2"></i> **** 6789
+                                                    <i class="ri-visa-line ri-lg me-2"></i> Stripe
                                                 </div>
                                             </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-primary-faded text-primary">preparing</span></td>
+                                            <td class="text-muted">{{ count($val->Booking_item) }}</td>
+                                            <th class="text-muted"></th>
+                                            <td><span class="badge rounded-pill bg-primary-faded text-primary">{{ $val->status }}</span></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
@@ -81,7 +82,7 @@
                                                         <i class="ri-more-2-line"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                        <li><a class="dropdown-item" href="{{ route('admin-orders-details') }}">View details</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('admin-orders-details', $val->id) }}">View details</a></li>
                                                         <li><a class="dropdown-item" href="#">Update to shipped</a></li>
                                                         <li><a class="dropdown-item" href="#">Update to completed</a></li>
                                                         <li><a class="dropdown-item" href="#">Cancel order</a></li>
@@ -89,16 +90,15 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        @empty
+                                            <p class="text-white">No product available</p>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
                             <nav>
                                 <ul class="pagination justify-content-end mt-3 mb-0">
-                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    {!! $booking->links() !!}
                                 </ul>
                             </nav>
                         </div>
