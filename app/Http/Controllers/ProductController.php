@@ -205,7 +205,7 @@ class ProductController extends Controller
             'product_details_content' => $request->detail_desc_2
         ]);
 
-        if (count($option) > 0){
+        if (!empty($option) && count($option) > 0){
             foreach($option as $opt){
                 $option_q = Product_Option::create([
                     'product_id' => $product->product_id,
