@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('state', ['Johor','Kedah','Kelantan','Malacca','Negeri Sembilan','Pahang','Penang','Perak','Perlis','Sabah','Sarawak','Selangor','Terengganu','Kuala Lumpur','Labuan','Putrajaya'])->nullable()->default(null);
             $table->string('postal')->nullable()->default(null);
             $table->string('phone')->nullable()->default(null);
-            $table->timestamps();
+            $table->dateTime('date')->useCurrent();;
             $table->decimal('total', 8,2)->nullable()->default('0.00');
             $table->enum('status', ['Preparing','Shipped','Delivered'])->nullable()->default('Preparing');
         });//

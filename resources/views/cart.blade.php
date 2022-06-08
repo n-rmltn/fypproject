@@ -34,6 +34,7 @@
                         <div class="table-responsive">
                             <table class="table align-middle">
                                 <tbody class="border-0">
+                                    {{ print_r($cart) }}
                                     @forelse ($cart as $row => $data)
                                     <!-- Cart Product-->
                                     <div class="row mx-0 py-4 g-0 border-bottom">

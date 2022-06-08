@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -59,12 +60,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/checkout/shipping', function () {return view('shipping');})->name('shipping');
     Route::get('/checkout/payment', function () {return view('payment');})->name('payment');
     Route::get('/checkout', function () {return view('checkout');})->name('checkout');
+    Route::post('/checkout', [BookingController::class, 'booking'])->name('booking.submit');
 });
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', function () {return view('admin');})->name('admin');
-    Route::get('/admin/orders', function () {return view('admin-orders');})->name('admin-orders');
-    Route::get('/admin/orders/details', function () {return view('admin-orders-details');})->name('admin-orders-details');
+    Route::get('/admin/orders', [BookingController::class,'admin_order_list'])->name('admin-orders');
+    Route::get('/admin/orders/details/{id}', [BookingController::class,'admin_order_detail'])->name('admin-orders-details');
     Route::get('/admin/product', [ProductController::class,'admin_list'])->name('admin-product');
     Route::get('/admin/product/add', function () {return view('admin-product-add');})->name('admin-add-product');
     Route::post('/admin/product/add', [ProductController::class, 'admin_add_prod'])->name('admin-add-product.add');
