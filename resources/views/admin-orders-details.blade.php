@@ -76,13 +76,12 @@
                                             <td class="text-muted">
                                                 @forelse ( $val->Booking_item_option as $opt)
                                                     <span class="d-block text-muted">{{ $opt->Product_option_list->product_option_list_name }}</span>
-
                                                 @empty
-
+                                                    <span class="d-block text-muted">No variation found</span>
                                                 @endforelse
                                                 <p></p>
                                             </td>
-                                            <th class="text-muted">RM123.99</th>
+                                            <th class="text-muted">{{ $val->Product->product_base_price }}</th>
                                         </tr>
                                         @empty
                                         <p class="text-white">No product available</p>
@@ -90,7 +89,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <nav>
+                            <nav hidden>
                                 <ul class="pagination justify-content-end mt-3 mb-0">
                                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                   <li class="page-item active"><a class="page-link" href="#">1</a></li>

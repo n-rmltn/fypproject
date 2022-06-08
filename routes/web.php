@@ -50,8 +50,8 @@ Route::group(['middleware' => ['guest']], function() {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/user', function () {return view('user-orders');})->name('orders');
-    Route::get('/user/details', function () {return view('user-orders-details');})->name('orders-details');
+    Route::get('/user', [BookingController::class,'user_order'])->name('orders');
+    Route::get('/user/details/{id}', [BookingController::class,'user_order_detail'])->name('orders-details');
     Route::get('/user/settings', function () {return view('user-settings');})->name('settings');
     Route::post('user/settings/update', [UserController::class, 'update'])->name('settings.update');
     Route::get('/user/password', function () {return view('user-password');})->name('password');

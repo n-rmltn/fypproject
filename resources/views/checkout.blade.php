@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-12 col-lg-5 bg-light pt-lg-10 aside-checkout pb-5 pb-lg-0 my-5 my-lg-0">
                     <div class="p-4 py-lg-0 pe-lg-0 ps-lg-5">
-                        <div class="pb-3">
+                        <div class="pb-3" hidden>
                             <!-- Cart Item-->
                             <div class="row mx-0 py-4 g-0 border-bottom">
                                 <div class="col-2 position-relative">
@@ -151,7 +151,7 @@
                             </div>    <!-- / Cart Item-->
                         </div>
                         <div class="pb-4 border-bottom">
-                        <div class="d-flex flex-column flex-md-row justify-content-md-between mb-4 mb-md-2">
+                        <div class="d-flex flex-column flex-md-row justify-content-md-between mb-4 mb-md-2 visually-hidden">
                             <div>
                                 <p class="m-0 fw-bold fs-5">Grand Total</p>
                                 {{-- <span class="text-muted small">Inc $45.89 sales tax</span> --}}
