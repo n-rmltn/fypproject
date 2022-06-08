@@ -14,6 +14,7 @@ class Product extends Model
         'product_name_short',
         'product_name_long',
         'product_cart_images_name',
+        'product_categories',
         'product_catalog_images_name',
         'product_brand_id',
         'product_description',
