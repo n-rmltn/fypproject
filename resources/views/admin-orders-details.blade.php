@@ -81,7 +81,14 @@
                                                 @endforelse
                                                 <p></p>
                                             </td>
-                                            <th class="text-muted">{{ $val->Product->product_base_price }}</th>
+                                            @php
+                                            $subtotal = 0;
+                                            $subtotal += $val->Product->product_base_price;
+                                            foreach ($val->Booking_item_option as $opt){
+                                                $subtotal += $opt->Product_option_list->product_option_list_additional_price;
+                                            }
+                                            @endphp
+                                            <th class="text-muted">{{ number_format((float)$subtotal, 2, '.', ''); }}</th>
                                         </tr>
                                         @empty
                                         <p class="text-white">No product available</p>
@@ -119,6 +126,9 @@
                                                 $total = 0;
                                                 foreach ( $booking->Booking_item as $book) {
                                                     $total += $book->Product->product_base_price;
+                                                    foreach ($book->Booking_item_option as $opt){
+                                                        $total += $opt->Product_option_list->product_option_list_additional_price;
+                                                    }
                                                 }
                                                 @endphp
                                                 Item subtotal

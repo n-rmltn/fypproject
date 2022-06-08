@@ -73,7 +73,18 @@
                                                 </div>
                                             </td>
                                             <td class="text-muted">{{ count($val->Booking_item) }}</td>
-                                            <th class="text-muted"></th>
+                                            <th class="text-muted">
+                                                @php
+                                                $total = 0;
+                                                foreach ( $val->Booking_item as $book) {
+                                                    $total += $book->Product->product_base_price;
+                                                    foreach ($book->Booking_item_option as $opt){
+                                                        $total += $opt->Product_option_list->product_option_list_additional_price;
+                                                    }
+                                                }
+                                                @endphp
+                                                {{ number_format((float)$total, 2, '.', ''); }}
+                                                </th>
                                             <td><span class="badge rounded-pill bg-primary-faded text-primary">{{ $val->status }}</span></td>
                                             <td>
                                                 <div class="dropdown">
