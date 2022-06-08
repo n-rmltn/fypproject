@@ -110,7 +110,7 @@
                                                 Name
                                             </th>
                                             <th>
-                                                Normand Lubaton
+                                                {{ $booking->User->name }}
                                             </th>
                                         </tr>
                                         <tr>
@@ -118,7 +118,7 @@
                                                 Item subtotal
                                             </th>
                                             <th>
-                                                RM69.69
+
                                             </th>
                                         </tr>
                                         <tr>
@@ -134,7 +134,7 @@
                                                 Date
                                             </th>
                                             <th>
-                                                24th June, 2021
+                                                {{ $booking->date }}
                                             </th>
                                         </tr>
                                         <tr>

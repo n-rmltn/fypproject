@@ -25,6 +25,6 @@ class Booking_item extends Model
     }
 
     public function Booking_item_option(){
-        return $this->hasMany(Booking_item_option::class, 'id');
+        return $this->hasMany(Booking_item_option::class, 'booking_item_id', 'id' );
     }
 }
