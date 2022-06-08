@@ -56,7 +56,6 @@
                                     <th>Role</th>
                                     <th>State</th>
                                     <th>Joined</th>
-                                    <th>Active Orders</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -89,11 +88,7 @@
                                         Not Defined
                                     @else
                                         {{ $val->created_at }}
-                                    @endif</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <span class="small text-muted">0</span>
-                                        </div>
+                                    @endif
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -103,7 +98,7 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
                                                 <li><a class="dropdown-item" href="{{ route('admin-user-alter', $val->id) }}">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                <li><a class="dropdown-item visually-hidden" href="#">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>

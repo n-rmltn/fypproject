@@ -22,12 +22,12 @@
 
             <!-- Page Title-->
             <h2 class="fs-3 fw-bold mb-2">Welcome back, {{ auth()->user()->name }} 👋</h2>
-            <p class="text-muted mb-5">Product sales overview.</p>
+            <p class="text-muted mb-5">Admin page</p>
             <!-- / Page Title-->
             <!-- Top Row Widgets-->
             <div class="row g-4">
                 <!-- Number Orders Widget-->
-                <div class="col-12 col-sm-6 col-xxl-3">
+                <div class="col-12 col-sm-6 col-xxl-3 visually-hidden">
                     <div class="card h-100">
                         <div class="card-header justify-content-between align-items-center d-flex border-0 pb-0">
                             <h6 class="card-title m-0 text-muted fs-xs text-uppercase fw-bolder tracking-wide">Total Sales</h6>

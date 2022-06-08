@@ -99,7 +99,7 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
                                                 <li><a class="dropdown-item" href="{{ route('admin-product-alter', $val->product_id) }}">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                <li><a class="dropdown-item visually-hidden" href="#">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>
