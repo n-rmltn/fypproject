@@ -61,4 +61,18 @@ class BookingController extends Controller
 
         return view('admin-orders-details')->with('booking',$booking);//
     }
+
+    public function user_order(Request $request)
+    {
+        // How in the fuck
+        $booking = Booking::where('user_id', auth()->user()->id);
+
+        return view('user-orders')->with('booking',$booking);//
+    }
+    public function user_order_detail(Request $request, $id)
+    {
+        $booking = Booking::find($id);
+
+        return view('user-orders-details')->with('booking',$booking);//
+    }
 }

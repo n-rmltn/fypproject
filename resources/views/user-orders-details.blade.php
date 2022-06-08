@@ -33,10 +33,10 @@
               <div class="col-12">
                     <div class="card mb-4 h-100">
                         <div class="card-header justify-content-between align-items-center d-flex">
-                            <h6 class="card-title m-0">Order ID <span>#6969-6969</span> details</h6>
+                            <h6 class="card-title m-0">Order ID <span>#{{ $booking->id }}</span> details</h6>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-3 visually-hidden">
                                     <form class="bg-light rounded px-3 py-1 flex-shrink-0 d-flex align-items-center">
                                         <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
                                         placeholder="Search" aria-label="Search">
@@ -51,13 +51,13 @@
                                             <th>Product Name</th>
                                             <th>Variation</th>
                                             <th>Price</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @forelse ($booking->Booking_item as $prod => $val)
                                         <tr>
                                             <td>
-                                                <span class="fw-bolder">1</span>
+                                                <span class="fw-bolder">{{ ($prod+1) }}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-start align-items-start">
@@ -68,25 +68,30 @@
                                                         </picture>
                                                     </div>
                                                     <div>
-                                                        <p class="fw-bolder mb-1 d-flex align-items-center lh-1">Keychron K2 Mechanical Keyboard</p>
-                                                        <span class="d-block text-muted">Keychron K2</span>
-                                                        <span class="d-block text-muted">Keychron</span>
+                                                        <p class="fw-bolder mb-1 d-flex align-items-center lh-1">{{ $val->Product->product_name_long }}</p>
+                                                        <span class="d-block text-muted">{{ $val->Product->product_name_short }}</span>
+                                                        <span class="d-block text-muted">{{ $val->Product->brand->product_brand_name }}</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="text-muted">
-                                                <span class="d-block text-muted">White Backlight</span>
-                                                <span class="d-block text-muted">Gateron G Pro Red</span>
+                                                @forelse ( $val->Booking_item_option as $opt)
+                                                    <span class="d-block text-muted">{{ $opt->Product_option_list->product_option_list_name }}</span>
+                                                @empty
+                                                    <span class="d-block text-muted">No variation found</span>
+                                                @endforelse
                                                 <p></p>
                                             </td>
-                                            <th class="text-muted">RM123.99</th>
+                                            <th class="text-muted">{{ $val->Product->product_base_price }}</th>
                                         </tr>
-                                        
+                                        @empty
+                                        <p class="text-white">No product available</p>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>
                             <nav>
-                                <ul class="pagination justify-content-end mt-3 mb-0">
+                                <ul class="pagination justify-content-end mt-3 mb-0" hidden>
                                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                   <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                   <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -94,7 +99,7 @@
                                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
                             </nav>
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-3 visually-hidden">
                                 <div class="card mt-4 mb-4">
                                     <div class="card-header justify-content-between align-items-center d-flex">
                                         <h6 class="card-title m-0">Order Details</h6>

@@ -46,20 +46,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @forelse ($booking as $book => $val)
                                         <tr>
                                             <td>
-                                                <span class="fw-bolder">#1234-5679</span>
+                                                <span class="fw-bolder">#{{ $val->id }}</span>
                                             </td>
-                                            <td>Patria Nelson</td>
-                                            <td class="text-muted">24th June, 2021</td>
+                                            <td>{{ $val->User->name }}</td>
+                                            <td class="text-muted">{{ $val->date }}</td>
                                             <td class="text-muted">
                                                 <div class="d-flex align-items-center">
-                                                    <i class="ri-visa-line ri-lg me-2"></i> **** 6789
+                                                    <i class="ri-visa-line ri-lg me-2"></i> Stripe
                                                 </div>
                                             </td>
-                                            <td class="text-muted">5</td>
-                                            <th class="text-muted">RM123.99</th>
-                                            <td><span class="badge rounded-pill bg-success-faded text-success">completed</span></td>
+                                            <td class="text-muted">{{ count($val->Booking_item) }}</td>
+                                            <th class="text-muted"></th>
+                                            <td><span class="badge rounded-pill bg-primary-faded text-primary">{{ $val->status }}</span></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
@@ -67,13 +68,15 @@
                                                         <i class="ri-more-2-line"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown" aria-labelledby="dropdownOrder-0">
-                                                        <li><a class="dropdown-item" href="{{ route('orders-details') }}">View details</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('orders-details', $val->id) }}">View details</a></li>
+                                                        <li><a class="dropdown-item" href="#">Cancel order</a></li>
                                                     </ul>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @empty
+                                            <p class="text-white">No product available</p>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

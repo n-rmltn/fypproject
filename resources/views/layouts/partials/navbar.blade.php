@@ -171,7 +171,7 @@ class="navbar navbar-expand-lg navbar-dark bg-dark flex-column border-0"
             Keyboard
             </a>
             <!-- Keyboard dropdown menu-->
-            <div class="dropdown-menu dropdown-megamenu">
+            <div class="dropdown-menu dropdown-megamenu visually-hidden">
             <div class="container-fluid">
                 <div class="row g-0 g-lg-3">
                 <!-- Keyboard Dropdown Menu Links Section-->
