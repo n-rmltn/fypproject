@@ -119,6 +119,9 @@
                                                 $total = 0;
                                                 foreach ( $booking->Booking_item as $book) {
                                                     $total += $book->Product->product_base_price;
+                                                    foreach ($book->Booking_item_option as $opt){
+                                                        $total += $opt->Product_option_list->product_option_list_additional_price;
+                                                    }
                                                 }
                                                 @endphp
                                                 Item subtotal
